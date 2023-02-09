@@ -1,0 +1,2702 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Exercice 2 &#8212; Data Mining</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/datamining.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Mining</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    DataMining
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Français
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Instructions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TP0/tp0.html">
+   TP 0
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tp1.html">
+   TP 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TP2/tp2.html">
+   TP 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TP3/tp3.html">
+   TP 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Projet/Projet.html">
+   Projet
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  English
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/README.html">
+   Instructions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/practical0/practical0.html">
+   Practical 0
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/practical1/practical1.html">
+   Practical 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/practical2/practical2.html">
+   Practical 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/practical3/practical3.html">
+   Practical 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/Project/project.html">
+   Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../en/examples/Examples.html">
+   Examples
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/johnsamuelwrites/DataMining/master?urlpath=lab/tree/fr/TP1/TP1_test.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/johnsamuelwrites/DataMining/blob/master/fr/TP1/TP1_test.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/fr/TP1/TP1_test.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Exercice 2
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lecture-d-un-csv">
+     Lecture d’un CSV
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lecture-d-un-tsv">
+     Lecture d’un TSV
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5">
+   Exercice 5
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#utilisation-des-data-wikipedia-json">
+     Utilisation des data wikipedia json
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#articles-scientifiques">
+       Articles scientifiques
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Exercice 2</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Exercice 2
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lecture-d-un-csv">
+     Lecture d’un CSV
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lecture-d-un-tsv">
+     Lecture d’un TSV
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5">
+   Exercice 5
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#utilisation-des-data-wikipedia-json">
+     Utilisation des data wikipedia json
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#articles-scientifiques">
+       Articles scientifiques
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello world 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">datasets</span><span class="o">.</span><span class="n">__all__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;clear_data_home&#39;, &#39;dump_svmlight_file&#39;, &#39;fetch_20newsgroups&#39;, &#39;fetch_20newsgroups_vectorized&#39;, &#39;fetch_lfw_pairs&#39;, &#39;fetch_lfw_people&#39;, &#39;fetch_olivetti_faces&#39;, &#39;fetch_species_distributions&#39;, &#39;fetch_california_housing&#39;, &#39;fetch_covtype&#39;, &#39;fetch_rcv1&#39;, &#39;fetch_kddcup99&#39;, &#39;fetch_openml&#39;, &#39;get_data_home&#39;, &#39;load_diabetes&#39;, &#39;load_digits&#39;, &#39;load_files&#39;, &#39;load_iris&#39;, &#39;load_breast_cancer&#39;, &#39;load_linnerud&#39;, &#39;load_sample_image&#39;, &#39;load_sample_images&#39;, &#39;load_svmlight_file&#39;, &#39;load_svmlight_files&#39;, &#39;load_wine&#39;, &#39;make_biclusters&#39;, &#39;make_blobs&#39;, &#39;make_circles&#39;, &#39;make_classification&#39;, &#39;make_checkerboard&#39;, &#39;make_friedman1&#39;, &#39;make_friedman2&#39;, &#39;make_friedman3&#39;, &#39;make_gaussian_quantiles&#39;, &#39;make_hastie_10_2&#39;, &#39;make_low_rank_matrix&#39;, &#39;make_moons&#39;, &#39;make_multilabel_classification&#39;, &#39;make_regression&#39;, &#39;make_s_curve&#39;, &#39;make_sparse_coded_signal&#39;, &#39;make_sparse_spd_matrix&#39;, &#39;make_sparse_uncorrelated&#39;, &#39;make_spd_matrix&#39;, &#39;make_swiss_roll&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="exercice-2">
+<h1>Exercice 2<a class="headerlink" href="#exercice-2" title="Permalink to this headline">#</a></h1>
+<section id="lecture-d-un-csv">
+<h2>Lecture d’un CSV<a class="headerlink" href="#lecture-d-un-csv" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
+    <span class="s2">&quot;pl.csv&quot;</span><span class="p">,</span> <span class="c1">#Remplacez cette valeur par le chemin d&#39;accès de votre fichier CSV.</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">),</span> <span class="s2">&quot;formats&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;U100&quot;</span><span class="p">,</span> <span class="s2">&quot;i4&quot;</span><span class="p">)},</span>
+    <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="c1"># passez la première ligne, puisque c&#39;est l&#39;en-tête</span>
+    <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="c1"># le séparateur est une virgule puisqu&#39;il s&#39;agit d&#39;un fichier CSV.</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">,</span> <span class="c1"># encodage UTF-8</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dataset</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;ENIAC coding system&#39;, 1943) (&#39;ENIAC Short Code&#39;, 1946)
+ (&#39;Von Neumann and Goldstine graphing system&#39;, 1946)
+ (&#39;ARC Assembly&#39;, 1947) (&#39;Plankalkül&#39;, 1948) (&#39;CPC Coding scheme&#39;, 1948)
+ (&#39;Curry notation system&#39;, 1948) (&#39;Short Code&#39;, 1949)
+ (&#39;assembly language&#39;, 1949) (&#39;Short Code&#39;, 1950) (&#39;G-code&#39;, 1950)
+ (&#39;Birkbeck Assembler&#39;, 1950) (&#39;Superplan&#39;, 1951) (&#39;ALGAE&#39;, 1951)
+ (&#39;Intermediate Programming Language&#39;, 1951)
+ (&#39;Regional Assembly Language&#39;, 1951)
+ (&#39;Boehm unnamed coding system&#39;, 1951) (&#39;Klammerausdrücke&#39;, 1951)
+ (&#39;OMNIBAC Symbolic Assembler&#39;, 1951) (&#39;Stanislaus&#39;, 1951)
+ (&#39;Whirlwind assembler&#39;, 1951) (&#39;Rochester assembler&#39;, 1951)
+ (&#39;Sort Merge Generator&#39;, 1951) (&#39;autocode&#39;, 1952) (&#39;A-0 System&#39;, 1952)
+ (&#39;Editing Generator&#39;, 1952) (&#39;COMPOOL&#39;, 1952) (&#39;Speedcoding&#39;, 1953)
+ (&#39;READ/PRINT&#39;, 1953) (&#39;Fortran&#39;, 1954) (&#39;ARITH-MATIC&#39;, 1954)
+ (&#39;autocode&#39;, 1954) (&#39;Laning and Zierler system&#39;, 1954)
+ (&#39;MATH-MATIC&#39;, 1954) (&#39;MATRIX MATH&#39;, 1954) (&#39;FLOW-MATIC&#39;, 1955)
+ (&#39;PACT&#39;, 1955) (&#39;BACAIC&#39;, 1955) (&#39;Freiburger Code&#39;, 1955)
+ (&#39;Sequentielle Formelübersetzung&#39;, 1955) (&#39;Internal Translator&#39;, 1955)
+ (&#39;PRINT&#39;, 1955) (&#39;Information Processing Language&#39;, 1956)
+ (&#39;FORTRAN for the IBM 704&#39;, 1956) (&#39;Fortran&#39;, 1957) (&#39;COMTRAN&#39;, 1957)
+ (&#39;GEORGE&#39;, 1957) (&#39;UNICODE&#39;, 1957) (&#39;ALGOL 58&#39;, 1958) (&#39;Lisp&#39;, 1958)
+ (&#39;ALGOL&#39;, 1958) (&#39;FORTRAN III&#39;, 1958) (&#39;FORTRAN II&#39;, 1958)
+ (&#39;JOVIAL&#39;, 1959) (&#39;TRAC&#39;, 1959) (&#39;COBOL&#39;, 1959) (&#39;MAD&#39;, 1959)
+ (&#39;Lisp&#39;, 1959) (&#39;FACT&#39;, 1959) (&#39;COBOL&#39;, 1960) (&#39;ALCOR&#39;, 1960)
+ (&#39;ALGOL 60&#39;, 1960) (&#39;FORTRAN IV&#39;, 1961) (&#39;TECO&#39;, 1962) (&#39;SNOBOL&#39;, 1962)
+ (&#39;APL&#39;, 1962) (&#39;Simula&#39;, 1962) (&#39;CORC&#39;, 1962) (&#39;CPL&#39;, 1963)
+ (&#39;JOSS&#39;, 1963) (&#39;P′′&#39;, 1964) (&#39;Report Program Generator&#39;, 1964)
+ (&#39;TRAC&#39;, 1964) (&#39;BASIC&#39;, 1964) (&#39;COWSEL&#39;, 1964) (&#39;MARK IV&#39;, 1964)
+ (&#39;MIMIC&#39;, 1964) (&#39;PL/I&#39;, 1964) (&#39;Speakeasy&#39;, 1964) (&#39;IBM RPG II&#39;, 1965)
+ (&#39;Atlas Autocode&#39;, 1965) (&#39;TELCOMP&#39;, 1965) (&#39;Euler&#39;, 1966)
+ (&#39;ISWIM&#39;, 1966) (&#39;ALGOL W&#39;, 1966)
+ (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1966)
+ (&#39;JOSS&#39;, 1966) (&#39;Coral 66&#39;, 1966) (&#39;BCPL&#39;, 1966) (&#39;APL&#39;, 1966)
+ (&#39;FORTRAN 66&#39;, 1966)
+ (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1967)
+ (&#39;Hop&#39;, 1967) (&#39;XPL&#39;, 1967) (&#39;Interlisp&#39;, 1967) (&#39;BCPL&#39;, 1967)
+ (&#39;Simula&#39;, 1967) (&#39;Space Programming Language&#39;, 1967) (&#39;PILOT&#39;, 1968)
+ (&#39;ALGOL 68&#39;, 1968)]
+&lt;class &#39;numpy.ndarray&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lecture-d-un-tsv">
+<h2>Lecture d’un TSV<a class="headerlink" href="#lecture-d-un-tsv" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
+    <span class="s2">&quot;pl.tsv&quot;</span><span class="p">,</span> <span class="c1">#Remplacez cette valeur par le chemin d&#39;accès de votre fichier TSV.</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">),</span> <span class="s2">&quot;formats&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;U100&quot;</span><span class="p">,</span> <span class="s2">&quot;i4&quot;</span><span class="p">)},</span>
+    <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="c1"># le séparateur est &#39;\t&#39; puisqu&#39;il s&#39;agit d&#39;un fichier TSV.</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;ENIAC coding system&#39;, 1943) (&#39;ENIAC Short Code&#39;, 1946)
+ (&#39;Von Neumann and Goldstine graphing system&#39;, 1946)
+ (&#39;ARC Assembly&#39;, 1947) (&#39;Plankalkül&#39;, 1948) (&#39;CPC Coding scheme&#39;, 1948)
+ (&#39;Curry notation system&#39;, 1948) (&#39;Short Code&#39;, 1949)
+ (&#39;assembly language&#39;, 1949) (&#39;Short Code&#39;, 1950)
+ (&#39;Birkbeck Assembler&#39;, 1950) (&#39;G-code&#39;, 1950) (&#39;Superplan&#39;, 1951)
+ (&#39;ALGAE&#39;, 1951) (&#39;Intermediate Programming Language&#39;, 1951)
+ (&#39;Regional Assembly Language&#39;, 1951)
+ (&#39;Boehm unnamed coding system&#39;, 1951) (&#39;Klammerausdrücke&#39;, 1951)
+ (&#39;OMNIBAC Symbolic Assembler&#39;, 1951) (&#39;Stanislaus&#39;, 1951)
+ (&#39;Whirlwind assembler&#39;, 1951) (&#39;Rochester assembler&#39;, 1951)
+ (&#39;Sort Merge Generator&#39;, 1951) (&#39;Editing Generator&#39;, 1952)
+ (&#39;COMPOOL&#39;, 1952) (&#39;autocode&#39;, 1952) (&#39;A-0 System&#39;, 1952)
+ (&#39;READ/PRINT&#39;, 1953) (&#39;Speedcoding&#39;, 1953) (&#39;Fortran&#39;, 1954)
+ (&#39;MATRIX MATH&#39;, 1954) (&#39;autocode&#39;, 1954) (&#39;ARITH-MATIC&#39;, 1954)
+ (&#39;Laning and Zierler system&#39;, 1954) (&#39;MATH-MATIC&#39;, 1954)
+ (&#39;FLOW-MATIC&#39;, 1955) (&#39;BACAIC&#39;, 1955) (&#39;Freiburger Code&#39;, 1955)
+ (&#39;Sequentielle Formelübersetzung&#39;, 1955) (&#39;Internal Translator&#39;, 1955)
+ (&#39;PRINT&#39;, 1955) (&#39;PACT&#39;, 1955) (&#39;Information Processing Language&#39;, 1956)
+ (&#39;FORTRAN for the IBM 704&#39;, 1956) (&#39;Fortran&#39;, 1957) (&#39;UNICODE&#39;, 1957)
+ (&#39;COMTRAN&#39;, 1957) (&#39;GEORGE&#39;, 1957) (&#39;ALGOL 58&#39;, 1958) (&#39;Lisp&#39;, 1958)
+ (&#39;FORTRAN III&#39;, 1958) (&#39;FORTRAN II&#39;, 1958) (&#39;ALGOL&#39;, 1958)
+ (&#39;JOVIAL&#39;, 1959) (&#39;TRAC&#39;, 1959) (&#39;COBOL&#39;, 1959) (&#39;Lisp&#39;, 1959)
+ (&#39;MAD&#39;, 1959) (&#39;FACT&#39;, 1959) (&#39;COBOL&#39;, 1960) (&#39;COBOL&#39;, 1960)
+ (&#39;ALGOL 60&#39;, 1960) (&#39;ALCOR&#39;, 1960) (&#39;FORTRAN IV&#39;, 1961) (&#39;SNOBOL&#39;, 1962)
+ (&#39;TECO&#39;, 1962) (&#39;Simula&#39;, 1962) (&#39;APL&#39;, 1962) (&#39;CORC&#39;, 1962)
+ (&#39;CPL&#39;, 1963) (&#39;JOSS&#39;, 1963) (&#39;P′′&#39;, 1964)
+ (&#39;Report Program Generator&#39;, 1964) (&#39;TRAC&#39;, 1964) (&#39;BASIC&#39;, 1964)
+ (&#39;COWSEL&#39;, 1964) (&#39;PL/I&#39;, 1964) (&#39;MARK IV&#39;, 1964) (&#39;MIMIC&#39;, 1964)
+ (&#39;Speakeasy&#39;, 1964) (&#39;IBM RPG II&#39;, 1965) (&#39;Atlas Autocode&#39;, 1965)
+ (&#39;TELCOMP&#39;, 1965) (&#39;Euler&#39;, 1966) (&#39;ISWIM&#39;, 1966) (&#39;ALGOL W&#39;, 1966)
+ (&#39;JOSS&#39;, 1966)
+ (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1966)
+ (&#39;BCPL&#39;, 1966) (&#39;Coral 66&#39;, 1966) (&#39;FORTRAN 66&#39;, 1966) (&#39;APL&#39;, 1966)
+ (&#39;Hop&#39;, 1967)
+ (&#39;Massachusetts General Hospital Utility Multi-Programming System&#39;, 1967)
+ (&#39;Space Programming Language&#39;, 1967) (&#39;BCPL&#39;, 1967) (&#39;Interlisp&#39;, 1967)
+ (&#39;Simula&#39;, 1967) (&#39;XPL&#39;, 1967) (&#39;PILOT&#39;, 1968)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exercice-3">
+<h1>Exercice 3<a class="headerlink" href="#exercice-3" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">json_normalize</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;pl.json&quot;</span><span class="p">))</span>
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                languageLabel  year
+0                         ENIAC coding system  1943
+1                            ENIAC Short Code  1946
+2   Von Neumann and Goldstine graphing system  1946
+3                                ARC Assembly  1947
+4                                  Plankalkül  1948
+..                                        ...   ...
+95                                       BCPL  1967
+96                                  Interlisp  1967
+97                                     Simula  1967
+98                                        XPL  1967
+99                                      PILOT  1968
+
+[100 rows x 2 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>languageLabel</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ENIAC coding system</td>
+      <td>1943</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ENIAC Short Code</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Von Neumann and Goldstine graphing system</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ARC Assembly</td>
+      <td>1947</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Plankalkül</td>
+      <td>1948</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>BCPL</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Interlisp</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Simula</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>XPL</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>PILOT</td>
+      <td>1968</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     1943
+1     1946
+2     1946
+3     1947
+4     1948
+      ... 
+95    1967
+96    1967
+97    1967
+98    1967
+99    1968
+Name: year, Length: 100, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                           ENIAC coding system
+1                              ENIAC Short Code
+2     Von Neumann and Goldstine graphing system
+3                                  ARC Assembly
+4                                    Plankalkül
+                        ...                    
+95                                         BCPL
+96                                    Interlisp
+97                                       Simula
+98                                          XPL
+99                                        PILOT
+Name: languageLabel, Length: 100, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>languageLabel</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>100</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>88</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>COBOL</td>
+      <td>1951</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>3</td>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;1943&#39;, &#39;1946&#39;, &#39;1947&#39;, &#39;1948&#39;, &#39;1949&#39;, &#39;1950&#39;, &#39;1951&#39;, &#39;1952&#39;,
+       &#39;1953&#39;, &#39;1954&#39;, &#39;1955&#39;, &#39;1956&#39;, &#39;1957&#39;, &#39;1958&#39;, &#39;1959&#39;, &#39;1960&#39;,
+       &#39;1961&#39;, &#39;1962&#39;, &#39;1963&#39;, &#39;1964&#39;, &#39;1965&#39;, &#39;1966&#39;, &#39;1967&#39;, &#39;1968&#39;],
+      dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;ENIAC coding system&#39;, &#39;ENIAC Short Code&#39;,
+       &#39;Von Neumann and Goldstine graphing system&#39;, &#39;ARC Assembly&#39;,
+       &#39;Plankalkül&#39;, &#39;CPC Coding scheme&#39;, &#39;Curry notation system&#39;,
+       &#39;Short Code&#39;, &#39;assembly language&#39;, &#39;Birkbeck Assembler&#39;, &#39;G-code&#39;,
+       &#39;Superplan&#39;, &#39;ALGAE&#39;, &#39;Intermediate Programming Language&#39;,
+       &#39;Regional Assembly Language&#39;, &#39;Boehm unnamed coding system&#39;,
+       &#39;Klammerausdrücke&#39;, &#39;OMNIBAC Symbolic Assembler&#39;, &#39;Stanislaus&#39;,
+       &#39;Whirlwind assembler&#39;, &#39;Rochester assembler&#39;,
+       &#39;Sort Merge Generator&#39;, &#39;Editing Generator&#39;, &#39;COMPOOL&#39;, &#39;autocode&#39;,
+       &#39;A-0 System&#39;, &#39;READ/PRINT&#39;, &#39;Speedcoding&#39;, &#39;Fortran&#39;,
+       &#39;MATRIX MATH&#39;, &#39;ARITH-MATIC&#39;, &#39;Laning and Zierler system&#39;,
+       &#39;MATH-MATIC&#39;, &#39;FLOW-MATIC&#39;, &#39;BACAIC&#39;, &#39;Freiburger Code&#39;,
+       &#39;Sequentielle Formelübersetzung&#39;, &#39;Internal Translator&#39;, &#39;PRINT&#39;,
+       &#39;PACT&#39;, &#39;Information Processing Language&#39;,
+       &#39;FORTRAN for the IBM 704&#39;, &#39;UNICODE&#39;, &#39;COMTRAN&#39;, &#39;GEORGE&#39;,
+       &#39;ALGOL 58&#39;, &#39;Lisp&#39;, &#39;FORTRAN III&#39;, &#39;FORTRAN II&#39;, &#39;ALGOL&#39;, &#39;JOVIAL&#39;,
+       &#39;TRAC&#39;, &#39;COBOL&#39;, &#39;MAD&#39;, &#39;FACT&#39;, &#39;ALGOL 60&#39;, &#39;ALCOR&#39;, &#39;FORTRAN IV&#39;,
+       &#39;SNOBOL&#39;, &#39;TECO&#39;, &#39;Simula&#39;, &#39;APL&#39;, &#39;CORC&#39;, &#39;CPL&#39;, &#39;JOSS&#39;, &#39;P′′&#39;,
+       &#39;Report Program Generator&#39;, &#39;BASIC&#39;, &#39;COWSEL&#39;, &#39;PL/I&#39;, &#39;MARK IV&#39;,
+       &#39;MIMIC&#39;, &#39;Speakeasy&#39;, &#39;IBM RPG II&#39;, &#39;Atlas Autocode&#39;, &#39;TELCOMP&#39;,
+       &#39;Euler&#39;, &#39;ISWIM&#39;, &#39;ALGOL W&#39;,
+       &#39;Massachusetts General Hospital Utility Multi-Programming System&#39;,
+       &#39;BCPL&#39;, &#39;Coral 66&#39;, &#39;FORTRAN 66&#39;, &#39;Hop&#39;,
+       &#39;Space Programming Language&#39;, &#39;Interlisp&#39;, &#39;XPL&#39;, &#39;PILOT&#39;],
+      dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;year&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>languageLabel</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ENIAC coding system</td>
+      <td>1943</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ENIAC Short Code</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Von Neumann and Goldstine graphing system</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ARC Assembly</td>
+      <td>1947</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Plankalkül</td>
+      <td>1948</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>XPL</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>Massachusetts General Hospital Utility Multi-P...</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>Hop</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Space Programming Language</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>PILOT</td>
+      <td>1968</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;languageLabel&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>languageLabel</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ENIAC coding system</td>
+      <td>1943</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ENIAC Short Code</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Von Neumann and Goldstine graphing system</td>
+      <td>1946</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ARC Assembly</td>
+      <td>1947</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CPC Coding scheme</td>
+      <td>1948</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>Massachusetts General Hospital Utility Multi-P...</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Simula</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Space Programming Language</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>XPL</td>
+      <td>1967</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>PILOT</td>
+      <td>1968</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>languageLabel    object
+year             object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exercice-4">
+<h1>Exercice 4<a class="headerlink" href="#exercice-4" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://query.wikidata.org/sparql?query=SELECT</span><span class="si">%20%</span><span class="s2">3FlanguageLabel%20(YEAR(</span><span class="si">%3F</span><span class="s2">inception)</span><span class="si">%20a</span><span class="s2">s</span><span class="si">%20%</span><span class="s2">3Fyear)%0AWHERE%0A%7B%0A</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%23i</span><span class="s2">nstances</span><span class="si">%20o</span><span class="s2">f%20programming</span><span class="si">%20la</span><span class="s2">nguage%0A</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%3F</span><span class="s2">language%20wdt%3AP31%20wd%3AQ9143%3B%0A</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20wdt%3AP571</span><span class="si">%20%</span><span class="s2">3Finception%3B%0A</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20rdfs%3Alabel</span><span class="si">%20%</span><span class="s2">3FlanguageLabel.%0A</span><span class="si">%20%</span><span class="s2">20FILTER(lang(</span><span class="si">%3F</span><span class="s2">languageLabel)</span><span class="si">%20%</span><span class="s2">3D</span><span class="si">%20%</span><span class="s2">22en%22)%0A%7D%0AORDER%20BY</span><span class="si">%20%</span><span class="s2">3Fyear%0ALIMIT%20100&amp;format=json&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">responsedata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+
+<span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">responsedata</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">][</span><span class="s2">&quot;bindings&quot;</span><span class="p">]:</span>
+    <span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]])</span>
+
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;languageLabel&quot;</span><span class="p">])</span>
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;i4&quot;</span><span class="p">,</span> <span class="s2">&quot;languageLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    year                              languageLabel
+0   1942                                 Plankalkül
+1   1943                        ENIAC coding system
+2   1946                           ENIAC Short Code
+3   1946  Von Neumann and Goldstine graphing system
+4   1947                               ARC Assembly
+..   ...                                        ...
+95  1967                                        XPL
+96  1967                 Space Programming Language
+97  1968                                      PILOT
+98  1968                                      FOCAL
+99  1968                                       CICS
+
+[100 rows x 2 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count     100.000000
+mean     1958.280000
+std         6.532096
+min      1942.000000
+25%      1952.750000
+50%      1959.000000
+75%      1964.000000
+max      1968.000000
+Name: year, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count          100
+unique          99
+top       autocode
+freq             2
+Name: languageLabel, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year              int32
+languageLabel    object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exercice-5">
+<h1>Exercice 5<a class="headerlink" href="#exercice-5" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">grouped</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>languageLabel</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1942</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1943</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1946</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1947</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1948</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1950</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1951</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>1952</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1953</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1954</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1955</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1956</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1957</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1958</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1959</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1960</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1961</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1962</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1963</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1964</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>1965</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1966</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1967</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1968</th>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;count&#39;</span><span class="p">])</span>
+<span class="n">grouped</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>languageLabel</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1942</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1943</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1946</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1947</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1948</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1950</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1951</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>1952</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1953</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1954</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1955</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1956</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1957</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1958</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1959</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1960</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1961</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1962</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1963</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1964</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>1965</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1966</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1967</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1968</th>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.io.json</span> <span class="kn">import</span> <span class="n">json_normalize</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">jsondata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../data/plparadigm.json&quot;</span><span class="p">))</span>
+<span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">jsondata</span><span class="p">:</span>
+    <span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;languageLabel&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;paradigmLabel&quot;</span><span class="p">]])</span>
+
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;languageLabel&quot;</span><span class="p">,</span> <span class="s2">&quot;paradigmLabel&quot;</span><span class="p">])</span>
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;int64&quot;</span><span class="p">,</span> <span class="s2">&quot;languageLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">,</span> <span class="s2">&quot;paradigmLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;paradigmLabel&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">&quot;count&quot;</span><span class="p">])</span>
+<span class="n">grouped</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>languageLabel</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th>paradigmLabel</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1948</th>
+      <th>procedural programming</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">1949</th>
+      <th>non-structured programming</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>procedural programming</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1950</th>
+      <th>procedural programming</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1953</th>
+      <th>procedural programming</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">1970</th>
+      <th>imperative programming</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>procedural programming</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>structured programming</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">1971</th>
+      <th>functional programming</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>knowledge representation and reasoning</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>73 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;paradigmLabel&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">&quot;count&quot;</span><span class="p">])</span>
+<span class="n">grouped</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>languageLabel</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>paradigmLabel</th>
+      <th>year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="4" valign="top">array programming</th>
+      <th>1954</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1957</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1962</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1966</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>assembly language</th>
+      <th>1956</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">structured programming</th>
+      <th>1957</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1958</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1962</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1966</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1970</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>73 rows × 1 columns</p>
+</div></div></div>
+</div>
+<section id="utilisation-des-data-wikipedia-json">
+<h2>Utilisation des data wikipedia json<a class="headerlink" href="#utilisation-des-data-wikipedia-json" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jsondata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;queryfull.json&quot;</span><span class="p">))</span>
+
+<span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">jsondata</span><span class="p">:</span>
+    <span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;countryLabel&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]])</span>
+
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;countryLabel&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;population&quot;</span><span class="p">])</span>
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;countryLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U200&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;int16&quot;</span><span class="p">,</span> <span class="s2">&quot;population&quot;</span><span class="p">:</span> <span class="s2">&quot;int64&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;countryLabel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;countryLabel&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;population&quot;</span><span class="p">])</span>
+<span class="n">dataframe</span>
+<span class="c1">#population_asc_country = dataframe.groupby([&quot;countryLabel&quot;, &quot;year&quot;, &quot;population&quot;])</span>
+<span class="c1">#population_asc_country</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>countryLabel</th>
+      <th>year</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>1960</td>
+      <td>8774440</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>1961</td>
+      <td>8953544</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Afghanistan</td>
+      <td>1962</td>
+      <td>9141783</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Afghanistan</td>
+      <td>1963</td>
+      <td>9339507</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Afghanistan</td>
+      <td>1964</td>
+      <td>9547131</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8707</th>
+      <td>Zimbabwe</td>
+      <td>2010</td>
+      <td>13076978</td>
+    </tr>
+    <tr>
+      <th>8708</th>
+      <td>Zimbabwe</td>
+      <td>2011</td>
+      <td>13358738</td>
+    </tr>
+    <tr>
+      <th>8709</th>
+      <td>Zimbabwe</td>
+      <td>2012</td>
+      <td>13724317</td>
+    </tr>
+    <tr>
+      <th>8710</th>
+      <td>Zimbabwe</td>
+      <td>2013</td>
+      <td>14149648</td>
+    </tr>
+    <tr>
+      <th>8711</th>
+      <td>Zimbabwe</td>
+      <td>2022</td>
+      <td>15178979</td>
+    </tr>
+  </tbody>
+</table>
+<p>8712 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;countryLabel&quot;</span><span class="p">,</span><span class="s2">&quot;year&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     countryLabel  year  population
+0     Afghanistan  1960     8774440
+1     Afghanistan  1961     8953544
+2     Afghanistan  1962     9141783
+3     Afghanistan  1963     9339507
+4     Afghanistan  1964     9547131
+...           ...   ...         ...
+8707     Zimbabwe  2010    13076978
+8708     Zimbabwe  2011    13358738
+8709     Zimbabwe  2012    13724317
+8710     Zimbabwe  2013    14149648
+8711     Zimbabwe  2022    15178979
+
+[8712 rows x 3 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;countryLabel&quot;</span><span class="p">)[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()]</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>countryLabel</th>
+      <th>year</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>57</th>
+      <td>Afghanistan</td>
+      <td>2021</td>
+      <td>37466414</td>
+    </tr>
+    <tr>
+      <th>114</th>
+      <td>Albania</td>
+      <td>2022</td>
+      <td>2793592</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>Algeria</td>
+      <td>2020</td>
+      <td>43900000</td>
+    </tr>
+    <tr>
+      <th>230</th>
+      <td>Andorra</td>
+      <td>2021</td>
+      <td>78151</td>
+    </tr>
+    <tr>
+      <th>286</th>
+      <td>Angola</td>
+      <td>2020</td>
+      <td>32866270</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8564</th>
+      <td>Vietnam</td>
+      <td>2019</td>
+      <td>96208984</td>
+    </tr>
+    <tr>
+      <th>8592</th>
+      <td>Wales</td>
+      <td>2016</td>
+      <td>3113000</td>
+    </tr>
+    <tr>
+      <th>8599</th>
+      <td>Yemen</td>
+      <td>2017</td>
+      <td>28250420</td>
+    </tr>
+    <tr>
+      <th>8656</th>
+      <td>Zambia</td>
+      <td>2017</td>
+      <td>17094130</td>
+    </tr>
+    <tr>
+      <th>8711</th>
+      <td>Zimbabwe</td>
+      <td>2022</td>
+      <td>15178979</td>
+    </tr>
+  </tbody>
+</table>
+<p>190 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;countryLabel&quot;</span><span class="p">)[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;population&quot;</span> <span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>countryLabel</th>
+      <th>year</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6096</th>
+      <td>People's Republic of China</td>
+      <td>2021</td>
+      <td>1442965000</td>
+    </tr>
+    <tr>
+      <th>3760</th>
+      <td>India</td>
+      <td>2020</td>
+      <td>1326093247</td>
+    </tr>
+    <tr>
+      <th>8390</th>
+      <td>United States of America</td>
+      <td>2021</td>
+      <td>332278200</td>
+    </tr>
+    <tr>
+      <th>3819</th>
+      <td>Indonesia</td>
+      <td>2021</td>
+      <td>275439000</td>
+    </tr>
+    <tr>
+      <th>5918</th>
+      <td>Pakistan</td>
+      <td>2021</td>
+      <td>223773700</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5973</th>
+      <td>Palau</td>
+      <td>2017</td>
+      <td>21729</td>
+    </tr>
+    <tr>
+      <th>1974</th>
+      <td>Cook Islands</td>
+      <td>2020</td>
+      <td>17583</td>
+    </tr>
+    <tr>
+      <th>5347</th>
+      <td>Nauru</td>
+      <td>2017</td>
+      <td>13650</td>
+    </tr>
+    <tr>
+      <th>8163</th>
+      <td>Tuvalu</td>
+      <td>2020</td>
+      <td>11792</td>
+    </tr>
+    <tr>
+      <th>5623</th>
+      <td>Niue</td>
+      <td>2016</td>
+      <td>1612</td>
+    </tr>
+  </tbody>
+</table>
+<p>190 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;countryLabel&quot;</span><span class="p">)[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;population&quot;</span> <span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>countryLabel</th>
+      <th>year</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5623</th>
+      <td>Niue</td>
+      <td>2016</td>
+      <td>1612</td>
+    </tr>
+    <tr>
+      <th>8163</th>
+      <td>Tuvalu</td>
+      <td>2020</td>
+      <td>11792</td>
+    </tr>
+    <tr>
+      <th>5347</th>
+      <td>Nauru</td>
+      <td>2017</td>
+      <td>13650</td>
+    </tr>
+    <tr>
+      <th>1974</th>
+      <td>Cook Islands</td>
+      <td>2020</td>
+      <td>17583</td>
+    </tr>
+    <tr>
+      <th>5973</th>
+      <td>Palau</td>
+      <td>2017</td>
+      <td>21729</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5918</th>
+      <td>Pakistan</td>
+      <td>2021</td>
+      <td>223773700</td>
+    </tr>
+    <tr>
+      <th>3819</th>
+      <td>Indonesia</td>
+      <td>2021</td>
+      <td>275439000</td>
+    </tr>
+    <tr>
+      <th>8390</th>
+      <td>United States of America</td>
+      <td>2021</td>
+      <td>332278200</td>
+    </tr>
+    <tr>
+      <th>3760</th>
+      <td>India</td>
+      <td>2020</td>
+      <td>1326093247</td>
+    </tr>
+    <tr>
+      <th>6096</th>
+      <td>People's Republic of China</td>
+      <td>2021</td>
+      <td>1442965000</td>
+    </tr>
+  </tbody>
+</table>
+<p>190 rows × 3 columns</p>
+</div></div></div>
+</div>
+<section id="articles-scientifiques">
+<h3>Articles scientifiques<a class="headerlink" href="#articles-scientifiques" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jsondata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;queryScience.json&quot;</span><span class="p">))</span>
+
+<span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">jsondata</span><span class="p">:</span>
+    <span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;subjectLabel&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]])</span>
+
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;subjectLabel&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">])</span>
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U400&quot;</span><span class="p">,</span> <span class="s2">&quot;subjectLabel&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;U100&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;int16&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">dataframe</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;subjectLabel&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">])</span>
+<span class="n">dataframe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>subjectLabel</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>The Universe, the Light, the Earth, the Life: ...</td>
+      <td>Earth</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Entropy export as the driving force of evolution</td>
+      <td>life</td>
+      <td>2021</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>The Universe, the Light, the Earth, the Life: ...</td>
+      <td>life</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Thermodynamics of Life</td>
+      <td>life</td>
+      <td>2021</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>The Universe, the Light, the Earth, the Life: ...</td>
+      <td>universe</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4995</th>
+      <td>A zero percent plastic ingestion rate by silve...</td>
+      <td>Canada</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>4996</th>
+      <td>Physician Compensation, Accountability and Per...</td>
+      <td>Canada</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>4997</th>
+      <td>Smokers' support for tobacco endgame measures ...</td>
+      <td>Canada</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>4998</th>
+      <td>Blood donation and institutional trust: risk, ...</td>
+      <td>Canada</td>
+      <td>2011</td>
+    </tr>
+    <tr>
+      <th>4999</th>
+      <td>Formal home care use in Canada</td>
+      <td>Canada</td>
+      <td>2018</td>
+    </tr>
+  </tbody>
+</table>
+<p>5000 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;subjectLabel&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>title</th>
+    </tr>
+    <tr>
+      <th>subjectLabel</th>
+      <th>year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="11" valign="top">Africa</th>
+      <th>2011</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>2020</th>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>2021</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th rowspan="9" valign="top">Canada</th>
+      <th>2011</th>
+      <td>477</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>538</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>598</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>546</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>502</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>538</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>268</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>Earth</th>
+      <th>2020</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="10" valign="top">death</th>
+      <th>2011</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2020</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2021</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th rowspan="11" valign="top">happiness</th>
+      <th>2011</th>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>113</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>126</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>148</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>146</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>138</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>146</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>135</td>
+    </tr>
+    <tr>
+      <th>2020</th>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>2021</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th rowspan="10" valign="top">human</th>
+      <th>2012</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2021</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2022</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">life</th>
+      <th>2020</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2021</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>universe</th>
+      <th>2020</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;subjectLabel&quot;</span><span class="p">)[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;year&quot;</span> <span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>subjectLabel</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3884</th>
+      <td>Vaccine Effectiveness Against Lineage-matched ...</td>
+      <td>Canada</td>
+      <td>2019</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>The Universe, the Light, the Earth, the Life: ...</td>
+      <td>Earth</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>The Universe, the Light, the Earth, the Life: ...</td>
+      <td>universe</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>921</th>
+      <td>African forest maps reveal areas vulnerable to...</td>
+      <td>Africa</td>
+      <td>2021</td>
+    </tr>
+    <tr>
+      <th>1668</th>
+      <td>Death anxiety and death acceptance in atheists...</td>
+      <td>death</td>
+      <td>2021</td>
+    </tr>
+    <tr>
+      <th>990</th>
+      <td>Sometimes Your Best Just Ain’t Good Enough: Th...</td>
+      <td>happiness</td>
+      <td>2021</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Entropy export as the driving force of evolution</td>
+      <td>life</td>
+      <td>2021</td>
+    </tr>
+    <tr>
+      <th>1672</th>
+      <td>A cross-verified database of notable people, 3...</td>
+      <td>human</td>
+      <td>2022</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./fr/TP1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By John Samuel<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
