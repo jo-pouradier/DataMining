@@ -1,0 +1,7 @@
+SELECT ?motorcycle ?image ?motorcycleLabel ?manufacturer ?manufacturerLabel WHERE {
+  ?motorcycle wdt:P31  wd:Q34493;
+             wdt:P18 ?image ;
+             wdt:P176 ?manufacturer;
+            
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
