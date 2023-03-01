@@ -1,48 +1,56 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>TP 3 &#8212; Data Mining</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +60,410 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'fr/TP3/tp3';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Projet" href="../Projet/Projet.html" />
     <link rel="prev" title="TP 2" href="../TP2/tp2.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../README.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../_static/datamining.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/datamining.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
         
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../README.html">
+                        Instructions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../TP0/tp0.html">
+                        TP 0
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../TP1/tp1.html">
+                        TP 1
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../TP2/tp2.html">
+                        TP 2
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        TP 3
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../Projet/Projet.html">
+                        Projet
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/README.html">
+                        Instructions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/practical0/practical0.html">
+                        Practical 0
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/practical1/practical1.html">
+                        Practical 1
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/practical2/practical2.html">
+                        Practical 2
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/practical3/practical3.html">
+                        Practical 3
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/Project/project.html">
+                        Project
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/examples/Examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
       
       
-      <img src="../../_static/datamining.svg" class="logo" alt="logo">
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
       
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
       
-      <h1 class="site-logo" id="site-title">Data Mining</h1>
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../README.html">
+                        Instructions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../TP0/tp0.html">
+                        TP 0
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../TP1/tp1.html">
+                        TP 1
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../TP2/tp2.html">
+                        TP 2
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        TP 3
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../Projet/Projet.html">
+                        Projet
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/README.html">
+                        Instructions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/practical0/practical0.html">
+                        Practical 0
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/practical1/practical1.html">
+                        Practical 1
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/practical2/practical2.html">
+                        Practical 2
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/practical3/practical3.html">
+                        Practical 3
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/Project/project.html">
+                        Project
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../en/examples/Examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../../README.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../../_static/datamining.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/datamining.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,347 +472,220 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Français
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Français</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
-   Instructions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TP0/tp0.html">
-   TP 0
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TP1/tp1.html">
-   TP 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../TP2/tp2.html">
-   TP 2
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   TP 3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Projet/Projet.html">
-   Projet
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TP0/tp0.html">TP 0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TP1/tp1.html">TP 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TP2/tp2.html">TP 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TP 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Projet/Projet.html">Projet</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  English
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">English</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../en/README.html">
-   Instructions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../en/practical0/practical0.html">
-   Practical 0
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../en/practical1/practical1.html">
-   Practical 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../en/practical2/practical2.html">
-   Practical 2
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../en/practical3/practical3.html">
-   Practical 3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../en/Project/project.html">
-   Project
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../en/examples/Examples.html">
-   Examples
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/README.html">Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/practical0/practical0.html">Practical 0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/practical1/practical1.html">Practical 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/practical2/practical2.html">Practical 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/practical3/practical3.html">Practical 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/Project/project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/examples/Examples.html">Examples</a></li>
+
+
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
+</nav>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  </div>
+  
 
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
 
-          
+  
+  <div id="rtd-footer-container"></div>
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+      </div>
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
 
 
 
 <div class="col py-1 d-flex header-article-main">
     <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/johnsamuelwrites/DataMining/master?urlpath=lab/tree/fr/TP3/tp3.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="https://mybinder.org/v2/gh/johnsamuelwrites/DataMining/master?urlpath=lab/tree/fr/TP3/tp3.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Launch on Binder"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://colab.research.google.com/github/johnsamuelwrites/DataMining/blob/master/fr/TP3/tp3.ipynb"
-   class="headerbtn"
+      <li><a href="https://colab.research.google.com/github/johnsamuelwrites/DataMining/blob/master/fr/TP3/tp3.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Launch on Colab"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
+  class="btn btn-sm"
   data-toggle="tooltip"
 data-placement="bottom"
 title="Fullscreen mode"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/fr/TP3/tp3.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="../../_sources/fr/TP3/tp3.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Download source file"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</a>
       
       <li>
-        
 <button onclick="printPdf(this)"
-  class="headerbtn"
+  class="btn btn-sm dropdown-item"
   data-toggle="tooltip"
 data-placement="left"
 title="Print to PDF"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objectifs">
-   Objectifs
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-1">
-   Exercice 1 [★]
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-2">
-   Exercice 2 [★★]
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-3">
-   Exercice 3 [★★]
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-4">
-   Exercice 4 [★★]
-  </a>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>TP 3</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objectifs">
-   Objectifs
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-1">
-   Exercice 1 [★]
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-2">
-   Exercice 2 [★★]
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-3">
-   Exercice 3 [★★]
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercice-4">
-   Exercice 4 [★★]
-  </a>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
             </div>
-            <main id="main-content" role="main">
-                
-              <div>
-                
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TP 3</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectifs">
+   Objectifs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1 [★]
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2 [★★]
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3 [★★]
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4 [★★]
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
   <section class="tex2jax_ignore mathjax_ignore" id="tp-3">
-<h1>TP 3<a class="headerlink" href="#tp-3" title="Permalink to this headline">#</a></h1>
+<h1>TP 3<a class="headerlink" href="#tp-3" title="Permalink to this heading">#</a></h1>
 <section id="objectifs">
-<h2>Objectifs<a class="headerlink" href="#objectifs" title="Permalink to this headline">#</a></h2>
-<ol class="simple">
+<h2>Objectifs<a class="headerlink" href="#objectifs" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p>Continuer à travailler avec les <a class="reference external" href="http://scikit-learn.org/stable/modules/clustering.html">regroupements</a> et les <a class="reference external" href="http://scikit-learn.org/stable/modules/svm.html">classifications</a> algorithmes</p></li>
 <li><p>Travaux sur les <a class="reference external" href="http://scikit-learn.org/stable/modules/linear_model.html">modèles de régression linéaire</a></p></li>
 <li><p>Commencer à travailler sur les <a class="reference external" href="http://scikit-learn.org/stable/modules/neural_networks_supervised.html">modèles de réseaux de neurones</a> y compris les perceptrons à une ou plusieurs couches.</p></li>
@@ -464,7 +694,7 @@ title="Print to PDF"
 </ol>
 </section>
 <section id="exercice-1">
-<h2>Exercice 1 [★]<a class="headerlink" href="#exercice-1" title="Permalink to this headline">#</a></h2>
+<h2>Exercice 1 [★]<a class="headerlink" href="#exercice-1" title="Permalink to this heading">#</a></h2>
 <p>Nous allons maintenant travailler avec la <strong>régression linéaire</strong> (voir <a class="reference external" href="http://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares">ici</a>).</p>
 <p>Voyons quelques programmes simples. Dans les données suivantes, où nous avons quelques exemples de données pour l’équation : <em>y = x</em>. Nous allons d’abord entraîner notre modèle de régression linéaire avec un très petit sous-ensemble et tester s’il est capable de prédire les valeurs <em>y-</em> pour de nouvelles valeurs <em>x-</em>.</p>
 <div class="cell docutils container">
@@ -585,7 +815,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6, 11, 16, 12, 17, 22])
 </pre></div>
 </div>
-<img alt="../../_images/tp3_10_1.png" src="../../_images/tp3_10_1.png" />
+<img alt="../../_images/f7f63ad3d9d7046515d24e492e3f9052ed1dbb8744b492a661cb09965f7e0c94.png" src="../../_images/f7f63ad3d9d7046515d24e492e3f9052ed1dbb8744b492a661cb09965f7e0c94.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -778,7 +1008,7 @@ title="Print to PDF"
 </div>
 <p><span class="math notranslate nohighlight">\( y = 1.a + b.x0 + c.x0^2 + d.x0^3 + intercept \)</span></p>
 <p><span class="math notranslate nohighlight">\( a =0, b = 1.44328993e-15, c = 3.63598041e-15 , d=1, intercept = 2.13162821e-14 \)</span></p>
-<p>Nous utiliserons le fichier <span class="xref myst">population.csv</span>
+<p>Nous utiliserons le fichier <a class="reference download internal" download="" href="../../_downloads/924e5bd3c2b4c97058580c3d7aff0c62/population.csv"><span class="xref download myst">population.csv</span></a>
 Nous allons d’abord tracer cette population pluriannuelle.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -803,7 +1033,7 @@ Nous allons d’abord tracer cette population pluriannuelle.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;year&#39;, ylabel=&#39;population&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/tp3_24_1.png" src="../../_images/tp3_24_1.png" />
+<img alt="../../_images/da20b1da399f178041be89e5ba878c851ca7d9ae3b5b778b5646d667a378fc9b.png" src="../../_images/da20b1da399f178041be89e5ba878c851ca7d9ae3b5b778b5646d667a378fc9b.png" />
 </div>
 </div>
 <p><img alt="" src="fr/TP3/images/populationscatterplot.png" /></p>
@@ -853,7 +1083,7 @@ des techniques de régression pour prédire la population. Mais nous ne savons p
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-5.86674085e+08] [[324065.22138837]]
 </pre></div>
 </div>
-<img alt="../../_images/tp3_26_1.png" src="../../_images/tp3_26_1.png" />
+<img alt="../../_images/4dc78880cbd1ef9ca33c90279a1c8db852f6226679eebd8c72f0c47567287a8b.png" src="../../_images/4dc78880cbd1ef9ca33c90279a1c8db852f6226679eebd8c72f0c47567287a8b.png" />
 </div>
 </div>
 <p><img alt="" src="fr/TP3/images/populationlinearregression.png" /></p>
@@ -908,7 +1138,7 @@ des techniques de régression pour prédire la population. Mais nous ne savons p
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-4.30491266e+09] [[ 0.00000000e+00  4.06776344e+06 -9.42279929e+02]]
 </pre></div>
 </div>
-<img alt="../../_images/tp3_28_1.png" src="../../_images/tp3_28_1.png" />
+<img alt="../../_images/136f8e924f9e1b91590a655a62158dee0cd3b6e745d8022b8ba5a9729f6d8665.png" src="../../_images/136f8e924f9e1b91590a655a62158dee0cd3b6e745d8022b8ba5a9729f6d8665.png" />
 </div>
 </div>
 <p><img alt="" src="fr/TP3/images/populationpolynomialregression.png" /></p>
@@ -966,14 +1196,14 @@ des techniques de régression pour prédire la population. Mais nous ne savons p
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7.53637479e+09] [[ 0.00000000e+00 -7.89980194e+06  2.08142727e+03]]
 </pre></div>
 </div>
-<img alt="../../_images/tp3_30_1.png" src="../../_images/tp3_30_1.png" />
+<img alt="../../_images/c8fffa1ca5b9ba143622919c7a5ca492b144540c8335ba2f93f136d7bf9dedf2.png" src="../../_images/c8fffa1ca5b9ba143622919c7a5ca492b144540c8335ba2f93f136d7bf9dedf2.png" />
 </div>
 </div>
 <p><img alt="" src="fr/TP3/images/allpopulationpolynomialregression.png" /></p>
 <p>Qu’en pensez-vous ? Pouvons-nous utiliser ce programme pour prévoir les données manquantes (surtout en l’absence d’autres sources d’information externes) ? Essayez le programme ci-dessus à différents degrés.</p>
 </section>
 <section id="exercice-2">
-<h2>Exercice 2 [★★]<a class="headerlink" href="#exercice-2" title="Permalink to this headline">#</a></h2>
+<h2>Exercice 2 [★★]<a class="headerlink" href="#exercice-2" title="Permalink to this heading">#</a></h2>
 <p>Les classificateurs sont utiles pour classer notre ensemble de données dans une ou plusieurs classes. Mais contrairement aux algorithmes de regroupement, c’est l’utilisateur qui doit classer les données dans un algorithme de classification. Dans les exercices suivants, nous voyons différents classificateurs, en commençant par le perceptron. Regardez les données d’entrée (<em>numarray</em>) et les étiquettes associées (<em>resultat</em>). Ici, nous allons étiqueter l’ensemble des données et voir si notre modèle (Perceptron) a bien fonctionné.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1177,7 +1407,7 @@ Input data:  [[ 0.  0.  5. 13.  9.  1.  0.  0.]
 Label: 0
 </pre></div>
 </div>
-<img alt="../../_images/tp3_43_1.png" src="../../_images/tp3_43_1.png" />
+<img alt="../../_images/9e7b5a626418e20bfa1e7fbfb4f00598cfd5631d3ac07cff44f0068caf5bf2f2.png" src="../../_images/9e7b5a626418e20bfa1e7fbfb4f00598cfd5631d3ac07cff44f0068caf5bf2f2.png" />
 </div>
 </div>
 <p>Nous allons maintenant utiliser un classificateur de vecteurs de support pour former les données. Nous allons diviser nos données en deux : les données d’entraînement et les données de test. N’oubliez pas que nous disposons déjà d’étiquettes pour l’ensemble des données.</p>
@@ -1212,7 +1442,7 @@ Label: 0
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicted value:  [4]
 </pre></div>
 </div>
-<img alt="../../_images/tp3_45_1.png" src="../../_images/tp3_45_1.png" />
+<img alt="../../_images/cb8f6645ec1bed64c171b4f86bc607e8c48943f1060c51b7d171f252a666ce8e.png" src="../../_images/cb8f6645ec1bed64c171b4f86bc607e8c48943f1060c51b7d171f252a666ce8e.png" />
 </div>
 </div>
 <p><img alt="" src="fr/TP3/images/scikitlearnfour.png" /></p>
@@ -1378,7 +1608,7 @@ weighted avg       0.95      0.95      0.95       898
 <p>Votre prochaine question est de tracer les mesures de confusion pour les trois classificateurs ci-dessus.</p>
 </section>
 <section id="exercice-3">
-<h2>Exercice 3 [★★]<a class="headerlink" href="#exercice-3" title="Permalink to this headline">#</a></h2>
+<h2>Exercice 3 [★★]<a class="headerlink" href="#exercice-3" title="Permalink to this heading">#</a></h2>
 <p>Nous allons d’abord construire un classificateur d’arbres de décision en utilisant un exemple très simple. Comme les classificateurs que nous avons vus auparavant, nous essaierons d’abord de faire correspondre nos données et ensuite de prédire une classe pour une valeur jamais vue auparavant.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1430,7 +1660,7 @@ weighted avg       0.95      0.95      0.95       898
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/tp3_58_0.png" src="../../_images/tp3_58_0.png" />
+<img alt="../../_images/22794ea75c0a3a38b549655622be99ba581554634b4faddc4bc13e35ad0c2429.png" src="../../_images/22794ea75c0a3a38b549655622be99ba581554634b4faddc4bc13e35ad0c2429.png" />
 </div>
 </div>
 <p>Prenons maintenant un exemple réaliste. Dans le code suivant, nous considérons 13 photos marquées par un utilisateur comme “Favorite” et “NotFavorite”. Pour chaque photo : nous avons quatre informations : la couleur, le tag, la taille (taille moyenne, vignette, etc.) et le mode dans lequel la photo a été prise (portrait ou paysage). Nous allons construire un classificateur d’arbre de décision avec ces données. Nous prévoyons ensuite si notre utilisateur aimera une photographie de nature dont la couleur prédominante est le rouge, dont la taille est celle d’une vignette et qui a été prise en mode portrait.</p>
@@ -1636,7 +1866,7 @@ weighted avg       0.95      0.95      0.95       898
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/tp3_63_0.png" src="../../_images/tp3_63_0.png" />
+<img alt="../../_images/ce7801bddd9642a0cd85fa8749b29f9e72866d41820fd8b0c109b03736dc760f.png" src="../../_images/ce7801bddd9642a0cd85fa8749b29f9e72866d41820fd8b0c109b03736dc760f.png" />
 </div>
 </div>
 <p>Et si nous avions la possibilité d’avoir plusieurs arbres de décision ? Prévoyons en utilisant un classificateur forestier aléatoire (qui peut être considéré comme une collection d’arbres décisionnels multiples). Vérifiez la valeur prédite ainsi que l’importance des différentes caractéristiques. Notez que nous demandons de créer 10 estimateurs de ce type en utilisant une profondeur maximale de 2 pour chacun des estimateurs.</p>
@@ -1821,21 +2051,21 @@ weighted avg       0.95      0.95      0.95       898
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/tp3_67_0.png" src="../../_images/tp3_67_0.png" />
-<img alt="../../_images/tp3_67_1.png" src="../../_images/tp3_67_1.png" />
-<img alt="../../_images/tp3_67_2.png" src="../../_images/tp3_67_2.png" />
-<img alt="../../_images/tp3_67_3.png" src="../../_images/tp3_67_3.png" />
-<img alt="../../_images/tp3_67_4.png" src="../../_images/tp3_67_4.png" />
-<img alt="../../_images/tp3_67_5.png" src="../../_images/tp3_67_5.png" />
-<img alt="../../_images/tp3_67_6.png" src="../../_images/tp3_67_6.png" />
-<img alt="../../_images/tp3_67_7.png" src="../../_images/tp3_67_7.png" />
-<img alt="../../_images/tp3_67_8.png" src="../../_images/tp3_67_8.png" />
-<img alt="../../_images/tp3_67_9.png" src="../../_images/tp3_67_9.png" />
+<img alt="../../_images/00e0e21d1f758101b29c541a0be9b125dd202a853653bb76d41571d8e1207397.png" src="../../_images/00e0e21d1f758101b29c541a0be9b125dd202a853653bb76d41571d8e1207397.png" />
+<img alt="../../_images/56757fcb7a9df918b2db6195b2002dba35c4176d893b1a15f712d7a662add54e.png" src="../../_images/56757fcb7a9df918b2db6195b2002dba35c4176d893b1a15f712d7a662add54e.png" />
+<img alt="../../_images/69ed5db8da8e6caf51ca6fc06503534d5cc3f743818d05d451a97a3383dfa218.png" src="../../_images/69ed5db8da8e6caf51ca6fc06503534d5cc3f743818d05d451a97a3383dfa218.png" />
+<img alt="../../_images/c24f4202a73c97112b0d0b726fc74bb23464b3d2bea8593cb4343f82e5d59185.png" src="../../_images/c24f4202a73c97112b0d0b726fc74bb23464b3d2bea8593cb4343f82e5d59185.png" />
+<img alt="../../_images/3447f47ec49577c06316d251c9936216dbf6135a17ae63aaef44f08f19b6881a.png" src="../../_images/3447f47ec49577c06316d251c9936216dbf6135a17ae63aaef44f08f19b6881a.png" />
+<img alt="../../_images/b999e554949ff0e275bf1d03b498a89f5f9b7477d602451338748423aae5b5e0.png" src="../../_images/b999e554949ff0e275bf1d03b498a89f5f9b7477d602451338748423aae5b5e0.png" />
+<img alt="../../_images/bd5f94be4f3989f7698b012dbf3c121fd3704f5f011ea89767cff16c2d19758d.png" src="../../_images/bd5f94be4f3989f7698b012dbf3c121fd3704f5f011ea89767cff16c2d19758d.png" />
+<img alt="../../_images/fac52cb5c615b7172ba08d6177f467fae483a7370b2a24ace1e57f37b550a2a8.png" src="../../_images/fac52cb5c615b7172ba08d6177f467fae483a7370b2a24ace1e57f37b550a2a8.png" />
+<img alt="../../_images/3d3662f10db0b2efe2c20fd6244134c5512ae402b0e8e71ca94c5013e10d7175.png" src="../../_images/3d3662f10db0b2efe2c20fd6244134c5512ae402b0e8e71ca94c5013e10d7175.png" />
+<img alt="../../_images/d8d099e5deba254ef98436c25d3df0c08594a7dd867a928e6ffde84fc012fc1d.png" src="../../_images/d8d099e5deba254ef98436c25d3df0c08594a7dd867a928e6ffde84fc012fc1d.png" />
 </div>
 </div>
 </section>
 <section id="exercice-4">
-<h2>Exercice 4 [★★]<a class="headerlink" href="#exercice-4" title="Permalink to this headline">#</a></h2>
+<h2>Exercice 4 [★★]<a class="headerlink" href="#exercice-4" title="Permalink to this heading">#</a></h2>
 <p>Nous avons maintenant divisé nos données MNIST (écriture) en deux : les données de formation et les données de test pour la création de modèles de prédiction et nous avons introduit les données de formation complètes dans notre classificateur. Cependant, dans la vie réelle, nous pouvons avoir de nouvelles données à former. Vérifiez le code suivant à l’aide du perceptron et comparez-le avec le code de l’exercice 3.3</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1925,50 +2155,125 @@ vos observations ?</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../TP2/tp2.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">TP 2</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../Projet/Projet.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Projet</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="../TP2/tp2.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">TP 2</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="../Projet/Projet.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Projet</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
 </div>
             </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
   
-    By John Samuel<br/>
-  
-      &copy; Copyright 2021.<br/>
-</p>
-        </footer>
-    </div>
-    
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectifs">
+   Objectifs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1 [★]
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2 [★★]
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3 [★★]
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4 [★★]
+  </a>
+ </li>
+</ul>
+
+</nav>
 </div>
 
-
-      </div>
-    </div>
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By John Samuel
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2021.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
 
   </body>
 </html>
