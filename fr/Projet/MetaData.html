@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; Data Mining</title>
+    <title>Reanding Exif data from ./images &#8212; Data Mining</title>
   
   
   
@@ -633,7 +633,7 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Reanding Exif data from ./images</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -642,7 +642,27 @@ title="Print to PDF"
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-proiminant-colors-from-images">
+   Get proiminant colors from images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-histogram-from-images">
+   Getting histogram from images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-diagram-and-kmeans-to-exif-data">
+   Adding diagram and Kmeans to exif data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-exif-data-into-json-file-images-exifdata-json">
+   Writing exif data into json file : ./images/ExifData.json
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -652,57 +672,1288 @@ title="Print to PDF"
 
             <article class="bd-article" role="main">
               
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="reanding-exif-data-from-images">
+<h1>Reanding Exif data from ./images<a class="headerlink" href="#reanding-exif-data-from-images" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 
 <span class="nb">dir</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;images/&quot;</span>
 <span class="n">themes</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">theme</span> <span class="ow">in</span> <span class="n">themes</span><span class="p">:</span> 
-    <span class="k">if</span> <span class="n">theme</span> <span class="o">==</span> <span class="s2">&quot;.DS_Store&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">theme</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;.DS_Store&quot;</span><span class="p">,</span> <span class="s2">&quot;ExifData.json&quot;</span><span class="p">}:</span>
         <span class="k">pass</span>   
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">theme</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="nb">dir</span> <span class="o">+</span> <span class="n">theme</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+            <span class="c1">#print(image)</span>
             <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.jpg&quot;</span><span class="p">)</span> <span class="p">:</span>
                 <span class="n">img_path</span> <span class="o">=</span>  <span class="nb">dir</span> <span class="o">+</span> <span class="n">theme</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="o">+</span> <span class="n">image</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
+                <span class="c1"># print(img_path)</span>
                 <span class="k">with</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">img</span><span class="p">:</span>
+                    <span class="c1"># print(img)</span>
                     <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
                     <span class="nb">format</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">format</span>
-                    <span class="n">orientation</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">_getexif</span><span class="p">()[</span><span class="mi">274</span><span class="p">]</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;width: &quot;</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">orientation</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">_getexif</span><span class="p">()[</span><span class="mi">274</span><span class="p">]</span>
+                    <span class="k">except</span><span class="p">:</span>
+                        <span class="n">orientation</span> <span class="o">=</span> <span class="s2">&quot;no exif&quot;</span>
+                    <span class="c1">#print(f&#39;{width=}x{height=} {format=} {orientation=}&#39;)</span>
+                    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="n">theme</span><span class="p">,</span> <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="n">image</span><span class="p">,</span> <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="n">width</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="n">height</span><span class="p">,</span> <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="nb">format</span><span class="p">,</span> <span class="s2">&quot;orientation&quot;</span><span class="p">:</span> <span class="n">orientation</span><span class="p">})</span>
+                    
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exoplanet
+Pokemon
+Moto
+Voitures
+[{&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;55_Cancri_b.jpg&#39;, &#39;width&#39;: 1024, &#39;height&#39;: 768, &#39;format&#39;: &#39;PNG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;Gliese_876_e.jpg&#39;, &#39;width&#39;: 1587, &#39;height&#39;: 919, &#39;format&#39;: &#39;PNG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;XO-3b.jpg&#39;, &#39;width&#39;: 800, &#39;height&#39;: 500, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;OGLE-2005-BLG-169Lb.jpg&#39;, &#39;width&#39;: 1271, &#39;height&#39;: 746, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;Kepler-242b.jpg&#39;, &#39;width&#39;: 1980, &#39;height&#39;: 1200, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="get-proiminant-colors-from-images">
+<h2>Get proiminant colors from images<a class="headerlink" href="#get-proiminant-colors-from-images" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plot</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">MiniBatchKMeans</span>
+
+<span class="k">def</span> <span class="nf">getKmeans</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="c1"># init</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> <span class="c1"># open image</span>
+    <span class="n">imgfile</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">5</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">5</span><span class="p">)))</span> <span class="c1"># resize</span>
+    <span class="n">numarray</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">imgfile</span><span class="o">.</span><span class="n">getdata</span><span class="p">(),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="c1"># convert image to numpy array</span>
+    <span class="n">cluster_count</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># number of clusters</span>
+    <span class="n">clusters</span> <span class="o">=</span> <span class="n">MiniBatchKMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">cluster_count</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span> <span class="c1"># init kmeans</span>
+    <span class="n">clusters</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">numarray</span><span class="p">)</span> <span class="c1"># fit kmeans</span>
+    <span class="n">npbins</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cluster_count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># init bins</span>
+    <span class="n">histogram</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">clusters</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">npbins</span><span class="p">)</span> <span class="c1"># get histogram</span>
+    <span class="c1">#labels = numpy.unique(clusters.labels_) # get labels</span>
+
+    <span class="c1"># getting colors</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cluster_count</span><span class="p">):</span>
+        <span class="n">color</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;#</span><span class="si">%02x%02x%02x</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">clusters</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">clusters</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">clusters</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]),)</span>
+        <span class="p">)</span>
+    <span class="c1">#barlist = plot.bar(labels, sorted(histogram[0], reverse=True), color=color)</span>
+    <span class="c1">#plot.show()</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;numbers&quot;</span><span class="p">:</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">histogram</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="s2">&quot;colors&quot;</span><span class="p">:</span> <span class="n">color</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
+
+<span class="n">getKmeans</span><span class="p">(</span><span class="s2">&quot;./images/Exoplanet/2M1207_b.jpg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;numbers&#39;: [80952, 76247, 22307, 21412, 19282],
+ &#39;colors&#39;: [&#39;#191c1f&#39;, &#39;#a19081&#39;, &#39;#7a6351&#39;, &#39;#090a0c&#39;, &#39;#403830&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="getting-histogram-from-images">
+<h2>Getting histogram from images<a class="headerlink" href="#getting-histogram-from-images" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plot</span>
+
+
+<span class="k">def</span> <span class="nf">getDiagram</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">imgfile</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./images/Exoplanet/2M1207_b.jpg&quot;</span><span class="p">)</span>
+    <span class="n">histogram</span> <span class="o">=</span> <span class="n">imgfile</span><span class="o">.</span><span class="n">histogram</span><span class="p">()</span>
+    <span class="n">red</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">255</span><span class="p">]</span>
+    <span class="n">green</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">[</span><span class="mi">256</span><span class="p">:</span><span class="mi">511</span><span class="p">]</span>
+    <span class="n">blue</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">[</span><span class="mi">512</span><span class="p">:</span><span class="mi">767</span><span class="p">]</span>
+    <span class="c1"># x = range(255)</span>
+    <span class="c1"># y = []</span>
+    <span class="c1"># for i in x:</span>
+    <span class="c1">#     y.append((red[i], green[i], blue[i]))</span>
+    <span class="c1"># figure,axes = plot.subplots()</span>
+    <span class="c1"># axes.set_prop_cycle(&quot;color&quot;, [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;])</span>
+    <span class="c1"># plot.plot(x, y)</span>
+    <span class="c1"># plot.show()</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;red&quot;</span><span class="p">:</span> <span class="n">red</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">:</span> <span class="n">green</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">:</span> <span class="n">blue</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">mapping</span>
+
+<span class="n">getDiagram</span><span class="p">(</span><span class="s2">&quot;./images/Exoplanet/2M1207_b.jpg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;: [185917,
+  64137,
+  77972,
+  98775,
+  134976,
+  133433,
+  97798,
+  88866,
+  99499,
+  86791,
+  93429,
+  125370,
+  143397,
+  119714,
+  93507,
+  118675,
+  156700,
+  171818,
+  145261,
+  121475,
+  130494,
+  155757,
+  139709,
+  122457,
+  100407,
+  85065,
+  93007,
+  103234,
+  76943,
+  67056,
+  62337,
+  50277,
+  42024,
+  33693,
+  31057,
+  30540,
+  28750,
+  31151,
+  31665,
+  30593,
+  25363,
+  24447,
+  25664,
+  25623,
+  23405,
+  21874,
+  22350,
+  22725,
+  20634,
+  18354,
+  15473,
+  14581,
+  14282,
+  14351,
+  13147,
+  12655,
+  13639,
+  14407,
+  14483,
+  15085,
+  15519,
+  14827,
+  13800,
+  13720,
+  12240,
+  11560,
+  11530,
+  9792,
+  9362,
+  9674,
+  9477,
+  8985,
+  8755,
+  8447,
+  8787,
+  7869,
+  7560,
+  7857,
+  8521,
+  8345,
+  8487,
+  9387,
+  9833,
+  9622,
+  9852,
+  9446,
+  8727,
+  8424,
+  8355,
+  8092,
+  8132,
+  8226,
+  8038,
+  7866,
+  7654,
+  6877,
+  7245,
+  7771,
+  8431,
+  8402,
+  8403,
+  7768,
+  7147,
+  6970,
+  7555,
+  8183,
+  8414,
+  8545,
+  8108,
+  8251,
+  8537,
+  8918,
+  9471,
+  10031,
+  10193,
+  10334,
+  10527,
+  10818,
+  11134,
+  11810,
+  12512,
+  13729,
+  14468,
+  14760,
+  14876,
+  15200,
+  14875,
+  14543,
+  13402,
+  13055,
+  12695,
+  12426,
+  12568,
+  12524,
+  13080,
+  14045,
+  13040,
+  14005,
+  13957,
+  14549,
+  14979,
+  13299,
+  11738,
+  11490,
+  10464,
+  10515,
+  10614,
+  11447,
+  11390,
+  12032,
+  12487,
+  12342,
+  12062,
+  11468,
+  11179,
+  10949,
+  11232,
+  11191,
+  10991,
+  11352,
+  10614,
+  10274,
+  10925,
+  11770,
+  12512,
+  12761,
+  12215,
+  11570,
+  11087,
+  10598,
+  9675,
+  9131,
+  9398,
+  10834,
+  10484,
+  10174,
+  10667,
+  9463,
+  6622,
+  5846,
+  5116,
+  5157,
+  4986,
+  4794,
+  4172,
+  3669,
+  2801,
+  2247,
+  2385,
+  2652,
+  2236,
+  1481,
+  966,
+  917,
+  780,
+  819,
+  813,
+  787,
+  740,
+  751,
+  746,
+  749,
+  699,
+  685,
+  601,
+  620,
+  583,
+  550,
+  532,
+  551,
+  463,
+  468,
+  445,
+  393,
+  393,
+  384,
+  384,
+  364,
+  356,
+  284,
+  344,
+  309,
+  302,
+  271,
+  278,
+  286,
+  266,
+  234,
+  244,
+  204,
+  203,
+  188,
+  154,
+  179,
+  160,
+  173,
+  146,
+  137,
+  149,
+  144,
+  152,
+  138,
+  150,
+  128,
+  121,
+  126,
+  119,
+  135,
+  159,
+  170,
+  208,
+  253,
+  310,
+  364,
+  437],
+ &#39;green&#39;: [181329,
+  50550,
+  54365,
+  67003,
+  76586,
+  74427,
+  62042,
+  62423,
+  106129,
+  132422,
+  123572,
+  111824,
+  91481,
+  83262,
+  81476,
+  101980,
+  129622,
+  155109,
+  149965,
+  114115,
+  127249,
+  146456,
+  158497,
+  153368,
+  128632,
+  103290,
+  97934,
+  95476,
+  89801,
+  84846,
+  86536,
+  83772,
+  61784,
+  46265,
+  54011,
+  53558,
+  59329,
+  58766,
+  49928,
+  66162,
+  62750,
+  40490,
+  31994,
+  30125,
+  32224,
+  25804,
+  22772,
+  22126,
+  23858,
+  22435,
+  21855,
+  20016,
+  22087,
+  18383,
+  15874,
+  15522,
+  14560,
+  13796,
+  14509,
+  13151,
+  13097,
+  13725,
+  13722,
+  12875,
+  13196,
+  13709,
+  13573,
+  13091,
+  12113,
+  11784,
+  11832,
+  10925,
+  10130,
+  9951,
+  9530,
+  9126,
+  9119,
+  9215,
+  9494,
+  9813,
+  10457,
+  10196,
+  10093,
+  10103,
+  9976,
+  9518,
+  9558,
+  9691,
+  9914,
+  9189,
+  9294,
+  9941,
+  10527,
+  11385,
+  11126,
+  11303,
+  11524,
+  12190,
+  11531,
+  11709,
+  13304,
+  13985,
+  14519,
+  14713,
+  14557,
+  14355,
+  14291,
+  14213,
+  13592,
+  14210,
+  15180,
+  15451,
+  14585,
+  14043,
+  14309,
+  14219,
+  13001,
+  11887,
+  11100,
+  10678,
+  10770,
+  9739,
+  9295,
+  9770,
+  10668,
+  10643,
+  10950,
+  10478,
+  11240,
+  11889,
+  11689,
+  11341,
+  10497,
+  10232,
+  10341,
+  10602,
+  10689,
+  10943,
+  11595,
+  11530,
+  11897,
+  11592,
+  11017,
+  10687,
+  11121,
+  11646,
+  12531,
+  13028,
+  12005,
+  11048,
+  10831,
+  10917,
+  10851,
+  9749,
+  9112,
+  7961,
+  8368,
+  8966,
+  8687,
+  8782,
+  6929,
+  5214,
+  5279,
+  5302,
+  4634,
+  3928,
+  3809,
+  3116,
+  3292,
+  3308,
+  3046,
+  2821,
+  2172,
+  2135,
+  2063,
+  1985,
+  1887,
+  1423,
+  1120,
+  1267,
+  960,
+  591,
+  305,
+  213,
+  146,
+  146,
+  143,
+  154,
+  144,
+  135,
+  129,
+  117,
+  118,
+  131,
+  154,
+  127,
+  135,
+  129,
+  126,
+  120,
+  124,
+  127,
+  121,
+  105,
+  114,
+  110,
+  94,
+  106,
+  101,
+  108,
+  103,
+  100,
+  99,
+  87,
+  78,
+  99,
+  74,
+  89,
+  74,
+  83,
+  69,
+  67,
+  73,
+  85,
+  67,
+  73,
+  71,
+  56,
+  77,
+  73,
+  65,
+  68,
+  53,
+  57,
+  58,
+  67,
+  66,
+  41,
+  48,
+  54,
+  42,
+  47,
+  41,
+  43,
+  45,
+  44,
+  40,
+  35,
+  31,
+  41,
+  54,
+  52,
+  67,
+  78,
+  106],
+ &#39;blue&#39;: [159699,
+  24547,
+  31158,
+  39045,
+  61168,
+  71148,
+  80311,
+  62722,
+  68604,
+  92831,
+  89064,
+  117347,
+  137201,
+  116864,
+  105521,
+  126272,
+  142933,
+  143720,
+  117631,
+  101902,
+  113330,
+  130043,
+  136426,
+  137168,
+  138358,
+  108707,
+  92752,
+  89376,
+  92224,
+  95925,
+  98330,
+  97166,
+  87417,
+  66446,
+  56403,
+  56711,
+  61968,
+  62037,
+  66392,
+  68486,
+  59139,
+  50180,
+  44558,
+  41331,
+  48045,
+  44185,
+  44717,
+  42890,
+  34711,
+  26980,
+  22806,
+  40193,
+  43140,
+  29566,
+  17441,
+  16334,
+  20410,
+  22217,
+  26398,
+  17185,
+  13985,
+  13973,
+  15400,
+  14527,
+  13933,
+  15295,
+  16147,
+  16763,
+  15489,
+  13361,
+  13129,
+  15214,
+  13438,
+  13023,
+  13817,
+  13344,
+  12282,
+  12643,
+  13555,
+  12975,
+  12561,
+  13385,
+  13273,
+  14062,
+  14004,
+  14296,
+  14140,
+  14247,
+  13945,
+  13023,
+  14812,
+  12734,
+  11347,
+  10495,
+  10192,
+  10595,
+  10556,
+  10734,
+  10367,
+  10412,
+  10323,
+  10144,
+  10510,
+  10920,
+  11717,
+  11743,
+  10722,
+  9282,
+  9180,
+  9475,
+  9564,
+  9280,
+  9569,
+  9608,
+  9469,
+  9007,
+  9132,
+  9386,
+  9603,
+  9532,
+  9472,
+  9682,
+  10372,
+  10135,
+  10840,
+  10702,
+  10714,
+  10968,
+  10642,
+  11062,
+  10465,
+  11013,
+  10688,
+  9957,
+  9682,
+  9667,
+  10208,
+  10230,
+  9109,
+  8961,
+  8181,
+  8332,
+  7806,
+  7590,
+  7448,
+  7352,
+  6207,
+  6330,
+  5727,
+  5490,
+  5165,
+  4199,
+  4107,
+  4019,
+  4134,
+  4644,
+  4558,
+  4251,
+  3741,
+  3034,
+  2732,
+  2423,
+  2002,
+  1687,
+  1699,
+  1971,
+  1858,
+  1634,
+  1640,
+  1448,
+  1359,
+  1220,
+  1375,
+  1512,
+  901,
+  565,
+  487,
+  723,
+  565,
+  401,
+  118,
+  55,
+  38,
+  38,
+  40,
+  39,
+  38,
+  43,
+  31,
+  43,
+  32,
+  35,
+  45,
+  33,
+  27,
+  33,
+  24,
+  34,
+  44,
+  26,
+  24,
+  25,
+  17,
+  29,
+  23,
+  29,
+  21,
+  15,
+  15,
+  17,
+  14,
+  16,
+  15,
+  11,
+  19,
+  15,
+  10,
+  15,
+  11,
+  11,
+  16,
+  13,
+  13,
+  14,
+  9,
+  9,
+  19,
+  4,
+  7,
+  14,
+  8,
+  8,
+  7,
+  4,
+  9,
+  2,
+  10,
+  8,
+  13,
+  7,
+  7,
+  6,
+  6,
+  5,
+  8,
+  6,
+  5,
+  7,
+  6,
+  8,
+  6,
+  5,
+  5,
+  9,
+  6]}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-diagram-and-kmeans-to-exif-data">
+<h2>Adding diagram and Kmeans to exif data<a class="headerlink" href="#adding-diagram-and-kmeans-to-exif-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
+    <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;kmeans&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">getKmeans</span><span class="p">(</span><span class="nb">dir</span> <span class="o">+</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;theme&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
+    <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;diagram&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">getDiagram</span><span class="p">(</span><span class="nb">dir</span> <span class="o">+</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;theme&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55_Cancri_b.jpg
+Gliese_876_e.jpg
+XO-3b.jpg
+OGLE-2005-BLG-169Lb.jpg
+Kepler-242b.jpg
+Gliese_581_e.jpg
+HD_11977_b.jpg
+HD_149026_b.jpg
+Kepler-37b.jpg
+KELT-9b.jpg
+HAT-P-28b.jpg
+WASP-39b.jpg
+TRAPPIST-1h.jpg
+Gliese_422_b.jpg
+Gliese_876_d.jpg
+Kepler-20f.jpg
+GJ_3470_b.jpg
+GJ_504_b.jpg
+Gamma1_Leonis_b.jpg
+PSR_B1620-26_b.jpg
+Tau_Bootis_Ab.jpg
+70_Virginis_b.jpg
+Kepler-283_c.jpg
+HD_20367_b.jpg
+Epsilon_Eridani_b.jpg
+OGLE-2016-BLG-1190Lb.jpg
+Kepler-20e.jpg
+55_Cancri_d.jpg
+GJ_357_d.jpg
+Gliese_876_c.jpg
+Gliese_581_c.jpg
+Beta_Pictoris_b.jpg
+Proxima_Centauri_b.jpg
+Gliese_581_b.jpg
+HD_17156_b.jpg
+Gliese_876_b.jpg
+55_Cancri_e.jpg
+51_Pegasi_b.jpg
+Ross_128_b.jpg
+Gliese_849_b.jpg
+23_Librae_b.jpg
+HD_189733_b.jpg
+OGLE-2013-BLG-0341LB_b.jpg
+Gliese_176_b.jpg
+LkCa_15_b.jpg
+Kepler-1647_b.jpg
+XO-2b.jpg
+Iota_Horologii_b.jpg
+Gliese_357_b.jpg
+55_Cancri_f.jpg
+KOI-172.02.jpg
+HD_40307_e.jpg
+Gliese_86_b.jpg
+Kepler-11b.jpg
+Wolf_1061b.jpg
+61_Virginis_b.jpg
+CoRoT-9b.jpg
+Gliese_3021_b.jpg
+14_Herculis_c.jpg
+HD_222582_b.jpg
+K2-18_b.jpg
+TRAPPIST-1_e.jpg
+LHS_1140_b.jpg
 14_Herculis_b.jpg
-images/Exoplanet/14_Herculis_b.jpg
+Isagel.jpg
+61_Virginis_c.jpg
+TrES-2b.jpg
+WASP-121_b.jpg
+Kepler-11c.jpg
+HR_8799_e.jpg
+K2-288Bb.jpg
+Kepler-26e.jpg
+Gliese_1214_b.jpg
+Mu_Arae_b.jpg
+WASP-44b.jpg
+HD_4308_b.jpg
+BD+14°4559_b.jpg
+Kepler-1625b.jpg
+Gliese_667_Cb.jpg
+OGLE-2005-BLG-390Lb.jpg
+TOI_1338_b.jpg
+KIC_10905746_b.jpg
+Kepler-51d.jpg
+Kepler-443b.jpg
+HAT-P-39b.jpg
+Wolf_1061d.jpg
+Kepler-11d.jpg
+61_Virginis_d.jpg
+OGLE-2007-BLG-349(AB)b.jpg
+Kepler-11e.jpg
+Epsilon_Tauri_b.jpg
+OGLE2-TR-L9b.jpg
+HD_125612_b.jpg
+Tau_Ceti_e.jpg
+AB_Pictoris_b.jpg
+Kepler-10c.jpg
+KELT-3_b.jpg
+WASP-8b.jpg
+Kepler-47c.jpg
+Kepler-452_b.jpg
+Gliese_832_c.jpg
+HD_37124_b.jpg
+HD_76700_b.jpg
+WD_1145+017_b.jpg
+Gliese_667_Cd.jpg
+Kepler-10b.jpg
+Qatar-3_b.jpg
+HD_154345_b.jpg
+83_Leonis_Bb.jpg
+HD_171028_b.jpg
+HD_205739_b.jpg
+18_Delphini_b.jpg
+109_Piscium_b.jpg
+HD_164509_b.jpg
+HD_147018_c.jpg
+BD+20_2457_b.jpg
+TOI-1231b.jpg
+HD_108147_b.jpg
+CoRoT-7c.jpg
+Gliese_1061_c.jpg
+HIP_11915_b.jpg
+TrES-4.jpg
+CoRoT-7b.jpg
+79_Ceti_b.jpg
+BD+20_2457_c.jpg
+HD_45364_c.jpg
+91_Aquarii_b.jpg
+Gliese_777_Ab.jpg
+TOI_700_d.jpg
+HATS-14b.jpg
+Gliese_777_Ac.jpg
+TOI_700_e.jpg
+HD_45364_b.jpg
+HIP_78530_b.jpg
+Nachtwacht.jpg
+HD_12661_c.jpg
+Kepler-174b.jpg
+HD_85512_b.jpg
+Qatar-4b.jpg
+Kepler-288b.jpg
+MOA-2011-BLG-322LB.jpg
+Kepler-174c.jpg
+HD_12661_b.jpg
+Kepler-174_d.jpg
+Upsilon_Andromedae_c.jpg
+Gamma_Cephei_Ab.jpg
+Gliese_433_b.jpg
+Gliese_163_c.jpg
+PDS_70b.jpg
+Kepler-19c.jpg
+HD_187123_b.jpg
+Riosar.jpg
+NGTS-1b.jpg
+2M1207_b.jpg
+HD_187123_c.jpg
+HD_10180_f.jpg
+XO-1b.jpg
+Iota_Draconis_b.jpg
+TRAPPIST-1c.jpg
+HD_13189_b.jpg
+Wolf_1061_c.jpg
+16_Cygni_Bb.jpg
+Kepler-42b.jpg
+HD_4113_Ab.jpg
+TRAPPIST-1b.jpg
+47_Ursae_Majoris_d.jpg
+TOI_421b.jpg
+HAT-P-4b.jpg
+MOA-2007-BLG-400Lb.jpg
+HD_69830_c.jpg
+HD_219134b.jpg
+TRAPPIST-1f.jpg
+K2-141_b.jpg
+TRAPPIST-1g.jpg
+Kepler-62e.jpg
+Kepler-442_b.jpg
+Upsilon_Andromedae_d.jpg
+HD_28185_b.jpg
+MOA-2007-BLG-192Lb.jpg
+HD_147513_b.jpg
+Kepler-186f.jpg
+Kepler-62f.jpg
+47_Ursae_Majoris_b.jpg
+TRAPPIST-1d.jpg
+torracat.jpg
+incineroar.jpg
+toucannon.jpg
+Ducati_Mach_1.jpg
+Montesa_Cota_172.jpg
+Bultaco_Junior.jpg
+Jawa_90.jpg
+Bultaco_Streaker.jpg
+Montesa_Impala.jpg
+Ogar_4.jpg
+Ducati_24_Horas.jpg
+BMW_R100.jpg
+Montesa_Impala_Cross.jpg
+Benelli_Leoncino.jpg
+Bimota_KB1.jpg
+Yamaha_YZF-R7.jpg
+BMW_C600_Sport_and_C650GT.jpg
+Benelli_900_Sei.jpg
+Harley-Davidson_XR-750.jpg
+Montesa_Cota_349.jpg
+Montesa_Cota_4RT.jpg
+Bimota_HDB.jpg
+Montesa_Cota_74.jpg
+Montesa_Cota_49.jpg
+Montesa_Cota_200.jpg
+Suzuki_Gixxer.jpg
+Montesa_Cota_348.jpg
+Kawasaki_H2R.jpg
+Ducati_Desmosedici_RR.jpg
+Ducati_Monster_1200.jpg
+Montesa_Cappra.jpg
+Bimota_SB2.jpg
+Yamaha_YZF-R7_(2022).jpg
+Montesa_150.jpg
+Aprilia_RXV_SXV.jpg
+Montesa_D-51.jpg
+Montesa_250cc_Twin.jpg
+Q1971602.jpg
+Royal_Enfield_Continental_GT_twin.jpg
+Benelli_TRK.jpg
+Moto_Guzzi_NTX.jpg
+Montesa_Cota_315R.jpg
+Bultaco_Sherpa_T.jpg
+Brough_Superior_SS100.jpg
+Ducati_Desmosedici_GP16.jpg
+Kawasaki_VN_1500.jpg
+Daelim_VS_125.jpg
+Ducati_Sebring.jpg
+Piaggio_Liberty.jpg
+Kawasaki_Ninja_H2.jpg
+Honda_SH50.jpg
+KTM_LC4_660R.jpg
+Ducati_Vento.jpg
+Ducati_Deluxe.jpg
+MZ_ETS_175_250.jpg
+Kawasaki_Z300.jpg
+Bultaco_Sherpa_S.jpg
+Montesa_Texas.jpg
+Aprilia_SRV_850.jpg
+Montesa_Crono.jpg
+Montesa_Cota_300RR.jpg
+Q109319608.jpg
+Montesa_Cota_247.jpg
+Montesa_King_Scorpion.jpg
+Royal_Enfield_Interceptor_650.jpg
+Bultaco_Astro.jpg
+Bultaco_Tirón.jpg
+Bultaco_Frontera.jpg
+Aprilia_RX.jpg
+Italjet_Velocifero.jpg
+Bimota_YB3.jpg
+Aprilia_RX_50.jpg
+Q15825395.jpg
+Montesa_Cota_25.jpg
+Montesa_LA_Cross_66.jpg
+KTM_RC16.jpg
+ELF_500_ROC.jpg
+Montesa_Cota_330.jpg
+Ducati_250_Scrambler.jpg
+Kawasaki_Tomcat_ZX-10.jpg
+BMW_R28.jpg
+Bultaco_Alpina.jpg
+Kawasaki_VN_800.jpg
+Gilera_Eaglet.jpg
+Ducati_DesertX.jpg
+Bultaco_Tralla.jpg
+Ducati_450_R_T.jpg
+Bultaco_Matador.jpg
+Ducati_750_Sport.jpg
+BMW_K_100_RT.jpg
+Montesa_Cota_123.jpg
+Q60982434.jpg
+Silver_Bird.jpg
+Montesa_250_Trial.jpg
+Montesa_Brio.jpg
+Bultaco_Gaviota.jpg
+Kawasaki_VN_800_Drifter.jpg
+BSA_B31.jpg
+BSA_B25.jpg
+Bimota_YB4.jpg
+Montesa_Impala_Kenya.jpg
+Montesa_A-45.jpg
+Benelli_BN_125.jpg
+Ducati_450_Scrambler.jpg
+Trojan_Trobike.jpg
+BMW_F_850_GS.jpg
+Bultaco_El_Montadero.jpg
+Ducati_PaulSmart1000LE.jpg
+Bultaco_Mercurio.jpg
+Bultaco_Lobito.jpg
+Bultaco_200.jpg
+Aprilia_RXV_450.jpg
+Ducati_MH900e.jpg
+Bultaco_360_24_Hores.jpg
+Q17189754.jpg
+Bultaco_Saturno.jpg
+Ariel_Ace.jpg
+Q24939994.jpg
+BMW_F900R.jpg
+MZ_ETS_125_150.jpg
+BMW_G310R.jpg
+Ducati_ST3.jpg
+Montesa_Ciclo.jpg
+Q106286293.jpg
+GasGas_TXT.jpg
+Montesa_B-46_49.jpg
+Bultaco_TSS.jpg
+Buell_1125R.jpg
+Montesa_Rapita.jpg
+Malaguti_Fifty.jpg
+Ducati_350_Scrambler.jpg
+Montesa_Sprint.jpg
+Aprilia_Tuono_1000R.jpg
+Eunos_500.jpg
+Pontiac_Six.jpg
+Singer_Vogue.jpg
+BMW_M635CSi.jpg
+Dino_206_S.jpg
+Chevrolet_Sonic.jpg
+Buick_GL8.jpg
+Pagani_Huayra.jpg
+Tesla_Model_S.jpg
+Buick_LaCrosse.jpg
+Q11316934.jpg
+HiPhi_Z.jpg
+Porsche_Type_12.jpg
+Chevrolet_Nova_(1984).jpg
+BMW_HH.jpg
+Buick_Excelle.jpg
+Ferrari_250_GT_Boano_Ellena.jpg
+Ford_Explorer.jpg
+Geely_Jiangang.jpg
+Ford_Indigo.jpg
+Mercedes_Grand-Prix.jpg
+Pontiac_Bonneville.jpg
+DS_Wild_Rubis.jpg
+Subaru_B5_TPH.jpg
+Bugatti_La_Voiture_Noire.jpg
+Talbot_T150C.jpg
+Cadillac_Sixty_Special.jpg
+Mercedes-Benz_SS.jpg
+BMW_G42.jpg
+Fiat_Ducato.jpg
+Infiniti_G_Coupé.jpg
+Buick_Avista.jpg
+Buick_Verano.jpg
+Ferrari_250_GT_Coupé_Pinin_Farina.jpg
+BMW_Mille_Miglia.jpg
+Buick_Regal.jpg
+Fiat_Centoventi.jpg
+Buick_Velite_6.jpg
+[{&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;55_Cancri_b.jpg&#39;, &#39;width&#39;: 1024, &#39;height&#39;: 768, &#39;format&#39;: &#39;PNG&#39;, &#39;orientation&#39;: &#39;no exif&#39;, &#39;kmeans&#39;: {&#39;numbers&#39;: [11552, 8861, 4662, 3416, 2721], &#39;colors&#39;: [&#39;#0b1443&#39;, &#39;#030305&#39;, &#39;#121d5b&#39;, &#39;#070b24&#39;, &#39;#010101&#39;]}, &#39;diagram&#39;: {&#39;red&#39;: [185917, 64137, 77972, 98775, 134976, 133433, 97798, 88866, 99499, 86791, 93429, 125370, 143397, 119714, 93507, 118675, 156700, 171818, 145261, 121475, 130494, 155757, 139709, 122457, 100407, 85065, 93007, 103234, 76943, 67056, 62337, 50277, 42024, 33693, 31057, 30540, 28750, 31151, 31665, 30593, 25363, 24447, 25664, 25623, 23405, 21874, 22350, 22725, 20634, 18354, 15473, 14581, 14282, 14351, 13147, 12655, 13639, 14407, 14483, 15085, 15519, 14827, 13800, 13720, 12240, 11560, 11530, 9792, 9362, 9674, 9477, 8985, 8755, 8447, 8787, 7869, 7560, 7857, 8521, 8345, 8487, 9387, 9833, 9622, 9852, 9446, 8727, 8424, 8355, 8092, 8132, 8226, 8038, 7866, 7654, 6877, 7245, 7771, 8431, 8402, 8403, 7768, 7147, 6970, 7555, 8183, 8414, 8545, 8108, 8251, 8537, 8918, 9471, 10031, 10193, 10334, 10527, 10818, 11134, 11810, 12512, 13729, 14468, 14760, 14876, 15200, 14875, 14543, 13402, 13055, 12695, 12426, 12568, 12524, 13080, 14045, 13040, 14005, 13957, 14549, 14979, 13299, 11738, 11490, 10464, 10515, 10614, 11447, 11390, 12032, 12487, 12342, 12062, 11468, 11179, 10949, 11232, 11191, 10991, 11352, 10614, 10274, 10925, 11770, 12512, 12761, 12215, 11570, 11087, 10598, 9675, 9131, 9398, 10834, 10484, 10174, 10667, 9463, 6622, 5846, 5116, 5157, 4986, 4794, 4172, 3669, 2801, 2247, 2385, 2652, 2236, 1481, 966, 917, 780, 819, 813, 787, 740, 751, 746, 749, 699, 685, 601, 620, 583, 550, 532, 551, 463, 468, 445, 393, 393, 384, 384, 364, 356, 284, 344, 309, 302, 271, 278, 286, 266, 234, 244, 204, 203, 188, 154, 179, 160, 173, 146, 137, 149, 144, 152, 138, 150, 128, 121, 126, 119, 135, 159, 170, 208, 253, 310, 364, 437], &#39;green&#39;: [181329, 50550, 54365, 67003, 76586, 74427, 62042, 62423, 106129, 132422, 123572, 111824, 91481, 83262, 81476, 101980, 129622, 155109, 149965, 114115, 127249, 146456, 158497, 153368, 128632, 103290, 97934, 95476, 89801, 84846, 86536, 83772, 61784, 46265, 54011, 53558, 59329, 58766, 49928, 66162, 62750, 40490, 31994, 30125, 32224, 25804, 22772, 22126, 23858, 22435, 21855, 20016, 22087, 18383, 15874, 15522, 14560, 13796, 14509, 13151, 13097, 13725, 13722, 12875, 13196, 13709, 13573, 13091, 12113, 11784, 11832, 10925, 10130, 9951, 9530, 9126, 9119, 9215, 9494, 9813, 10457, 10196, 10093, 10103, 9976, 9518, 9558, 9691, 9914, 9189, 9294, 9941, 10527, 11385, 11126, 11303, 11524, 12190, 11531, 11709, 13304, 13985, 14519, 14713, 14557, 14355, 14291, 14213, 13592, 14210, 15180, 15451, 14585, 14043, 14309, 14219, 13001, 11887, 11100, 10678, 10770, 9739, 9295, 9770, 10668, 10643, 10950, 10478, 11240, 11889, 11689, 11341, 10497, 10232, 10341, 10602, 10689, 10943, 11595, 11530, 11897, 11592, 11017, 10687, 11121, 11646, 12531, 13028, 12005, 11048, 10831, 10917, 10851, 9749, 9112, 7961, 8368, 8966, 8687, 8782, 6929, 5214, 5279, 5302, 4634, 3928, 3809, 3116, 3292, 3308, 3046, 2821, 2172, 2135, 2063, 1985, 1887, 1423, 1120, 1267, 960, 591, 305, 213, 146, 146, 143, 154, 144, 135, 129, 117, 118, 131, 154, 127, 135, 129, 126, 120, 124, 127, 121, 105, 114, 110, 94, 106, 101, 108, 103, 100, 99, 87, 78, 99, 74, 89, 74, 83, 69, 67, 73, 85, 67, 73, 71, 56, 77, 73, 65, 68, 53, 57, 58, 67, 66, 41, 48, 54, 42, 47, 41, 43, 45, 44, 40, 35, 31, 41, 54, 52, 67, 78, 106], &#39;blue&#39;: [159699, 24547, 31158, 39045, 61168, 71148, 80311, 62722, 68604, 92831, 89064, 117347, 137201, 116864, 105521, 126272, 142933, 143720, 117631, 101902, 113330, 130043, 136426, 137168, 138358, 108707, 92752, 89376, 92224, 95925, 98330, 97166, 87417, 66446, 56403, 56711, 61968, 62037, 66392, 68486, 59139, 50180, 44558, 41331, 48045, 44185, 44717, 42890, 34711, 26980, 22806, 40193, 43140, 29566, 17441, 16334, 20410, 22217, 26398, 17185, 13985, 13973, 15400, 14527, 13933, 15295, 16147, 16763, 15489, 13361, 13129, 15214, 13438, 13023, 13817, 13344, 12282, 12643, 13555, 12975, 12561, 13385, 13273, 14062, 14004, 14296, 14140, 14247, 13945, 13023, 14812, 12734, 11347, 10495, 10192, 10595, 10556, 10734, 10367, 10412, 10323, 10144, 10510, 10920, 11717, 11743, 10722, 9282, 9180, 9475, 9564, 9280, 9569, 9608, 9469, 9007, 9132, 9386, 9603, 9532, 9472, 9682, 10372, 10135, 10840, 10702, 10714, 10968, 10642, 11062, 10465, 11013, 10688, 9957, 9682, 9667, 10208, 10230, 9109, 8961, 8181, 8332, 7806, 7590, 7448, 7352, 6207, 6330, 5727, 5490, 5165, 4199, 4107, 4019, 4134, 4644, 4558, 4251, 3741, 3034, 2732, 2423, 2002, 1687, 1699, 1971, 1858, 1634, 1640, 1448, 1359, 1220, 1375, 1512, 901, 565, 487, 723, 565, 401, 118, 55, 38, 38, 40, 39, 38, 43, 31, 43, 32, 35, 45, 33, 27, 33, 24, 34, 44, 26, 24, 25, 17, 29, 23, 29, 21, 15, 15, 17, 14, 16, 15, 11, 19, 15, 10, 15, 11, 11, 16, 13, 13, 14, 9, 9, 19, 4, 7, 14, 8, 8, 7, 4, 9, 2, 10, 8, 13, 7, 7, 6, 6, 5, 8, 6, 5, 7, 6, 8, 6, 5, 5, 9, 6]}}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;Gliese_876_e.jpg&#39;, &#39;width&#39;: 1587, &#39;height&#39;: 919, &#39;format&#39;: &#39;PNG&#39;, &#39;orientation&#39;: &#39;no exif&#39;, &#39;kmeans&#39;: {&#39;numbers&#39;: [27238, 10051, 8873, 8448, 3401], &#39;colors&#39;: [&#39;#505c71&#39;, &#39;#181c25&#39;, &#39;#34597f&#39;, &#39;#030303&#39;, &#39;#29384e&#39;]}, &#39;diagram&#39;: {&#39;red&#39;: [185917, 64137, 77972, 98775, 134976, 133433, 97798, 88866, 99499, 86791, 93429, 125370, 143397, 119714, 93507, 118675, 156700, 171818, 145261, 121475, 130494, 155757, 139709, 122457, 100407, 85065, 93007, 103234, 76943, 67056, 62337, 50277, 42024, 33693, 31057, 30540, 28750, 31151, 31665, 30593, 25363, 24447, 25664, 25623, 23405, 21874, 22350, 22725, 20634, 18354, 15473, 14581, 14282, 14351, 13147, 12655, 13639, 14407, 14483, 15085, 15519, 14827, 13800, 13720, 12240, 11560, 11530, 9792, 9362, 9674, 9477, 8985, 8755, 8447, 8787, 7869, 7560, 7857, 8521, 8345, 8487, 9387, 9833, 9622, 9852, 9446, 8727, 8424, 8355, 8092, 8132, 8226, 8038, 7866, 7654, 6877, 7245, 7771, 8431, 8402, 8403, 7768, 7147, 6970, 7555, 8183, 8414, 8545, 8108, 8251, 8537, 8918, 9471, 10031, 10193, 10334, 10527, 10818, 11134, 11810, 12512, 13729, 14468, 14760, 14876, 15200, 14875, 14543, 13402, 13055, 12695, 12426, 12568, 12524, 13080, 14045, 13040, 14005, 13957, 14549, 14979, 13299, 11738, 11490, 10464, 10515, 10614, 11447, 11390, 12032, 12487, 12342, 12062, 11468, 11179, 10949, 11232, 11191, 10991, 11352, 10614, 10274, 10925, 11770, 12512, 12761, 12215, 11570, 11087, 10598, 9675, 9131, 9398, 10834, 10484, 10174, 10667, 9463, 6622, 5846, 5116, 5157, 4986, 4794, 4172, 3669, 2801, 2247, 2385, 2652, 2236, 1481, 966, 917, 780, 819, 813, 787, 740, 751, 746, 749, 699, 685, 601, 620, 583, 550, 532, 551, 463, 468, 445, 393, 393, 384, 384, 364, 356, 284, 344, 309, 302, 271, 278, 286, 266, 234, 244, 204, 203, 188, 154, 179, 160, 173, 146, 137, 149, 144, 152, 138, 150, 128, 121, 126, 119, 135, 159, 170, 208, 253, 310, 364, 437], &#39;green&#39;: [181329, 50550, 54365, 67003, 76586, 74427, 62042, 62423, 106129, 132422, 123572, 111824, 91481, 83262, 81476, 101980, 129622, 155109, 149965, 114115, 127249, 146456, 158497, 153368, 128632, 103290, 97934, 95476, 89801, 84846, 86536, 83772, 61784, 46265, 54011, 53558, 59329, 58766, 49928, 66162, 62750, 40490, 31994, 30125, 32224, 25804, 22772, 22126, 23858, 22435, 21855, 20016, 22087, 18383, 15874, 15522, 14560, 13796, 14509, 13151, 13097, 13725, 13722, 12875, 13196, 13709, 13573, 13091, 12113, 11784, 11832, 10925, 10130, 9951, 9530, 9126, 9119, 9215, 9494, 9813, 10457, 10196, 10093, 10103, 9976, 9518, 9558, 9691, 9914, 9189, 9294, 9941, 10527, 11385, 11126, 11303, 11524, 12190, 11531, 11709, 13304, 13985, 14519, 14713, 14557, 14355, 14291, 14213, 13592, 14210, 15180, 15451, 14585, 14043, 14309, 14219, 13001, 11887, 11100, 10678, 10770, 9739, 9295, 9770, 10668, 10643, 10950, 10478, 11240, 11889, 11689, 11341, 10497, 10232, 10341, 10602, 10689, 10943, 11595, 11530, 11897, 11592, 11017, 10687, 11121, 11646, 12531, 13028, 12005, 11048, 10831, 10917, 10851, 9749, 9112, 7961, 8368, 8966, 8687, 8782, 6929, 5214, 5279, 5302, 4634, 3928, 3809, 3116, 3292, 3308, 3046, 2821, 2172, 2135, 2063, 1985, 1887, 1423, 1120, 1267, 960, 591, 305, 213, 146, 146, 143, 154, 144, 135, 129, 117, 118, 131, 154, 127, 135, 129, 126, 120, 124, 127, 121, 105, 114, 110, 94, 106, 101, 108, 103, 100, 99, 87, 78, 99, 74, 89, 74, 83, 69, 67, 73, 85, 67, 73, 71, 56, 77, 73, 65, 68, 53, 57, 58, 67, 66, 41, 48, 54, 42, 47, 41, 43, 45, 44, 40, 35, 31, 41, 54, 52, 67, 78, 106], &#39;blue&#39;: [159699, 24547, 31158, 39045, 61168, 71148, 80311, 62722, 68604, 92831, 89064, 117347, 137201, 116864, 105521, 126272, 142933, 143720, 117631, 101902, 113330, 130043, 136426, 137168, 138358, 108707, 92752, 89376, 92224, 95925, 98330, 97166, 87417, 66446, 56403, 56711, 61968, 62037, 66392, 68486, 59139, 50180, 44558, 41331, 48045, 44185, 44717, 42890, 34711, 26980, 22806, 40193, 43140, 29566, 17441, 16334, 20410, 22217, 26398, 17185, 13985, 13973, 15400, 14527, 13933, 15295, 16147, 16763, 15489, 13361, 13129, 15214, 13438, 13023, 13817, 13344, 12282, 12643, 13555, 12975, 12561, 13385, 13273, 14062, 14004, 14296, 14140, 14247, 13945, 13023, 14812, 12734, 11347, 10495, 10192, 10595, 10556, 10734, 10367, 10412, 10323, 10144, 10510, 10920, 11717, 11743, 10722, 9282, 9180, 9475, 9564, 9280, 9569, 9608, 9469, 9007, 9132, 9386, 9603, 9532, 9472, 9682, 10372, 10135, 10840, 10702, 10714, 10968, 10642, 11062, 10465, 11013, 10688, 9957, 9682, 9667, 10208, 10230, 9109, 8961, 8181, 8332, 7806, 7590, 7448, 7352, 6207, 6330, 5727, 5490, 5165, 4199, 4107, 4019, 4134, 4644, 4558, 4251, 3741, 3034, 2732, 2423, 2002, 1687, 1699, 1971, 1858, 1634, 1640, 1448, 1359, 1220, 1375, 1512, 901, 565, 487, 723, 565, 401, 118, 55, 38, 38, 40, 39, 38, 43, 31, 43, 32, 35, 45, 33, 27, 33, 24, 34, 44, 26, 24, 25, 17, 29, 23, 29, 21, 15, 15, 17, 14, 16, 15, 11, 19, 15, 10, 15, 11, 11, 16, 13, 13, 14, 9, 9, 19, 4, 7, 14, 8, 8, 7, 4, 9, 2, 10, 8, 13, 7, 7, 6, 6, 5, 8, 6, 5, 7, 6, 8, 6, 5, 5, 9, 6]}}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;XO-3b.jpg&#39;, &#39;width&#39;: 800, &#39;height&#39;: 500, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: &#39;no exif&#39;, &#39;kmeans&#39;: {&#39;numbers&#39;: [10763, 2496, 1782, 568, 391], &#39;colors&#39;: [&#39;#040101&#39;, &#39;#822014&#39;, &#39;#927969&#39;, &#39;#e0b89e&#39;, &#39;#d6350b&#39;]}, &#39;diagram&#39;: {&#39;red&#39;: [185917, 64137, 77972, 98775, 134976, 133433, 97798, 88866, 99499, 86791, 93429, 125370, 143397, 119714, 93507, 118675, 156700, 171818, 145261, 121475, 130494, 155757, 139709, 122457, 100407, 85065, 93007, 103234, 76943, 67056, 62337, 50277, 42024, 33693, 31057, 30540, 28750, 31151, 31665, 30593, 25363, 24447, 25664, 25623, 23405, 21874, 22350, 22725, 20634, 18354, 15473, 14581, 14282, 14351, 13147, 12655, 13639, 14407, 14483, 15085, 15519, 14827, 13800, 13720, 12240, 11560, 11530, 9792, 9362, 9674, 9477, 8985, 8755, 8447, 8787, 7869, 7560, 7857, 8521, 8345, 8487, 9387, 9833, 9622, 9852, 9446, 8727, 8424, 8355, 8092, 8132, 8226, 8038, 7866, 7654, 6877, 7245, 7771, 8431, 8402, 8403, 7768, 7147, 6970, 7555, 8183, 8414, 8545, 8108, 8251, 8537, 8918, 9471, 10031, 10193, 10334, 10527, 10818, 11134, 11810, 12512, 13729, 14468, 14760, 14876, 15200, 14875, 14543, 13402, 13055, 12695, 12426, 12568, 12524, 13080, 14045, 13040, 14005, 13957, 14549, 14979, 13299, 11738, 11490, 10464, 10515, 10614, 11447, 11390, 12032, 12487, 12342, 12062, 11468, 11179, 10949, 11232, 11191, 10991, 11352, 10614, 10274, 10925, 11770, 12512, 12761, 12215, 11570, 11087, 10598, 9675, 9131, 9398, 10834, 10484, 10174, 10667, 9463, 6622, 5846, 5116, 5157, 4986, 4794, 4172, 3669, 2801, 2247, 2385, 2652, 2236, 1481, 966, 917, 780, 819, 813, 787, 740, 751, 746, 749, 699, 685, 601, 620, 583, 550, 532, 551, 463, 468, 445, 393, 393, 384, 384, 364, 356, 284, 344, 309, 302, 271, 278, 286, 266, 234, 244, 204, 203, 188, 154, 179, 160, 173, 146, 137, 149, 144, 152, 138, 150, 128, 121, 126, 119, 135, 159, 170, 208, 253, 310, 364, 437], &#39;green&#39;: [181329, 50550, 54365, 67003, 76586, 74427, 62042, 62423, 106129, 132422, 123572, 111824, 91481, 83262, 81476, 101980, 129622, 155109, 149965, 114115, 127249, 146456, 158497, 153368, 128632, 103290, 97934, 95476, 89801, 84846, 86536, 83772, 61784, 46265, 54011, 53558, 59329, 58766, 49928, 66162, 62750, 40490, 31994, 30125, 32224, 25804, 22772, 22126, 23858, 22435, 21855, 20016, 22087, 18383, 15874, 15522, 14560, 13796, 14509, 13151, 13097, 13725, 13722, 12875, 13196, 13709, 13573, 13091, 12113, 11784, 11832, 10925, 10130, 9951, 9530, 9126, 9119, 9215, 9494, 9813, 10457, 10196, 10093, 10103, 9976, 9518, 9558, 9691, 9914, 9189, 9294, 9941, 10527, 11385, 11126, 11303, 11524, 12190, 11531, 11709, 13304, 13985, 14519, 14713, 14557, 14355, 14291, 14213, 13592, 14210, 15180, 15451, 14585, 14043, 14309, 14219, 13001, 11887, 11100, 10678, 10770, 9739, 9295, 9770, 10668, 10643, 10950, 10478, 11240, 11889, 11689, 11341, 10497, 10232, 10341, 10602, 10689, 10943, 11595, 11530, 11897, 11592, 11017, 10687, 11121, 11646, 12531, 13028, 12005, 11048, 10831, 10917, 10851, 9749, 9112, 7961, 8368, 8966, 8687, 8782, 6929, 5214, 5279, 5302, 4634, 3928, 3809, 3116, 3292, 3308, 3046, 2821, 2172, 2135, 2063, 1985, 1887, 1423, 1120, 1267, 960, 591, 305, 213, 146, 146, 143, 154, 144, 135, 129, 117, 118, 131, 154, 127, 135, 129, 126, 120, 124, 127, 121, 105, 114, 110, 94, 106, 101, 108, 103, 100, 99, 87, 78, 99, 74, 89, 74, 83, 69, 67, 73, 85, 67, 73, 71, 56, 77, 73, 65, 68, 53, 57, 58, 67, 66, 41, 48, 54, 42, 47, 41, 43, 45, 44, 40, 35, 31, 41, 54, 52, 67, 78, 106], &#39;blue&#39;: [159699, 24547, 31158, 39045, 61168, 71148, 80311, 62722, 68604, 92831, 89064, 117347, 137201, 116864, 105521, 126272, 142933, 143720, 117631, 101902, 113330, 130043, 136426, 137168, 138358, 108707, 92752, 89376, 92224, 95925, 98330, 97166, 87417, 66446, 56403, 56711, 61968, 62037, 66392, 68486, 59139, 50180, 44558, 41331, 48045, 44185, 44717, 42890, 34711, 26980, 22806, 40193, 43140, 29566, 17441, 16334, 20410, 22217, 26398, 17185, 13985, 13973, 15400, 14527, 13933, 15295, 16147, 16763, 15489, 13361, 13129, 15214, 13438, 13023, 13817, 13344, 12282, 12643, 13555, 12975, 12561, 13385, 13273, 14062, 14004, 14296, 14140, 14247, 13945, 13023, 14812, 12734, 11347, 10495, 10192, 10595, 10556, 10734, 10367, 10412, 10323, 10144, 10510, 10920, 11717, 11743, 10722, 9282, 9180, 9475, 9564, 9280, 9569, 9608, 9469, 9007, 9132, 9386, 9603, 9532, 9472, 9682, 10372, 10135, 10840, 10702, 10714, 10968, 10642, 11062, 10465, 11013, 10688, 9957, 9682, 9667, 10208, 10230, 9109, 8961, 8181, 8332, 7806, 7590, 7448, 7352, 6207, 6330, 5727, 5490, 5165, 4199, 4107, 4019, 4134, 4644, 4558, 4251, 3741, 3034, 2732, 2423, 2002, 1687, 1699, 1971, 1858, 1634, 1640, 1448, 1359, 1220, 1375, 1512, 901, 565, 487, 723, 565, 401, 118, 55, 38, 38, 40, 39, 38, 43, 31, 43, 32, 35, 45, 33, 27, 33, 24, 34, 44, 26, 24, 25, 17, 29, 23, 29, 21, 15, 15, 17, 14, 16, 15, 11, 19, 15, 10, 15, 11, 11, 16, 13, 13, 14, 9, 9, 19, 4, 7, 14, 8, 8, 7, 4, 9, 2, 10, 8, 13, 7, 7, 6, 6, 5, 8, 6, 5, 7, 6, 8, 6, 5, 5, 9, 6]}}]
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">UnidentifiedImageError</span><span class="g g-Whitespace">                    </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">img_path</span> <span class="o">=</span>  <span class="nb">dir</span> <span class="o">+</span> <span class="n">theme</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="o">+</span> <span class="n">image</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="nb">print</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">17</span> <span class="k">with</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">img</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="nb">format</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">format</span>
+</div>
+</div>
+</section>
+<section id="writing-exif-data-into-json-file-images-exifdata-json">
+<h2>Writing exif data into json file : ./images/ExifData.json<a class="headerlink" href="#writing-exif-data-into-json-file-images-exifdata-json" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">numpyencoder</span> <span class="kn">import</span> <span class="n">NumpyEncoder</span>
 
-<span class="nn">File c:\Users\pltel\AppData\Local\Programs\Python\Python310\lib\site-packages\PIL\Image.py:3283,</span> in <span class="ni">open</span><span class="nt">(fp, mode, formats)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3281</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3282</span> <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;cannot identify image file </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">filename</span> <span class="k">if</span> <span class="n">filename</span> <span class="k">else</span> <span class="n">fp</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3283</span> <span class="k">raise</span> <span class="n">UnidentifiedImageError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-
-<span class="ne">UnidentifiedImageError</span>: cannot identify image file &#39;images/Exoplanet/14_Herculis_b.jpg&#39;
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./images/ExifData2.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">NumpyEncoder</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -747,7 +1998,27 @@ images/Exoplanet/14_Herculis_b.jpg
     <i class="fa-solid fa-list"></i> On this page
 </div>
 <nav id="bd-toc-nav" class="page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-proiminant-colors-from-images">
+   Get proiminant colors from images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-histogram-from-images">
+   Getting histogram from images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-diagram-and-kmeans-to-exif-data">
+   Adding diagram and Kmeans to exif data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-exif-data-into-json-file-images-exifdata-json">
+   Writing exif data into json file : ./images/ExifData.json
+  </a>
+ </li>
 </ul>
 
 </nav>
