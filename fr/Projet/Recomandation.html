@@ -653,6 +653,21 @@ title="Print to PDF"
    Labelisation des données
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utilisation-d-un-arbre-de-decision">
+   Utilisation d’un arbre de décision
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#on-affiche-l-arbre-de-decision">
+   On affiche l’arbre de decision
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediction">
+   Prediction
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -673,6 +688,7 @@ title="Print to PDF"
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">import</span> <span class="nn">random</span>
 
 <span class="c1"># Load the data</span>
 <span class="n">dir1</span> <span class="o">=</span> <span class="s2">&quot;images&quot;</span>
@@ -680,6 +696,57 @@ title="Print to PDF"
 <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir1</span><span class="p">,</span> <span class="n">dir2</span><span class="p">)</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">([</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;No&quot;</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       theme              image  width  height format orientation  color_0  \
+0  Exoplanet  109_Piscium_b.jpg    411     367   JPEG     no exif  #010101   
+1  Exoplanet  14_Herculis_b.jpg    479     441   JPEG           1  #010101   
+2  Exoplanet  14_Herculis_c.jpg    456     425   JPEG           1  #010101   
+3  Exoplanet    16_Cygni_Bb.jpg   1152     794   JPEG     no exif  #927c60   
+4  Exoplanet  18_Delphini_b.jpg    989     644    PNG     no exif  #020101   
+
+   color_1  color_2  color_3  color_4        red      green       blue result  
+0  #ada598  #7b726a  #45423f  #171616  23.787473  22.550236  20.864131    Yes  
+1  #827163  #b59e8a  #50463e  #191816  18.940267  16.545520  14.611776    Yes  
+2  #baa38f  #695c51  #937f6e  #3c3530  25.669345  22.394966  19.626594    Yes  
+3  #020101  #665342  #bdae99  #38281c  25.167594  20.532356  16.156877     No  
+4  #302953  #536694  #25223c  #3b3d6d  20.101739  18.960585  34.368523    Yes  
+        theme              image  width  height format orientation  color_0  \
+350  Voitures      Q11316934.jpg   1600    1200   JPEG           1  #cc4115   
+351  Voitures   Singer_Vogue.jpg   3045    2030   JPEG           1  #5a615e   
+352  Voitures  Subaru_B5_TPH.jpg   1024     728   JPEG           1  #353734   
+353  Voitures   Talbot_T150C.jpg   4752    3168   JPEG           1  #6e6e9c   
+354  Voitures  Tesla_Model_S.jpg   7786    4380   JPEG     no exif  #1e2821   
+
+     color_1  color_2  color_3  color_4         red       green        blue  \
+350  #b6ad9e  #241a17  #fbf6ef  #656565  153.596013  124.741484  112.323967   
+351  #f7fafb  #292c2a  #bbb8af  #95938c  132.583181  133.724953  128.027726   
+352  #8f9588  #dde4d3  #545a58  #1a161a   96.969706   99.511599   94.513674   
+353  #423a3d  #e9eae9  #abadb2  #151214  101.761639   99.669895  109.733356   
+354  #84835f  #4272b3  #b3b1af  #1d3964   92.919017  105.173350  110.489375   
+
+    result  
+350     No  
+351    Yes  
+352    Yes  
+353     No  
+354     No  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="labelisation-des-donnees">
+<h2>Labelisation des données<a class="headerlink" href="#labelisation-des-donnees" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># on enleve les colonnes inutiles</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;orientation&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -708,7 +775,6 @@ title="Print to PDF"
       <th>width</th>
       <th>height</th>
       <th>format</th>
-      <th>orientation</th>
       <th>color_0</th>
       <th>color_1</th>
       <th>color_2</th>
@@ -717,6 +783,7 @@ title="Print to PDF"
       <th>red</th>
       <th>green</th>
       <th>blue</th>
+      <th>result</th>
     </tr>
   </thead>
   <tbody>
@@ -727,7 +794,6 @@ title="Print to PDF"
       <td>411</td>
       <td>367</td>
       <td>JPEG</td>
-      <td>no exif</td>
       <td>#010101</td>
       <td>#ada598</td>
       <td>#7b726a</td>
@@ -736,6 +802,7 @@ title="Print to PDF"
       <td>23.787473</td>
       <td>22.550236</td>
       <td>20.864131</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <th>1</th>
@@ -744,7 +811,6 @@ title="Print to PDF"
       <td>479</td>
       <td>441</td>
       <td>JPEG</td>
-      <td>1</td>
       <td>#010101</td>
       <td>#827163</td>
       <td>#b59e8a</td>
@@ -753,6 +819,7 @@ title="Print to PDF"
       <td>18.940267</td>
       <td>16.545520</td>
       <td>14.611776</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <th>2</th>
@@ -761,7 +828,6 @@ title="Print to PDF"
       <td>456</td>
       <td>425</td>
       <td>JPEG</td>
-      <td>1</td>
       <td>#010101</td>
       <td>#baa38f</td>
       <td>#695c51</td>
@@ -770,6 +836,7 @@ title="Print to PDF"
       <td>25.669345</td>
       <td>22.394966</td>
       <td>19.626594</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <th>3</th>
@@ -778,7 +845,6 @@ title="Print to PDF"
       <td>1152</td>
       <td>794</td>
       <td>JPEG</td>
-      <td>no exif</td>
       <td>#927c60</td>
       <td>#020101</td>
       <td>#665342</td>
@@ -787,6 +853,7 @@ title="Print to PDF"
       <td>25.167594</td>
       <td>20.532356</td>
       <td>16.156877</td>
+      <td>No</td>
     </tr>
     <tr>
       <th>4</th>
@@ -795,7 +862,6 @@ title="Print to PDF"
       <td>989</td>
       <td>644</td>
       <td>PNG</td>
-      <td>no exif</td>
       <td>#020101</td>
       <td>#302953</td>
       <td>#536694</td>
@@ -804,32 +870,25 @@ title="Print to PDF"
       <td>20.101739</td>
       <td>18.960585</td>
       <td>34.368523</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="labelisation-des-donnees">
-<h2>Labelisation des données<a class="headerlink" href="#labelisation-des-donnees" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># label encoder</span>
-<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;orientation&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-
 <span class="n">themeLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;theme&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">themeLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;theme&#39;</span><span class="p">])</span>
+<span class="n">imageLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">imageLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">])</span>
 <span class="n">widthLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widthLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">])</span>
 <span class="n">heightLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">heightLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])</span>
 <span class="n">formatLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">formatLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">])</span>
-<span class="c1"># orientationLabel = LabelEncoder()</span>
-<span class="c1"># data[&#39;orientation&#39;] = orientationLabel.fit_transform(data[&#39;orientation&#39;])</span>
 <span class="n">color_0Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_0Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">])</span>
 <span class="n">color_1Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
@@ -846,8 +905,11 @@ title="Print to PDF"
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">greenLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">])</span>
 <span class="n">blueLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">blueLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">])</span>
+<span class="n">resultLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resultLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">])</span>
 
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -871,6 +933,7 @@ title="Print to PDF"
     <tr style="text-align: right;">
       <th></th>
       <th>theme</th>
+      <th>image</th>
       <th>width</th>
       <th>height</th>
       <th>format</th>
@@ -882,87 +945,181 @@ title="Print to PDF"
       <th>red</th>
       <th>green</th>
       <th>blue</th>
+      <th>result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>7</td>
-      <td>11</td>
-      <td>0</td>
-      <td>0</td>
-      <td>237</td>
-      <td>193</td>
-      <td>102</td>
-      <td>29</td>
-      <td>54</td>
-      <td>57</td>
-      <td>67</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0</td>
-      <td>12</td>
-      <td>23</td>
-      <td>0</td>
-      <td>0</td>
-      <td>170</td>
-      <td>264</td>
-      <td>120</td>
-      <td>35</td>
-      <td>42</td>
-      <td>38</td>
-      <td>38</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0</td>
-      <td>9</td>
-      <td>20</td>
-      <td>0</td>
-      <td>0</td>
-      <td>259</td>
-      <td>162</td>
-      <td>209</td>
-      <td>106</td>
-      <td>64</td>
-      <td>56</td>
-      <td>62</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0</td>
-      <td>61</td>
-      <td>77</td>
-      <td>0</td>
-      <td>218</td>
-      <td>2</td>
-      <td>156</td>
-      <td>272</td>
-      <td>97</td>
-      <td>59</td>
-      <td>51</td>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0</td>
-      <td>56</td>
-      <td>60</td>
-      <td>2</td>
+      <th>350</th>
       <td>3</td>
-      <td>70</td>
-      <td>131</td>
-      <td>54</td>
-      <td>103</td>
+      <td>302</td>
+      <td>81</td>
+      <td>108</td>
+      <td>0</td>
+      <td>264</td>
+      <td>248</td>
       <td>44</td>
-      <td>45</td>
-      <td>107</td>
+      <td>347</td>
+      <td>168</td>
+      <td>339</td>
+      <td>314</td>
+      <td>295</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>351</th>
+      <td>3</td>
+      <td>315</td>
+      <td>119</td>
+      <td>138</td>
+      <td>0</td>
+      <td>155</td>
+      <td>327</td>
+      <td>59</td>
+      <td>270</td>
+      <td>238</td>
+      <td>305</td>
+      <td>333</td>
+      <td>330</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>352</th>
+      <td>3</td>
+      <td>316</td>
+      <td>58</td>
+      <td>71</td>
+      <td>0</td>
+      <td>118</td>
+      <td>187</td>
+      <td>307</td>
+      <td>127</td>
+      <td>39</td>
+      <td>198</td>
+      <td>229</td>
+      <td>236</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>353</th>
+      <td>3</td>
+      <td>330</td>
+      <td>151</td>
+      <td>179</td>
+      <td>0</td>
+      <td>181</td>
+      <td>87</td>
+      <td>322</td>
+      <td>245</td>
+      <td>25</td>
+      <td>219</td>
+      <td>232</td>
+      <td>281</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>354</th>
+      <td>3</td>
+      <td>333</td>
+      <td>165</td>
+      <td>199</td>
+      <td>0</td>
+      <td>83</td>
+      <td>173</td>
+      <td>103</td>
+      <td>257</td>
+      <td>51</td>
+      <td>186</td>
+      <td>249</td>
+      <td>287</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
+</div>
+</section>
+<section id="utilisation-d-un-arbre-de-decision">
+<h2>Utilisation d’un arbre de décision<a class="headerlink" href="#utilisation-d-un-arbre-de-decision" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+
+<span class="n">dtc</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<span class="n">data_tc</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">0.7</span><span class="p">)]</span>
+<span class="n">data_result</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">0.7</span><span class="p">)]</span>
+<span class="n">dtc</span> <span class="o">=</span> <span class="n">dtc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_tc</span> <span class="p">,</span> <span class="n">data_result</span><span class="p">)</span>
+<span class="n">data_result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      1
+1      1
+2      1
+3      0
+4      1
+      ..
+243    0
+244    1
+245    1
+246    1
+247    0
+Name: result, Length: 248, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="on-affiche-l-arbre-de-decision">
+<h2>On affiche l’arbre de decision<a class="headerlink" href="#on-affiche-l-arbre-de-decision" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphviz</span>
+<span class="kn">import</span> <span class="nn">pydotplus</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+
+<span class="n">dot_data</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">export_graphviz</span><span class="p">(</span><span class="n">dtc</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">feature_names</span><span class="o">=</span><span class="n">data_tc</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+        <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">class_names</span> <span class="o">=</span>
+        <span class="n">resultLabel</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_result</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+        <span class="p">)</span> 
+<span class="n">graph</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Source</span><span class="p">(</span><span class="n">dot_data</span><span class="p">)</span> 
+
+<span class="n">pydot_graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">pydot_graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="c1">#pydot_graph.write_png(&#39;tree.png&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/68a6b7d31588902877a8dbe731abdce4ac4a05ea81c5ca5a32fce1cccf591c90.png" src="../../_images/68a6b7d31588902877a8dbe731abdce4ac4a05ea81c5ca5a32fce1cccf591c90.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="prediction">
+<h2>Prediction<a class="headerlink" href="#prediction" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prediction</span> <span class="o">=</span> <span class="n">dtc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+    <span class="p">[[</span>
+        <span class="n">le1</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;red&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">le2</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;nature&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">le3</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;thumbnail&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">le4</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;portrait&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="p">]]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">le5</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">prediction</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dtc</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1077,6 +1234,21 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#labelisation-des-donnees">
    Labelisation des données
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utilisation-d-un-arbre-de-decision">
+   Utilisation d’un arbre de décision
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#on-affiche-l-arbre-de-decision">
+   On affiche l’arbre de decision
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediction">
+   Prediction
   </a>
  </li>
 </ul>
