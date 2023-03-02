@@ -275,6 +275,10 @@ const thebe_selector_output = ".output, .cell_output"
   
 
   
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
 
 </div>
   </nav>
@@ -619,7 +623,9 @@ title="Print to PDF"
       
   </ul>
 </div>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
             </div>
@@ -632,6 +638,19 @@ title="Print to PDF"
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recuperation-des-donnees">
+   Recuperation des données
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -640,6 +659,114 @@ title="Print to PDF"
               
   <section class="tex2jax_ignore mathjax_ignore" id="gestion-des-recommandations">
 <h1>Gestion des recommandations<a class="headerlink" href="#gestion-des-recommandations" title="Permalink to this heading">#</a></h1>
+<section id="recuperation-des-donnees">
+<h2>Recuperation des données<a class="headerlink" href="#recuperation-des-donnees" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># Load the data</span>
+<span class="n">dir1</span> <span class="o">=</span> <span class="s2">&quot;images&quot;</span>
+<span class="n">dir2</span> <span class="o">=</span> <span class="s2">&quot;ExifDatatest.json&quot;</span>
+<span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir1</span><span class="p">,</span> <span class="n">dir2</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>theme</th>
+      <th>image</th>
+      <th>width</th>
+      <th>height</th>
+      <th>format</th>
+      <th>orientation</th>
+      <th>kmeans</th>
+      <th>diagram</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Exoplanet</td>
+      <td>55_Cancri_b.jpg</td>
+      <td>1024</td>
+      <td>768</td>
+      <td>PNG</td>
+      <td>no exif</td>
+      <td>{'numbers': [20223, 3371, 3005, 3002, 1611], '...</td>
+      <td>{'red': 5.124175692824935, 'green': 8.12802717...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Exoplanet</td>
+      <td>Gliese_876_e.jpg</td>
+      <td>1587</td>
+      <td>919</td>
+      <td>PNG</td>
+      <td>no exif</td>
+      <td>{'numbers': [27672, 8742, 7825, 7184, 6588], '...</td>
+      <td>{'red': 24.409671301369016, 'green': 34.521033...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Exoplanet</td>
+      <td>XO-3b.jpg</td>
+      <td>800</td>
+      <td>500</td>
+      <td>JPEG</td>
+      <td>no exif</td>
+      <td>{'numbers': [10718, 2563, 1767, 565, 387], 'co...</td>
+      <td>{'red': 60.236171075961416, 'green': 21.336108...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Exoplanet</td>
+      <td>OGLE-2005-BLG-169Lb.jpg</td>
+      <td>1271</td>
+      <td>746</td>
+      <td>JPEG</td>
+      <td>no exif</td>
+      <td>{'numbers': [27555, 5970, 1692, 1475, 1154], '...</td>
+      <td>{'red': 10.126329278131971, 'green': 9.2456998...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Exoplanet</td>
+      <td>Kepler-242b.jpg</td>
+      <td>1980</td>
+      <td>1200</td>
+      <td>JPEG</td>
+      <td>no exif</td>
+      <td>{'numbers': [73073, 8039, 6231, 4177, 3520], '...</td>
+      <td>{'red': 36.78042280878692, 'green': 15.9520441...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
@@ -699,6 +826,7 @@ title="Print to PDF"
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -734,6 +862,27 @@ title="Print to PDF"
           </div>
           
           
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recuperation-des-donnees">
+   Recuperation des données
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
           
           
         </div>
