@@ -710,19 +710,19 @@ title="Print to PDF"
 3  Exoplanet  OGLE-2005-BLG-169Lb.jpg   1271     746   JPEG     no exif   
 4  Exoplanet          Kepler-242b.jpg   1980    1200   JPEG     no exif   
 
-        color_0        color_1          color_2          color_3  \
-0     [0, 0, 0]   [64, 64, 64]        [0, 0, 0]        [0, 0, 0]   
-1     [0, 0, 0]   [64, 64, 64]     [64, 64, 64]  [128, 128, 128]   
-2     [0, 0, 0]    [204, 0, 0]  [128, 128, 128]  [192, 192, 192]   
-3  [64, 64, 64]      [0, 0, 0]  [128, 128, 128]     [64, 64, 64]   
-4     [0, 0, 0]  [204, 102, 0]  [255, 255, 255]     [64, 64, 64]   
+    color_0   color_1    color_2 color_3   color_4        red      green  \
+0  darkgrey     black      black   black     black   5.124176   8.128027   
+1     black  darkgrey   darkgrey   black  darkgrey  24.409671  34.521034   
+2     black     brown  lightgrey     red  darkgrey  60.236171  21.336108   
+3     black  darkgrey   darkgrey    grey     black  10.126329   9.245700   
+4     black     brown      white   brown  darkgrey  36.780423  15.952044   
 
-           color_4        red      green       blue result  
-0        [0, 0, 0]   5.124176   8.128027  23.954838    Yes  
-1        [0, 0, 0]  24.409671  34.521034  47.234119    Yes  
-2    [204, 102, 0]  60.236171  21.336108  12.281942     No  
-3  [128, 128, 128]  10.126329   9.245700   8.338099     No  
-4    [204, 102, 0]  36.780423  15.952044  13.286230     No  
+        blue result  
+0  23.954838    Yes  
+1  47.234119    Yes  
+2  12.281942    Yes  
+3   8.338099    Yes  
+4  13.286230    Yes  
         theme                                  image  width  height format  \
 350  Voitures  Ferrari_250_GT_Coupé_Pinin_Farina.jpg   5408    3472   JPEG   
 351  Voitures                   BMW_Mille_Miglia.jpg   1087     697   JPEG   
@@ -730,26 +730,19 @@ title="Print to PDF"
 353  Voitures                    Fiat_Centoventi.jpg   2975    2000   JPEG   
 354  Voitures                     Buick_Velite_6.jpg   4032    3024   JPEG   
 
-    orientation          color_0          color_1          color_2  \
-350           1     [64, 64, 64]     [64, 64, 64]  [192, 192, 192]   
-351     no exif        [0, 0, 0]  [192, 192, 192]     [64, 64, 64]   
-352           1  [128, 128, 128]     [64, 64, 64]        [0, 0, 0]   
-353     no exif     [64, 64, 64]  [192, 192, 192]        [0, 0, 0]   
-354           1  [192, 192, 192]     [64, 64, 64]  [255, 255, 255]   
+    orientation    color_0    color_1    color_2   color_3   color_4  \
+350           1  lightgrey   darkgrey  lightgrey      grey  darkgrey   
+351     no exif   darkgrey  lightgrey       grey  darkgrey      grey   
+352           1      black  lightgrey       grey  darkgrey      grey   
+353     no exif      black  lightgrey       grey     white  darkgrey   
+354           1  lightgrey   darkgrey      white  darkgrey      grey   
 
-             color_3          color_4         red       green        blue  \
-350  [128, 128, 128]  [192, 192, 192]  106.687133  106.684522  107.811067   
-351  [128, 128, 128]     [64, 64, 64]  108.326586  105.935440   87.280188   
-352  [192, 192, 192]  [192, 192, 192]   99.803718  112.138674  118.061557   
-353  [128, 128, 128]  [255, 255, 255]  108.422163  101.934441  104.833197   
-354     [64, 64, 64]  [128, 128, 128]  111.855284  116.608598  128.186564   
-
-    result  
-350    Yes  
-351     No  
-352     No  
-353    Yes  
-354    Yes  
+            red       green        blue result  
+350  106.687133  106.684522  107.811067     No  
+351  108.326586  105.935440   87.280188     No  
+352   99.803718  112.138674  118.061557    Yes  
+353  108.422163  101.934441  104.833197    Yes  
+354  111.855284  116.608598  128.186564    Yes  
 </pre></div>
 </div>
 </div>
@@ -808,15 +801,15 @@ title="Print to PDF"
       <td>5408</td>
       <td>3472</td>
       <td>JPEG</td>
-      <td>[64, 64, 64]</td>
-      <td>[64, 64, 64]</td>
-      <td>[192, 192, 192]</td>
-      <td>[128, 128, 128]</td>
-      <td>[192, 192, 192]</td>
+      <td>lightgrey</td>
+      <td>darkgrey</td>
+      <td>lightgrey</td>
+      <td>grey</td>
+      <td>darkgrey</td>
       <td>106.687133</td>
       <td>106.684522</td>
       <td>107.811067</td>
-      <td>Yes</td>
+      <td>No</td>
     </tr>
     <tr>
       <th>351</th>
@@ -825,11 +818,11 @@ title="Print to PDF"
       <td>1087</td>
       <td>697</td>
       <td>JPEG</td>
-      <td>[0, 0, 0]</td>
-      <td>[192, 192, 192]</td>
-      <td>[64, 64, 64]</td>
-      <td>[128, 128, 128]</td>
-      <td>[64, 64, 64]</td>
+      <td>darkgrey</td>
+      <td>lightgrey</td>
+      <td>grey</td>
+      <td>darkgrey</td>
+      <td>grey</td>
       <td>108.326586</td>
       <td>105.935440</td>
       <td>87.280188</td>
@@ -842,15 +835,15 @@ title="Print to PDF"
       <td>4524</td>
       <td>3385</td>
       <td>JPEG</td>
-      <td>[128, 128, 128]</td>
-      <td>[64, 64, 64]</td>
-      <td>[0, 0, 0]</td>
-      <td>[192, 192, 192]</td>
-      <td>[192, 192, 192]</td>
+      <td>black</td>
+      <td>lightgrey</td>
+      <td>grey</td>
+      <td>darkgrey</td>
+      <td>grey</td>
       <td>99.803718</td>
       <td>112.138674</td>
       <td>118.061557</td>
-      <td>No</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <th>353</th>
@@ -859,11 +852,11 @@ title="Print to PDF"
       <td>2975</td>
       <td>2000</td>
       <td>JPEG</td>
-      <td>[64, 64, 64]</td>
-      <td>[192, 192, 192]</td>
-      <td>[0, 0, 0]</td>
-      <td>[128, 128, 128]</td>
-      <td>[255, 255, 255]</td>
+      <td>black</td>
+      <td>lightgrey</td>
+      <td>grey</td>
+      <td>white</td>
+      <td>darkgrey</td>
       <td>108.422163</td>
       <td>101.934441</td>
       <td>104.833197</td>
@@ -876,11 +869,11 @@ title="Print to PDF"
       <td>4032</td>
       <td>3024</td>
       <td>JPEG</td>
-      <td>[192, 192, 192]</td>
-      <td>[64, 64, 64]</td>
-      <td>[255, 255, 255]</td>
-      <td>[64, 64, 64]</td>
-      <td>[128, 128, 128]</td>
+      <td>lightgrey</td>
+      <td>darkgrey</td>
+      <td>white</td>
+      <td>darkgrey</td>
+      <td>grey</td>
       <td>111.855284</td>
       <td>116.608598</td>
       <td>128.186564</td>
@@ -927,77 +920,129 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_encode.py:170,</span> in <span class="ni">_unique_python</span><span class="nt">(values, return_inverse, return_counts)</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">170</span>     <span class="n">uniques_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span>     <span class="n">uniques_set</span><span class="p">,</span> <span class="n">missing_values</span> <span class="o">=</span> <span class="n">_extract_missing</span><span class="p">(</span><span class="n">uniques_set</span><span class="p">)</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">TypeError</span>: unhashable type: &#39;list&#39;
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">112</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">formatLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">color_0Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_0Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">color_1Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_1Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">])</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_set_output.py:142,</span> in <span class="ni">_wrap_method_output.&lt;locals&gt;.wrapped</span><span class="nt">(self, X, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">142</span>     <span class="n">data_to_wrap</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">143</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_to_wrap</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">144</span>         <span class="c1"># only wrap the first output for cross decomposition</span>
-<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="k">return</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">146</span>             <span class="n">_wrap_data_with_container</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">data_to_wrap</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">147</span>             <span class="o">*</span><span class="n">data_to_wrap</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
-<span class="g g-Whitespace">    </span><span class="mi">148</span>         <span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/preprocessing/_label.py:117,</span> in <span class="ni">LabelEncoder.fit_transform</span><span class="nt">(self, y)</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Fit label encoder and return encoded labels.</span>
-<span class="g g-Whitespace">    </span><span class="mi">105</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span><span class="sd"> Parameters</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">114</span><span class="sd">     Encoded labels.</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">116</span> <span class="n">y</span> <span class="o">=</span> <span class="n">column_or_1d</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">117</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">_unique</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">return</span> <span class="n">y</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_encode.py:41,</span> in <span class="ni">_unique</span><span class="nt">(values, return_inverse, return_counts)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Helper function to find unique values with support for python objects.</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span><span class="sd"> Uses pure python method for object dtype, and numpy method for</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span><span class="sd">     array. Only provided if `return_counts` is True.</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="k">if</span> <span class="n">values</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="nb">object</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">41</span>     <span class="k">return</span> <span class="n">_unique_python</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="n">values</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="n">return_inverse</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="n">return_counts</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="c1"># numerical</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="k">return</span> <span class="n">_unique_np</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="n">values</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="n">return_inverse</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="n">return_counts</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_encode.py:178,</span> in <span class="ni">_unique_python</span><span class="nt">(values, return_inverse, return_counts)</span>
-<span class="g g-Whitespace">    </span><span class="mi">176</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="nn">    177     types = sorted(t.__qualname__ for t</span> in <span class="ni">set(type</span><span class="nt">(v) for v in values))</span>
-<span class="ne">--&gt; </span><span class="mi">178</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">179</span>         <span class="s2">&quot;Encoders require their input to be uniformly &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">180</span>         <span class="sa">f</span><span class="s2">&quot;strings or numbers. Got </span><span class="si">{</span><span class="n">types</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">181</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span> <span class="n">ret</span> <span class="o">=</span> <span class="p">(</span><span class="n">uniques</span><span class="p">,)</span>
-<span class="g g-Whitespace">    </span><span class="mi">184</span> <span class="k">if</span> <span class="n">return_inverse</span><span class="p">:</span>
-
-<span class="ne">TypeError</span>: Encoders require their input to be uniformly strings or numbers. Got [&#39;list&#39;]
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>theme</th>
+      <th>image</th>
+      <th>width</th>
+      <th>height</th>
+      <th>format</th>
+      <th>color_0</th>
+      <th>color_1</th>
+      <th>color_2</th>
+      <th>color_3</th>
+      <th>color_4</th>
+      <th>red</th>
+      <th>green</th>
+      <th>blue</th>
+      <th>result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>350</th>
+      <td>3</td>
+      <td>114</td>
+      <td>159</td>
+      <td>186</td>
+      <td>0</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>5</td>
+      <td>3</td>
+      <td>234</td>
+      <td>255</td>
+      <td>277</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>351</th>
+      <td>3</td>
+      <td>40</td>
+      <td>60</td>
+      <td>66</td>
+      <td>0</td>
+      <td>3</td>
+      <td>6</td>
+      <td>5</td>
+      <td>4</td>
+      <td>5</td>
+      <td>238</td>
+      <td>251</td>
+      <td>222</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>352</th>
+      <td>3</td>
+      <td>62</td>
+      <td>147</td>
+      <td>184</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>5</td>
+      <td>4</td>
+      <td>5</td>
+      <td>213</td>
+      <td>268</td>
+      <td>308</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>353</th>
+      <td>3</td>
+      <td>115</td>
+      <td>115</td>
+      <td>136</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>5</td>
+      <td>8</td>
+      <td>3</td>
+      <td>239</td>
+      <td>240</td>
+      <td>266</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>354</th>
+      <td>3</td>
+      <td>63</td>
+      <td>137</td>
+      <td>176</td>
+      <td>0</td>
+      <td>5</td>
+      <td>4</td>
+      <td>8</td>
+      <td>4</td>
+      <td>5</td>
+      <td>244</td>
+      <td>286</td>
+      <td>331</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="utilisation-d-un-arbre-de-decision">
@@ -1016,11 +1061,11 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0
-1    0
-2    0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
+1    1
+2    1
 3    1
-4    0
+4    1
 Name: result, dtype: int64
 </pre></div>
 </div>
@@ -1052,7 +1097,7 @@ Name: result, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/86b1f5534f27e34e41d45bccbeae00575d7ead62e657f7303c4fd97bf20cfdd9.png" src="../../_images/86b1f5534f27e34e41d45bccbeae00575d7ead62e657f7303c4fd97bf20cfdd9.png" />
+<img alt="../../_images/2aab2d72f03e39f8ceab2525e3ef8b15f57cdc5746ebee86eec47b9ba7bfd6f7.png" src="../../_images/2aab2d72f03e39f8ceab2525e3ef8b15f57cdc5746ebee86eec47b9ba7bfd6f7.png" />
 </div>
 </div>
 </section>
@@ -1068,11 +1113,11 @@ Name: result, dtype: int64
         <span class="n">widthLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;7786&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
         <span class="n">heightLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;4380&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
         <span class="n">formatLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;JPEG&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">color_0Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;#1e2821&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">color_1Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;#84835f&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">color_2Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;#1d3964&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">color_3Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;#b3b1af&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">color_4Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;#1d3964&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">color_0Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;red&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">color_1Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;grey&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">color_2Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;blue&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">color_3Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;darkgrey&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">color_4Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
         <span class="n">redLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mf">92.91901662620823</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
         <span class="n">greenLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mf">105.17334974822148</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
         <span class="n">blueLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mf">110.4893751011136</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
@@ -1084,76 +1129,14 @@ Name: result, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_encode.py:224,</span> in <span class="ni">_encode</span><span class="nt">(values, uniques, check_unknown)</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">224</span>     <span class="k">return</span> <span class="n">_map_to_integer</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">uniques</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">225</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_encode.py:164,</span> in <span class="ni">_map_to_integer</span><span class="nt">(values, uniques)</span>
-<span class="nn">    163 table = _nandict({val: i for i, val</span> in <span class="ni">enumerate</span><span class="nt">(uniques)})</span>
-<span class="ne">--&gt; </span><span class="mi">164</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">table</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">])</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_encode.py:164,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="nn">    163 table = _nandict({val: i for i, val</span> in <span class="ni">enumerate</span><span class="nt">(uniques)})</span>
-<span class="ne">--&gt; </span><span class="mi">164</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">table</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">])</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_encode.py:158,</span> in <span class="ni">_nandict.__missing__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">157</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan_value</span>
-<span class="ne">--&gt; </span><span class="mi">158</span> <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: &#39;#1d3964&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">103</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># avec la derniere image</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">prediction</span> <span class="o">=</span> <span class="n">dtc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="p">[[</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>         <span class="n">themeLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;Voitures&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="n">imageLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;Tesla_Model_S.jpg&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>         <span class="n">widthLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;7786&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="n">heightLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;4380&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>         <span class="n">formatLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;JPEG&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="n">color_0Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;#1e2821&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="n">color_1Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;#84835f&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="ne">---&gt; </span><span class="mi">11</span>         <span class="n">color_2Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;#1d3964&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="n">color_3Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;#b3b1af&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="n">color_4Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;#1d3964&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>         <span class="n">redLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mf">92.91901662620823</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="n">greenLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mf">105.17334974822148</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>         <span class="n">blueLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mf">110.4893751011136</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="p">]]</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="nb">print</span><span class="p">(</span><span class="n">resultLabel</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">prediction</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="nb">print</span><span class="p">(</span><span class="n">dtc</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_set_output.py:142,</span> in <span class="ni">_wrap_method_output.&lt;locals&gt;.wrapped</span><span class="nt">(self, X, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">142</span>     <span class="n">data_to_wrap</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">143</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_to_wrap</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">144</span>         <span class="c1"># only wrap the first output for cross decomposition</span>
-<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="k">return</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">146</span>             <span class="n">_wrap_data_with_container</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">data_to_wrap</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">147</span>             <span class="o">*</span><span class="n">data_to_wrap</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
-<span class="g g-Whitespace">    </span><span class="mi">148</span>         <span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/preprocessing/_label.py:139,</span> in <span class="ni">LabelEncoder.transform</span><span class="nt">(self, y)</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">if</span> <span class="n">_num_samples</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-<span class="ne">--&gt; </span><span class="mi">139</span> <span class="k">return</span> <span class="n">_encode</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">uniques</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_encode.py:226,</span> in <span class="ni">_encode</span><span class="nt">(values, uniques, check_unknown)</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span>         <span class="k">return</span> <span class="n">_map_to_integer</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">uniques</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">225</span>     <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">226</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y contains previously unseen labels: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">227</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span>     <span class="k">if</span> <span class="n">check_unknown</span><span class="p">:</span>
-
-<span class="ne">ValueError</span>: y contains previously unseen labels: &#39;#1d3964&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;No&#39;]
+[0.010499   0.13652823 0.11250779 0.0531355  0.03118715 0.01625487
+ 0.07434189 0.04431798 0.06760369 0.04644104 0.10416035 0.11170692
+ 0.1913156 ]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/site-packages/sklearn/base.py:420: UserWarning: X does not have valid feature names, but DecisionTreeClassifier was fitted with feature names
+  warnings.warn(
 </pre></div>
 </div>
 </div>
