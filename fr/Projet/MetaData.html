@@ -649,6 +649,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformation-de-hexa-a-rgb">
+   Transformation de hexa a RGB
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#getting-histogram-from-images">
    Getting histogram from images
   </a>
@@ -726,7 +731,7 @@ Voitures
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plot</span>
 <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">MiniBatchKMeans</span>
@@ -735,12 +740,12 @@ Voitures
     <span class="c1"># init</span>
     <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> <span class="c1"># open image</span>
     <span class="n">imgfile</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">5</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">5</span><span class="p">)))</span> <span class="c1"># resize</span>
-    <span class="n">numarray</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">imgfile</span><span class="o">.</span><span class="n">getdata</span><span class="p">(),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="c1"># convert image to numpy array</span>
+    <span class="n">numarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">imgfile</span><span class="o">.</span><span class="n">getdata</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="c1"># convert image to numpy array</span>
     <span class="n">cluster_count</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># number of clusters</span>
     <span class="n">clusters</span> <span class="o">=</span> <span class="n">MiniBatchKMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">cluster_count</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span> <span class="c1"># init kmeans</span>
     <span class="n">clusters</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">numarray</span><span class="p">)</span> <span class="c1"># fit kmeans</span>
-    <span class="n">npbins</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cluster_count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># init bins</span>
-    <span class="n">histogram</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">clusters</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">npbins</span><span class="p">)</span> <span class="c1"># get histogram</span>
+    <span class="n">npbins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cluster_count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># init bins</span>
+    <span class="n">histogram</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">clusters</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">npbins</span><span class="p">)</span> <span class="c1"># get histogram</span>
     <span class="c1">#labels = numpy.unique(clusters.labels_) # get labels</span>
 
     <span class="c1"># getting colors</span>
@@ -753,12 +758,73 @@ Voitures
     <span class="c1">#plot.show()</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">color</span><span class="p">)</span>
 
+
 <span class="n">getKmeans</span><span class="p">(</span><span class="s2">&quot;./images/Exoplanet/2M1207_b.jpg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;#0c0d0f&#39;, &#39;#a39284&#39;, &#39;#4d4035&#39;, &#39;#806956&#39;, &#39;#1f2124&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;#1c1e20&#39;, &#39;#a49486&#39;, &#39;#4d4136&#39;, &#39;#0a0b0d&#39;, &#39;#826b58&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="transformation-de-hexa-a-rgb">
+<h2>Transformation de hexa a RGB<a class="headerlink" href="#transformation-de-hexa-a-rgb" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">list_of_colors</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">(</span><span class="mi">204</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="c1">#red</span>
+                <span class="p">(</span><span class="mi">204</span><span class="p">,</span><span class="mi">102</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="c1"># brown</span>
+                <span class="p">(</span><span class="mi">204</span><span class="p">,</span><span class="mi">204</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="c1"># yellow</span>
+                <span class="p">(</span><span class="mi">102</span><span class="p">,</span><span class="mi">204</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="c1"># lightgreen</span>
+                <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">204</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="c1"># green</span>
+                <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">204</span><span class="p">,</span><span class="mi">102</span><span class="p">),</span><span class="c1"># bluegreen</span>
+                <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">204</span><span class="p">,</span><span class="mi">204</span><span class="p">),</span><span class="c1"># lightblue</span>
+                <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">102</span><span class="p">,</span><span class="mi">204</span><span class="p">),</span> <span class="c1"># blue</span>
+                <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">204</span><span class="p">),</span> <span class="c1"># darkblue</span>
+                <span class="p">(</span><span class="mi">102</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">204</span><span class="p">),</span> <span class="c1"># purple</span>
+                <span class="p">(</span><span class="mi">204</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">204</span><span class="p">),</span> <span class="c1"># pink</span>
+                <span class="p">(</span><span class="mi">204</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">102</span><span class="p">),</span> <span class="c1"># darkpink</span>
+                <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="c1"># white</span>
+                <span class="p">(</span><span class="mi">192</span><span class="p">,</span><span class="mi">192</span><span class="p">,</span><span class="mi">192</span><span class="p">),</span> <span class="c1"># lightgrey</span>
+                <span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">),</span> <span class="c1"># grey</span>
+                <span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">),</span> <span class="c1"># darkgrey</span>
+                <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># black</span>
+<span class="p">]</span>
+
+<span class="n">color_to_name</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;brown&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;lightgreen&quot;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;bluegreen&quot;</span><span class="p">,</span> <span class="s2">&quot;lightblue&quot;</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="s2">&quot;pink&quot;</span><span class="p">,</span><span class="s2">&quot;darkpink&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">,</span> <span class="s2">&quot;grey&quot;</span><span class="p">,</span><span class="s2">&quot;darkgrey&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">color_hex_to_rgb</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">rgb_to_name</span><span class="p">(</span><span class="n">color_to_name</span><span class="p">,</span><span class="n">list_of_colors</span> <span class="p">,</span><span class="n">rgb</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">color_to_name</span><span class="p">[</span><span class="n">list_of_colors</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">rgb</span><span class="p">))]</span>
+
+
+<span class="k">def</span> <span class="nf">closest_color</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span><span class="n">color_hexa</span><span class="p">):</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">color_hex_to_rgb</span><span class="p">(</span><span class="n">color_hexa</span><span class="p">)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">colors</span><span class="o">-</span><span class="n">color</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">index_of_smallest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">distances</span><span class="o">==</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">distances</span><span class="p">))</span>
+    <span class="n">smallest_distance</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">index_of_smallest</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">smallest_distance</span> 
+
+<span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;#ff00b0&quot;</span>
+<span class="n">rgb</span> <span class="o">=</span> <span class="n">closest_color</span><span class="p">(</span><span class="n">list_of_colors</span><span class="p">,</span><span class="n">color</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rgb</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">rgb_to_name</span><span class="p">(</span><span class="n">color_to_name</span><span class="p">,</span><span class="n">list_of_colors</span><span class="p">,</span><span class="n">rgb</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[204   0 204]
+pink
 </pre></div>
 </div>
 </div>
@@ -806,27 +872,22 @@ Voitures
 <h2>Adding diagram and Kmeans to exif data<a class="headerlink" href="#adding-diagram-and-kmeans-to-exif-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-    <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;theme&quot;</span><span class="p">],</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))):</span>
+    <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;theme&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
     <span class="n">colors</span> <span class="o">=</span> <span class="n">getKmeans</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colors</span><span class="p">):</span>
-        <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;color_</span><span class="si">{i}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span>
+    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colors</span><span class="p">):</span>
+        <span class="n">rgb</span> <span class="o">=</span><span class="p">(</span><span class="n">closest_color</span><span class="p">(</span><span class="n">list_of_colors</span><span class="p">,</span><span class="n">c</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="sa">f</span><span class="s2">&quot;color_</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rgb_to_name</span><span class="p">(</span><span class="n">color_to_name</span><span class="p">,</span> <span class="n">list_of_colors</span><span class="p">,</span> <span class="n">rgb</span><span class="p">)</span>
     <span class="n">RGB</span> <span class="o">=</span> <span class="n">getDiagram</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">RGB</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">obj</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;theme&quot;</span><span class="p">],</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 355/355 [02:42&lt;00:00,  2.19it/s]
 </pre></div>
 </div>
 </div>
@@ -895,6 +956,11 @@ Voitures
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#get-proiminant-colors-from-images">
    Get proiminant colors from images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformation-de-hexa-a-rgb">
+   Transformation de hexa a RGB
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
