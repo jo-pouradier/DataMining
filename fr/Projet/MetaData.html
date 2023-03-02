@@ -679,19 +679,21 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 
-<span class="nb">dir</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;images/&#39;</span>
+<span class="nb">dir</span> <span class="o">=</span> <span class="s2">&quot;images&quot;</span>
 <span class="n">themes</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">theme</span> <span class="ow">in</span> <span class="n">themes</span><span class="p">:</span> 
-    <span class="k">if</span> <span class="n">theme</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;.DS_Store&quot;</span><span class="p">,</span> <span class="s2">&quot;ExifData.json&quot;</span><span class="p">}:</span>
+    <span class="k">if</span> <span class="n">theme</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;.DS_Store&quot;</span><span class="p">,</span> <span class="s2">&quot;ExifData.json&quot;</span><span class="p">,</span><span class="s2">&quot;ExifData2.json&quot;</span><span class="p">,</span><span class="s2">&quot;ExifDatatest.json&quot;</span><span class="p">}:</span>
         <span class="k">pass</span>   
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">theme</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="nb">dir</span> <span class="o">+</span> <span class="n">theme</span><span class="p">):</span>
+        <span class="n">dir_test</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">theme</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dir_test</span><span class="p">):</span>
             <span class="c1">#print(image)</span>
             <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.jpg&quot;</span><span class="p">)</span> <span class="p">:</span>
-                <span class="n">img_path</span> <span class="o">=</span>  <span class="nb">dir</span> <span class="o">+</span> <span class="n">theme</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="o">+</span> <span class="n">image</span>
+                <span class="c1">#img_path =  dir + theme + &#39;/&#39;+ image</span>
+                <span class="n">img_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">theme</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
                 <span class="c1"># print(img_path)</span>
                 <span class="k">with</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">img</span><span class="p">:</span>
                     <span class="c1"># print(img)</span>
@@ -709,20 +711,11 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ExifData2.json
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NotADirectoryError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="nb">print</span><span class="p">(</span><span class="n">theme</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="nb">dir</span> <span class="o">+</span> <span class="n">theme</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>         <span class="c1">#print(image)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.jpg&quot;</span><span class="p">)</span> <span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>             <span class="n">img_path</span> <span class="o">=</span>  <span class="nb">dir</span> <span class="o">+</span> <span class="n">theme</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="o">+</span> <span class="n">image</span>
-
-<span class="ne">NotADirectoryError</span>: [WinError 267] Nom de répertoire non valide: &#39;images/ExifData2.json&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exoplanet
+Moto
+Pokemon
+Voitures
+[{&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;109_Piscium_b.jpg&#39;, &#39;width&#39;: 411, &#39;height&#39;: 367, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;14_Herculis_b.jpg&#39;, &#39;width&#39;: 479, &#39;height&#39;: 441, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: 1}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;14_Herculis_c.jpg&#39;, &#39;width&#39;: 456, &#39;height&#39;: 425, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: 1}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;16_Cygni_Bb.jpg&#39;, &#39;width&#39;: 1152, &#39;height&#39;: 794, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;18_Delphini_b.jpg&#39;, &#39;width&#39;: 989, &#39;height&#39;: 644, &#39;format&#39;: &#39;PNG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}]
 </pre></div>
 </div>
 </div>
@@ -766,70 +759,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">31</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;numbers&quot;</span><span class="p">:</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">histogram</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="s2">&quot;colors&quot;</span><span class="p">:</span> <span class="n">color</span><span class="p">}</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="k">return</span> <span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">31</span> <span class="n">getKmeans</span><span class="p">(</span><span class="s2">&quot;./images/Exoplanet/2M1207_b.jpg&quot;</span><span class="p">)</span>
-
-<span class="nn">Cell In[3], line 15,</span> in <span class="ni">getKmeans</span><span class="nt">(img)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">cluster_count</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># number of clusters</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">MiniBatchKMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">cluster_count</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span> <span class="c1"># init kmeans</span>
-<span class="ne">---&gt; </span><span class="mi">15</span> <span class="n">clusters</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">numarray</span><span class="p">)</span> <span class="c1"># fit kmeans</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">npbins</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cluster_count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># init bins</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">histogram</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">clusters</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">npbins</span><span class="p">)</span> <span class="c1"># get histogram</span>
-
-<span class="nn">File c:\Python311\Lib\site-packages\sklearn\cluster\_kmeans.py:2103,</span> in <span class="ni">MiniBatchKMeans.fit</span><span class="nt">(self, X, y, sample_weight)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2100</span> <span class="n">minibatch_indices</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2102</span> <span class="c1"># Perform the actual update step on the minibatch data</span>
-<span class="ne">-&gt; </span><span class="mi">2103</span> <span class="n">batch_inertia</span> <span class="o">=</span> <span class="n">_mini_batch_step</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2104</span>     <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">[</span><span class="n">minibatch_indices</span><span class="p">],</span>
-<span class="g g-Whitespace">   </span><span class="mi">2105</span>     <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">[</span><span class="n">minibatch_indices</span><span class="p">],</span>
-<span class="g g-Whitespace">   </span><span class="mi">2106</span>     <span class="n">centers</span><span class="o">=</span><span class="n">centers</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2107</span>     <span class="n">centers_new</span><span class="o">=</span><span class="n">centers_new</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2108</span>     <span class="n">weight_sums</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_counts</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2109</span>     <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2110</span>     <span class="n">random_reassign</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_random_reassign</span><span class="p">(),</span>
-<span class="g g-Whitespace">   </span><span class="mi">2111</span>     <span class="n">reassignment_ratio</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">reassignment_ratio</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2112</span>     <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2113</span>     <span class="n">n_threads</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_threads</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2114</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2116</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tol</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2117</span>     <span class="n">centers_squared_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">centers_new</span> <span class="o">-</span> <span class="n">centers</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="nn">File c:\Python311\Lib\site-packages\sklearn\cluster\_kmeans.py:1582,</span> in <span class="ni">_mini_batch_step</span><span class="nt">(X, sample_weight, centers, centers_new, weight_sums, random_state, random_reassign, reassignment_ratio, verbose, n_threads)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1527</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Incremental update of the centers for the Minibatch K-Means algorithm.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1528</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1529</span><span class="sd"> Parameters</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1577</span><span class="sd">     the centers.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1578</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1579</span> <span class="c1"># Perform label assignment to nearest centers</span>
-<span class="g g-Whitespace">   </span><span class="mi">1580</span> <span class="c1"># For better efficiency, it&#39;s better to run _mini_batch_step in a</span>
-<span class="g g-Whitespace">   </span><span class="mi">1581</span> <span class="c1"># threadpool_limit context than using _labels_inertia_threadpool_limit here</span>
-<span class="ne">-&gt; </span><span class="mi">1582</span> <span class="n">labels</span><span class="p">,</span> <span class="n">inertia</span> <span class="o">=</span> <span class="n">_labels_inertia</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">,</span> <span class="n">centers</span><span class="p">,</span> <span class="n">n_threads</span><span class="o">=</span><span class="n">n_threads</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1584</span> <span class="c1"># Update centers according to the labels</span>
-<span class="g g-Whitespace">   </span><span class="mi">1585</span> <span class="k">if</span> <span class="n">sp</span><span class="o">.</span><span class="n">issparse</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-
-<span class="nn">File c:\Python311\Lib\site-packages\sklearn\cluster\_kmeans.py:789,</span> in <span class="ni">_labels_inertia</span><span class="nt">(X, sample_weight, centers, n_threads, return_inertia)</span>
-<span class="g g-Whitespace">    </span><span class="mi">786</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">ReadonlyArrayWrapper</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">788</span> <span class="n">centers</span> <span class="o">=</span> <span class="n">ReadonlyArrayWrapper</span><span class="p">(</span><span class="n">centers</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">789</span> <span class="n">_labels</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">790</span>     <span class="n">X</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">791</span>     <span class="n">sample_weight</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">792</span>     <span class="n">centers</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">793</span>     <span class="n">centers_new</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">794</span>     <span class="n">weight_in_clusters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">795</span>     <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="n">center_shift</span><span class="o">=</span><span class="n">center_shift</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">797</span>     <span class="n">n_threads</span><span class="o">=</span><span class="n">n_threads</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">798</span>     <span class="n">update_centers</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">799</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">801</span> <span class="k">if</span> <span class="n">return_inertia</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">802</span>     <span class="n">inertia</span> <span class="o">=</span> <span class="n">_inertia</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">,</span> <span class="n">centers</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">n_threads</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;numbers&#39;: [92235, 70843, 20360, 19400, 17362],
+ &#39;colors&#39;: [&#39;#1d2022&#39;, &#39;#806a58&#39;, &#39;#0b0c0e&#39;, &#39;#a39284&#39;, &#39;#4c4034&#39;]}
 </pre></div>
 </div>
 </div>
@@ -842,7 +773,6 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plot</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
 
 <span class="k">def</span> <span class="nf">getDiagram</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
     <span class="n">imgfile</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./images/Exoplanet/2M1207_b.jpg&quot;</span><span class="p">)</span>
@@ -865,6 +795,13 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;: 21619.172549019608,
+ &#39;green&#39;: 21622.78431372549,
+ &#39;blue&#39;: 21623.376470588235}
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="adding-diagram-and-kmeans-to-exif-data">
@@ -873,8 +810,368 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
-    <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;kmeans&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">getKmeans</span><span class="p">(</span><span class="nb">dir</span> <span class="o">+</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;theme&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
-    <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;diagram&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">getDiagram</span><span class="p">(</span><span class="nb">dir</span> <span class="o">+</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;theme&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
+    <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;theme&quot;</span><span class="p">],</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
+    <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;kmeans&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">getKmeans</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+    <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;diagram&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">getDiagram</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>109_Piscium_b.jpg
+14_Herculis_b.jpg
+14_Herculis_c.jpg
+16_Cygni_Bb.jpg
+18_Delphini_b.jpg
+23_Librae_b.jpg
+2M1207_b.jpg
+47_Ursae_Majoris_b.jpg
+47_Ursae_Majoris_d.jpg
+51_Pegasi_b.jpg
+55_Cancri_b.jpg
+55_Cancri_d.jpg
+55_Cancri_e.jpg
+55_Cancri_f.jpg
+61_Virginis_b.jpg
+61_Virginis_c.jpg
+61_Virginis_d.jpg
+70_Virginis_b.jpg
+79_Ceti_b.jpg
+83_Leonis_Bb.jpg
+91_Aquarii_b.jpg
+AB_Pictoris_b.jpg
+BD+14°4559_b.jpg
+BD+20_2457_b.jpg
+BD+20_2457_c.jpg
+Beta_Pictoris_b.jpg
+CoRoT-7b.jpg
+CoRoT-7c.jpg
+CoRoT-9b.jpg
+Epsilon_Eridani_b.jpg
+Epsilon_Tauri_b.jpg
+Gamma1_Leonis_b.jpg
+Gamma_Cephei_Ab.jpg
+GJ_3470_b.jpg
+GJ_357_d.jpg
+GJ_504_b.jpg
+Gliese_1061_c.jpg
+Gliese_1214_b.jpg
+Gliese_163_c.jpg
+Gliese_176_b.jpg
+Gliese_3021_b.jpg
+Gliese_357_b.jpg
+Gliese_422_b.jpg
+Gliese_433_b.jpg
+Gliese_581_b.jpg
+Gliese_581_c.jpg
+Gliese_581_e.jpg
+Gliese_667_Cb.jpg
+Gliese_667_Cd.jpg
+Gliese_777_Ab.jpg
+Gliese_777_Ac.jpg
+Gliese_832_c.jpg
+Gliese_849_b.jpg
+Gliese_86_b.jpg
+Gliese_876_b.jpg
+Gliese_876_c.jpg
+Gliese_876_d.jpg
+Gliese_876_e.jpg
+HAT-P-28b.jpg
+HAT-P-39b.jpg
+HAT-P-4b.jpg
+HATS-14b.jpg
+HD_10180_f.jpg
+HD_108147_b.jpg
+HD_11977_b.jpg
+HD_125612_b.jpg
+HD_12661_b.jpg
+HD_12661_c.jpg
+HD_13189_b.jpg
+HD_147018_c.jpg
+HD_147513_b.jpg
+HD_149026_b.jpg
+HD_154345_b.jpg
+HD_164509_b.jpg
+HD_171028_b.jpg
+HD_17156_b.jpg
+HD_187123_b.jpg
+HD_187123_c.jpg
+HD_189733_b.jpg
+HD_20367_b.jpg
+HD_205739_b.jpg
+HD_219134b.jpg
+HD_222582_b.jpg
+HD_28185_b.jpg
+HD_37124_b.jpg
+HD_40307_e.jpg
+HD_4113_Ab.jpg
+HD_4308_b.jpg
+HD_45364_b.jpg
+HD_45364_c.jpg
+HD_69830_c.jpg
+HD_76700_b.jpg
+HD_85512_b.jpg
+HIP_11915_b.jpg
+HIP_78530_b.jpg
+HR_8799_e.jpg
+Iota_Draconis_b.jpg
+Iota_Horologii_b.jpg
+Isagel.jpg
+K2-141_b.jpg
+K2-18_b.jpg
+K2-288Bb.jpg
+KELT-3_b.jpg
+KELT-9b.jpg
+Kepler-10b.jpg
+Kepler-10c.jpg
+Kepler-11b.jpg
+Kepler-11c.jpg
+Kepler-11d.jpg
+Kepler-11e.jpg
+Kepler-1625b.jpg
+Kepler-1647_b.jpg
+Kepler-174b.jpg
+Kepler-174c.jpg
+Kepler-174_d.jpg
+Kepler-186f.jpg
+Kepler-19c.jpg
+Kepler-20e.jpg
+Kepler-20f.jpg
+Kepler-242b.jpg
+Kepler-26e.jpg
+Kepler-283_c.jpg
+Kepler-288b.jpg
+Kepler-37b.jpg
+Kepler-42b.jpg
+Kepler-442_b.jpg
+Kepler-443b.jpg
+Kepler-452_b.jpg
+Kepler-47c.jpg
+Kepler-51d.jpg
+Kepler-62e.jpg
+Kepler-62f.jpg
+KIC_10905746_b.jpg
+KOI-172.02.jpg
+LHS_1140_b.jpg
+LkCa_15_b.jpg
+MOA-2007-BLG-192Lb.jpg
+MOA-2007-BLG-400Lb.jpg
+MOA-2011-BLG-322LB.jpg
+Mu_Arae_b.jpg
+Nachtwacht.jpg
+NGTS-1b.jpg
+OGLE-2005-BLG-169Lb.jpg
+OGLE-2005-BLG-390Lb.jpg
+OGLE-2007-BLG-349(AB)b.jpg
+OGLE-2013-BLG-0341LB_b.jpg
+OGLE-2016-BLG-1190Lb.jpg
+OGLE2-TR-L9b.jpg
+PDS_70b.jpg
+Proxima_Centauri_b.jpg
+PSR_B1620-26_b.jpg
+Qatar-3_b.jpg
+Qatar-4b.jpg
+Riosar.jpg
+Ross_128_b.jpg
+Tau_Bootis_Ab.jpg
+Tau_Ceti_e.jpg
+TOI-1231b.jpg
+TOI_1338_b.jpg
+TOI_421b.jpg
+TOI_700_d.jpg
+TOI_700_e.jpg
+TRAPPIST-1b.jpg
+TRAPPIST-1c.jpg
+TRAPPIST-1d.jpg
+TRAPPIST-1f.jpg
+TRAPPIST-1g.jpg
+TRAPPIST-1h.jpg
+TRAPPIST-1_e.jpg
+TrES-2b.jpg
+TrES-4.jpg
+Upsilon_Andromedae_c.jpg
+Upsilon_Andromedae_d.jpg
+WASP-121_b.jpg
+WASP-39b.jpg
+WASP-44b.jpg
+WASP-8b.jpg
+WD_1145+017_b.jpg
+Wolf_1061b.jpg
+Wolf_1061d.jpg
+Wolf_1061_c.jpg
+XO-1b.jpg
+XO-2b.jpg
+XO-3b.jpg
+Aprilia_RX.jpg
+Aprilia_RXV_450.jpg
+Aprilia_RXV_SXV.jpg
+Aprilia_RX_50.jpg
+Aprilia_SRV_850.jpg
+Aprilia_Tuono_1000R.jpg
+Ariel_Ace.jpg
+Benelli_900_Sei.jpg
+Benelli_BN_125.jpg
+Benelli_Leoncino.jpg
+Benelli_TRK.jpg
+Bimota_HDB.jpg
+Bimota_KB1.jpg
+Bimota_SB2.jpg
+Bimota_YB3.jpg
+Bimota_YB4.jpg
+BMW_C600_Sport_and_C650GT.jpg
+BMW_F900R.jpg
+BMW_F_850_GS.jpg
+BMW_G310R.jpg
+BMW_K_100_RT.jpg
+BMW_R100.jpg
+BMW_R28.jpg
+Brough_Superior_SS100.jpg
+BSA_B25.jpg
+BSA_B31.jpg
+Buell_1125R.jpg
+Bultaco_200.jpg
+Bultaco_360_24_Hores.jpg
+Bultaco_Alpina.jpg
+Bultaco_Astro.jpg
+Bultaco_El_Montadero.jpg
+Bultaco_Frontera.jpg
+Bultaco_Gaviota.jpg
+Bultaco_Junior.jpg
+Bultaco_Lobito.jpg
+Bultaco_Matador.jpg
+Bultaco_Mercurio.jpg
+Bultaco_Saturno.jpg
+Bultaco_Sherpa_S.jpg
+Bultaco_Sherpa_T.jpg
+Bultaco_Streaker.jpg
+Bultaco_Tirón.jpg
+Bultaco_Tralla.jpg
+Bultaco_TSS.jpg
+Daelim_VS_125.jpg
+Ducati_24_Horas.jpg
+Ducati_250_Scrambler.jpg
+Ducati_350_Scrambler.jpg
+Ducati_450_R_T.jpg
+Ducati_450_Scrambler.jpg
+Ducati_750_Sport.jpg
+Ducati_Deluxe.jpg
+Ducati_DesertX.jpg
+Ducati_Desmosedici_GP16.jpg
+Ducati_Desmosedici_RR.jpg
+Ducati_Mach_1.jpg
+Ducati_MH900e.jpg
+Ducati_Monster_1200.jpg
+Ducati_PaulSmart1000LE.jpg
+Ducati_Sebring.jpg
+Ducati_ST3.jpg
+Ducati_Vento.jpg
+ELF_500_ROC.jpg
+GasGas_TXT.jpg
+Gilera_Eaglet.jpg
+Harley-Davidson_XR-750.jpg
+Honda_SH50.jpg
+Italjet_Velocifero.jpg
+Jawa_90.jpg
+Kawasaki_H2R.jpg
+Kawasaki_Ninja_H2.jpg
+Kawasaki_Tomcat_ZX-10.jpg
+Kawasaki_VN_1500.jpg
+Kawasaki_VN_800.jpg
+Kawasaki_VN_800_Drifter.jpg
+Kawasaki_Z300.jpg
+KTM_LC4_660R.jpg
+KTM_RC16.jpg
+Malaguti_Fifty.jpg
+Montesa_150.jpg
+Montesa_250cc_Twin.jpg
+Montesa_250_Trial.jpg
+Montesa_A-45.jpg
+Montesa_B-46_49.jpg
+Montesa_Brio.jpg
+Montesa_Cappra.jpg
+Montesa_Ciclo.jpg
+Montesa_Cota_123.jpg
+Montesa_Cota_172.jpg
+Montesa_Cota_200.jpg
+Montesa_Cota_247.jpg
+Montesa_Cota_25.jpg
+Montesa_Cota_300RR.jpg
+Montesa_Cota_315R.jpg
+Montesa_Cota_330.jpg
+Montesa_Cota_348.jpg
+Montesa_Cota_349.jpg
+Montesa_Cota_49.jpg
+Montesa_Cota_4RT.jpg
+Montesa_Cota_74.jpg
+Montesa_Crono.jpg
+Montesa_D-51.jpg
+Montesa_Impala.jpg
+Montesa_Impala_Cross.jpg
+Montesa_Impala_Kenya.jpg
+Montesa_King_Scorpion.jpg
+Montesa_LA_Cross_66.jpg
+Montesa_Rapita.jpg
+Montesa_Sprint.jpg
+Montesa_Texas.jpg
+Moto_Guzzi_NTX.jpg
+MZ_ETS_125_150.jpg
+MZ_ETS_175_250.jpg
+Ogar_4.jpg
+Piaggio_Liberty.jpg
+Q106286293.jpg
+Q109319608.jpg
+Q15825395.jpg
+Q17189754.jpg
+Q1971602.jpg
+Q24939994.jpg
+Q60982434.jpg
+Royal_Enfield_Continental_GT_twin.jpg
+Royal_Enfield_Interceptor_650.jpg
+Silver_Bird.jpg
+Suzuki_Gixxer.jpg
+Trojan_Trobike.jpg
+Yamaha_YZF-R7.jpg
+Yamaha_YZF-R7_(2022).jpg
+incineroar.jpg
+torracat.jpg
+toucannon.jpg
+BMW_G42.jpg
+BMW_HH.jpg
+BMW_M635CSi.jpg
+BMW_Mille_Miglia.jpg
+Bugatti_La_Voiture_Noire.jpg
+Buick_Avista.jpg
+Buick_Excelle.jpg
+Buick_GL8.jpg
+Buick_LaCrosse.jpg
+Buick_Regal.jpg
+Buick_Velite_6.jpg
+Buick_Verano.jpg
+Cadillac_Sixty_Special.jpg
+Chevrolet_Nova_(1984).jpg
+Chevrolet_Sonic.jpg
+Dino_206_S.jpg
+DS_Wild_Rubis.jpg
+Eunos_500.jpg
+Ferrari_250_GT_Boano_Ellena.jpg
+Ferrari_250_GT_Coupé_Pinin_Farina.jpg
+Fiat_Centoventi.jpg
+Fiat_Ducato.jpg
+Ford_Explorer.jpg
+Ford_Indigo.jpg
+Geely_Jiangang.jpg
+HiPhi_Z.jpg
+Infiniti_G_Coupé.jpg
+Mercedes-Benz_SS.jpg
+Mercedes_Grand-Prix.jpg
+Pagani_Huayra.jpg
+Pontiac_Bonneville.jpg
+Pontiac_Six.jpg
+Porsche_Type_12.jpg
+Q11316934.jpg
+Singer_Vogue.jpg
+Subaru_B5_TPH.jpg
+Talbot_T150C.jpg
+Tesla_Model_S.jpg
 </pre></div>
 </div>
 </div>
@@ -889,18 +1186,6 @@ title="Print to PDF"
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./images/ExifDatatest.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">NumpyEncoder</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">numpyencoder</span> <span class="kn">import</span> <span class="n">NumpyEncoder</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./images/ExifDatatest.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">NumpyEncoder</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;data&#39; is not defined
 </pre></div>
 </div>
 </div>
