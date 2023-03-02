@@ -679,7 +679,7 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 
-<span class="nb">dir</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;images/&quot;</span>
+<span class="nb">dir</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;images/&#39;</span>
 <span class="n">themes</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -709,11 +709,20 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exoplanet
-Pokemon
-Moto
-Voitures
-[{&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;55_Cancri_b.jpg&#39;, &#39;width&#39;: 1024, &#39;height&#39;: 768, &#39;format&#39;: &#39;PNG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;Gliese_876_e.jpg&#39;, &#39;width&#39;: 1587, &#39;height&#39;: 919, &#39;format&#39;: &#39;PNG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;XO-3b.jpg&#39;, &#39;width&#39;: 800, &#39;height&#39;: 500, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;OGLE-2005-BLG-169Lb.jpg&#39;, &#39;width&#39;: 1271, &#39;height&#39;: 746, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;Kepler-242b.jpg&#39;, &#39;width&#39;: 1980, &#39;height&#39;: 1200, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ExifData2.json
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NotADirectoryError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="nb">print</span><span class="p">(</span><span class="n">theme</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="nb">dir</span> <span class="o">+</span> <span class="n">theme</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>         <span class="c1">#print(image)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.jpg&quot;</span><span class="p">)</span> <span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>             <span class="n">img_path</span> <span class="o">=</span>  <span class="nb">dir</span> <span class="o">+</span> <span class="n">theme</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="o">+</span> <span class="n">image</span>
+
+<span class="ne">NotADirectoryError</span>: [WinError 267] Nom de répertoire non valide: &#39;images/ExifData2.json&#39;
 </pre></div>
 </div>
 </div>
@@ -757,8 +766,70 @@ Voitures
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;numbers&#39;: [80952, 76247, 22307, 21412, 19282],
- &#39;colors&#39;: [&#39;#191c1f&#39;, &#39;#a19081&#39;, &#39;#7a6351&#39;, &#39;#090a0c&#39;, &#39;#403830&#39;]}
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">31</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;numbers&quot;</span><span class="p">:</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">histogram</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="s2">&quot;colors&quot;</span><span class="p">:</span> <span class="n">color</span><span class="p">}</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="k">return</span> <span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">31</span> <span class="n">getKmeans</span><span class="p">(</span><span class="s2">&quot;./images/Exoplanet/2M1207_b.jpg&quot;</span><span class="p">)</span>
+
+<span class="nn">Cell In[3], line 15,</span> in <span class="ni">getKmeans</span><span class="nt">(img)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">cluster_count</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># number of clusters</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">MiniBatchKMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">cluster_count</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span> <span class="c1"># init kmeans</span>
+<span class="ne">---&gt; </span><span class="mi">15</span> <span class="n">clusters</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">numarray</span><span class="p">)</span> <span class="c1"># fit kmeans</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">npbins</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cluster_count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># init bins</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">histogram</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">clusters</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">npbins</span><span class="p">)</span> <span class="c1"># get histogram</span>
+
+<span class="nn">File c:\Python311\Lib\site-packages\sklearn\cluster\_kmeans.py:2103,</span> in <span class="ni">MiniBatchKMeans.fit</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2100</span> <span class="n">minibatch_indices</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2102</span> <span class="c1"># Perform the actual update step on the minibatch data</span>
+<span class="ne">-&gt; </span><span class="mi">2103</span> <span class="n">batch_inertia</span> <span class="o">=</span> <span class="n">_mini_batch_step</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2104</span>     <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">[</span><span class="n">minibatch_indices</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">2105</span>     <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">[</span><span class="n">minibatch_indices</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">2106</span>     <span class="n">centers</span><span class="o">=</span><span class="n">centers</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2107</span>     <span class="n">centers_new</span><span class="o">=</span><span class="n">centers_new</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2108</span>     <span class="n">weight_sums</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_counts</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2109</span>     <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2110</span>     <span class="n">random_reassign</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_random_reassign</span><span class="p">(),</span>
+<span class="g g-Whitespace">   </span><span class="mi">2111</span>     <span class="n">reassignment_ratio</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">reassignment_ratio</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2112</span>     <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2113</span>     <span class="n">n_threads</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_threads</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2114</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2116</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tol</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2117</span>     <span class="n">centers_squared_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">centers_new</span> <span class="o">-</span> <span class="n">centers</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nn">File c:\Python311\Lib\site-packages\sklearn\cluster\_kmeans.py:1582,</span> in <span class="ni">_mini_batch_step</span><span class="nt">(X, sample_weight, centers, centers_new, weight_sums, random_state, random_reassign, reassignment_ratio, verbose, n_threads)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1527</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Incremental update of the centers for the Minibatch K-Means algorithm.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1528</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1529</span><span class="sd"> Parameters</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1577</span><span class="sd">     the centers.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1578</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1579</span> <span class="c1"># Perform label assignment to nearest centers</span>
+<span class="g g-Whitespace">   </span><span class="mi">1580</span> <span class="c1"># For better efficiency, it&#39;s better to run _mini_batch_step in a</span>
+<span class="g g-Whitespace">   </span><span class="mi">1581</span> <span class="c1"># threadpool_limit context than using _labels_inertia_threadpool_limit here</span>
+<span class="ne">-&gt; </span><span class="mi">1582</span> <span class="n">labels</span><span class="p">,</span> <span class="n">inertia</span> <span class="o">=</span> <span class="n">_labels_inertia</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">,</span> <span class="n">centers</span><span class="p">,</span> <span class="n">n_threads</span><span class="o">=</span><span class="n">n_threads</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1584</span> <span class="c1"># Update centers according to the labels</span>
+<span class="g g-Whitespace">   </span><span class="mi">1585</span> <span class="k">if</span> <span class="n">sp</span><span class="o">.</span><span class="n">issparse</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+
+<span class="nn">File c:\Python311\Lib\site-packages\sklearn\cluster\_kmeans.py:789,</span> in <span class="ni">_labels_inertia</span><span class="nt">(X, sample_weight, centers, n_threads, return_inertia)</span>
+<span class="g g-Whitespace">    </span><span class="mi">786</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">ReadonlyArrayWrapper</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">788</span> <span class="n">centers</span> <span class="o">=</span> <span class="n">ReadonlyArrayWrapper</span><span class="p">(</span><span class="n">centers</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">789</span> <span class="n">_labels</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span>     <span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">791</span>     <span class="n">sample_weight</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span>     <span class="n">centers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span>     <span class="n">centers_new</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">794</span>     <span class="n">weight_in_clusters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>     <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="n">center_shift</span><span class="o">=</span><span class="n">center_shift</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">797</span>     <span class="n">n_threads</span><span class="o">=</span><span class="n">n_threads</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">798</span>     <span class="n">update_centers</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">801</span> <span class="k">if</span> <span class="n">return_inertia</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">802</span>     <span class="n">inertia</span> <span class="o">=</span> <span class="n">_inertia</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">,</span> <span class="n">centers</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">n_threads</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -770,7 +841,7 @@ Voitures
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plot</span>
-
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="k">def</span> <span class="nf">getDiagram</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
     <span class="n">imgfile</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./images/Exoplanet/2M1207_b.jpg&quot;</span><span class="p">)</span>
@@ -786,7 +857,7 @@ Voitures
     <span class="c1"># axes.set_prop_cycle(&quot;color&quot;, [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;])</span>
     <span class="c1"># plot.plot(x, y)</span>
     <span class="c1"># plot.show()</span>
-    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;red&quot;</span><span class="p">:</span> <span class="n">red</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">:</span> <span class="n">green</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">:</span> <span class="n">blue</span><span class="p">}</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;red&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">red</span><span class="p">),</span> <span class="s2">&quot;green&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">green</span><span class="p">),</span> <span class="s2">&quot;blue&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">blue</span><span class="p">)}</span>
     <span class="k">return</span> <span class="n">mapping</span>
 
 <span class="n">getDiagram</span><span class="p">(</span><span class="s2">&quot;./images/Exoplanet/2M1207_b.jpg&quot;</span><span class="p">)</span>
@@ -1944,8 +2015,20 @@ Buick_Velite_6.jpg
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">numpyencoder</span> <span class="kn">import</span> <span class="n">NumpyEncoder</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./images/ExifData2.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./images/ExifDatatest.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">NumpyEncoder</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">numpyencoder</span> <span class="kn">import</span> <span class="n">NumpyEncoder</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./images/ExifDatatest.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">NumpyEncoder</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
 </pre></div>
 </div>
 </div>
