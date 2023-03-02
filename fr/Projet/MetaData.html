@@ -689,14 +689,14 @@ title="Print to PDF"
 <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">theme</span> <span class="ow">in</span> <span class="n">themes</span><span class="p">:</span> 
-    <span class="k">if</span> <span class="n">theme</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;.DS_Store&quot;</span><span class="p">,</span> <span class="s2">&quot;ExifData.json&quot;</span><span class="p">,</span><span class="s2">&quot;ExifData2.json&quot;</span><span class="p">,</span><span class="s2">&quot;ExifDatatest.json&quot;</span><span class="p">}:</span>
+    <span class="k">if</span> <span class="n">theme</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;.DS_Store&quot;</span><span class="p">,</span> <span class="s2">&quot;ExifData.json&quot;</span><span class="p">,</span><span class="s2">&quot;ExifData2.json&quot;</span><span class="p">,</span><span class="s2">&quot;ExifDatatest.json&quot;</span><span class="p">,</span> <span class="s2">&quot;Pokemon&quot;</span><span class="p">,</span> <span class="s2">&quot;ExifDatatest2.json&quot;</span><span class="p">}:</span>
         <span class="k">pass</span>   
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">theme</span><span class="p">)</span>
         <span class="n">dir_test</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">theme</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dir_test</span><span class="p">):</span>
             <span class="c1">#print(image)</span>
-            <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.jpg&quot;</span><span class="p">)</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.jpg&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">image</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.png&quot;</span><span class="p">):</span>
                 <span class="c1">#img_path =  dir + theme + &#39;/&#39;+ image</span>
                 <span class="n">img_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">theme</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
                 <span class="c1"># print(img_path)</span>
@@ -717,7 +717,7 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exoplanet
-Pokemon
+Pokemon2
 Moto
 Voitures
 [{&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;55_Cancri_b.jpg&#39;, &#39;width&#39;: 1024, &#39;height&#39;: 768, &#39;format&#39;: &#39;PNG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;Gliese_876_e.jpg&#39;, &#39;width&#39;: 1587, &#39;height&#39;: 919, &#39;format&#39;: &#39;PNG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;XO-3b.jpg&#39;, &#39;width&#39;: 800, &#39;height&#39;: 500, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;OGLE-2005-BLG-169Lb.jpg&#39;, &#39;width&#39;: 1271, &#39;height&#39;: 746, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}, {&#39;theme&#39;: &#39;Exoplanet&#39;, &#39;image&#39;: &#39;Kepler-242b.jpg&#39;, &#39;width&#39;: 1980, &#39;height&#39;: 1200, &#39;format&#39;: &#39;JPEG&#39;, &#39;orientation&#39;: &#39;no exif&#39;}]
@@ -739,7 +739,10 @@ Voitures
 <span class="k">def</span> <span class="nf">getKmeans</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
     <span class="c1"># init</span>
     <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> <span class="c1"># open image</span>
-    <span class="n">imgfile</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">5</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">5</span><span class="p">)))</span> <span class="c1"># resize</span>
+    <span class="k">if</span> <span class="s2">&quot;jpg&quot;</span> <span class="ow">in</span> <span class="n">img</span><span class="o">.</span><span class="n">filename</span><span class="p">:</span>
+        <span class="n">imgfile</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">5</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">5</span><span class="p">)))</span> <span class="c1"># resize</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">imgfile</span> <span class="o">=</span> <span class="n">img</span>
     <span class="n">numarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">imgfile</span><span class="o">.</span><span class="n">getdata</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="c1"># convert image to numpy array</span>
     <span class="n">cluster_count</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># number of clusters</span>
     <span class="n">clusters</span> <span class="o">=</span> <span class="n">MiniBatchKMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">cluster_count</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span> <span class="c1"># init kmeans</span>
@@ -759,12 +762,12 @@ Voitures
     <span class="k">return</span> <span class="p">(</span><span class="n">color</span><span class="p">)</span>
 
 
-<span class="n">getKmeans</span><span class="p">(</span><span class="s2">&quot;./images/Exoplanet/2M1207_b.jpg&quot;</span><span class="p">)</span>
+<span class="n">getKmeans</span><span class="p">(</span><span class="s2">&quot;./images/Pokemon2/magmar.jpg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;#1c1e20&#39;, &#39;#a49486&#39;, &#39;#4d4136&#39;, &#39;#0a0b0d&#39;, &#39;#826b58&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;#020101&#39;, &#39;#987955&#39;, &#39;#dec76c&#39;, &#39;#d36831&#39;, &#39;#594337&#39;]
 </pre></div>
 </div>
 </div>
@@ -872,22 +875,25 @@ pink
 <h2>Adding diagram and Kmeans to exif data<a class="headerlink" href="#adding-diagram-and-kmeans-to-exif-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))):</span>
-    <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;theme&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing image : </span><span class="si">{</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;theme&quot;</span><span class="p">],</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
     <span class="n">colors</span> <span class="o">=</span> <span class="n">getKmeans</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colors</span><span class="p">):</span>
         <span class="n">rgb</span> <span class="o">=</span><span class="p">(</span><span class="n">closest_color</span><span class="p">(</span><span class="n">list_of_colors</span><span class="p">,</span><span class="n">c</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="sa">f</span><span class="s2">&quot;color_</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rgb_to_name</span><span class="p">(</span><span class="n">color_to_name</span><span class="p">,</span> <span class="n">list_of_colors</span><span class="p">,</span> <span class="n">rgb</span><span class="p">)</span>
+        <span class="n">obj</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;color_</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rgb_to_name</span><span class="p">(</span><span class="n">color_to_name</span><span class="p">,</span> <span class="n">list_of_colors</span><span class="p">,</span> <span class="n">rgb</span><span class="p">)</span>
     <span class="n">RGB</span> <span class="o">=</span> <span class="n">getDiagram</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">RGB</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="n">obj</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 355/355 [02:42&lt;00:00,  2.19it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>718
+Processing image : Buick_Velite_6.jpggg_Pinin_Farina.jpg
 </pre></div>
 </div>
 </div>
@@ -900,7 +906,7 @@ pink
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">numpyencoder</span> <span class="kn">import</span> <span class="n">NumpyEncoder</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./images/ExifDatatest.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./images/ExifDatatest2.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">NumpyEncoder</span><span class="p">)</span>
 </pre></div>
 </div>
