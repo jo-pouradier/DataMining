@@ -672,6 +672,7 @@ title="Print to PDF"
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
 
 <span class="c1"># Load the data</span>
 <span class="n">dir1</span> <span class="o">=</span> <span class="s2">&quot;images&quot;</span>
@@ -811,6 +812,66 @@ title="Print to PDF"
 </section>
 <section id="labelisation-des-donnees">
 <h2>Labelisation des données<a class="headerlink" href="#labelisation-des-donnees" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># label encoder</span>
+<span class="n">themeLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">widthLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">heightLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">formatLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">orientationLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">color_0Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">color_1Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">color_2Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">color_3Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">color_4Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">redLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">greenLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">blueLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">themeLabel</span><span class="p">,</span> <span class="n">widthLabel</span><span class="p">,</span> <span class="n">heightLabel</span><span class="p">,</span> <span class="n">formatLabel</span><span class="p">,</span> <span class="n">orientationLabel</span><span class="p">,</span> <span class="n">color_0Label</span><span class="p">,</span> <span class="n">color_1Label</span><span class="p">,</span> <span class="n">color_2Label</span><span class="p">,</span> <span class="n">color_3Label</span><span class="p">,</span> <span class="n">color_4Label</span><span class="p">,</span> <span class="n">redLabel</span><span class="p">,</span> <span class="n">greenLabel</span><span class="p">,</span> <span class="n">blueLabel</span><span class="p">]</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;theme&#39;</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="s1">&#39;format&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">,</span> <span class="s1">&#39;color_0&#39;</span><span class="p">,</span> <span class="s1">&#39;color_1&#39;</span><span class="p">,</span> <span class="s1">&#39;color_2&#39;</span><span class="p">,</span> <span class="s1">&#39;color_3&#39;</span><span class="p">,</span> <span class="s1">&#39;color_4&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)):</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       theme              image  width  height format orientation  color_0  \
+0  Exoplanet  109_Piscium_b.jpg    411     367   JPEG     no exif  #010101   
+1  Exoplanet  14_Herculis_b.jpg    479     441   JPEG           1  #010101   
+2  Exoplanet  14_Herculis_c.jpg    456     425   JPEG           1  #010101   
+3  Exoplanet    16_Cygni_Bb.jpg   1152     794   JPEG     no exif  #927c60   
+4  Exoplanet  18_Delphini_b.jpg    989     644    PNG     no exif  #020101   
+
+   color_1  color_2  color_3  color_4        red      green       blue  
+0  #ada598  #7b726a  #45423f  #171616  23.787473  22.550236  20.864131  
+1  #827163  #b59e8a  #50463e  #191816  18.940267  16.545520  14.611776  
+2  #baa38f  #695c51  #937f6e  #3c3530  25.669345  22.394966  19.626594  
+3  #020101  #665342  #bdae99  #38281c  25.167594  20.532356  16.156877  
+4  #302953  #536694  #25223c  #3b3d6d  20.101739  18.960585  34.368523  
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">24</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)):</span>
+<span class="ne">---&gt; </span><span class="mi">24</span>     <span class="n">data</span><span class="p">[</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="ne">TypeError</span>: &#39;NoneType&#39; object is not subscriptable
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
