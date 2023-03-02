@@ -814,63 +814,155 @@ title="Print to PDF"
 <h2>Labelisation des données<a class="headerlink" href="#labelisation-des-donnees" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># label encoder</span>
+<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;orientation&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 
-<span class="c1"># label encoder</span>
 <span class="n">themeLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;theme&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">themeLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;theme&#39;</span><span class="p">])</span>
 <span class="n">widthLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">widthLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">])</span>
 <span class="n">heightLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">heightLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])</span>
 <span class="n">formatLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">orientationLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">formatLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">])</span>
+<span class="c1"># orientationLabel = LabelEncoder()</span>
+<span class="c1"># data[&#39;orientation&#39;] = orientationLabel.fit_transform(data[&#39;orientation&#39;])</span>
 <span class="n">color_0Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_0Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">])</span>
 <span class="n">color_1Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_1Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">])</span>
 <span class="n">color_2Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_2Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_2&#39;</span><span class="p">])</span>
 <span class="n">color_3Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_3Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_3&#39;</span><span class="p">])</span>
 <span class="n">color_4Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_4Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_4&#39;</span><span class="p">])</span>
 <span class="n">redLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">redLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">])</span>
 <span class="n">greenLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">greenLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">])</span>
 <span class="n">blueLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-
-<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">themeLabel</span><span class="p">,</span> <span class="n">widthLabel</span><span class="p">,</span> <span class="n">heightLabel</span><span class="p">,</span> <span class="n">formatLabel</span><span class="p">,</span> <span class="n">orientationLabel</span><span class="p">,</span> <span class="n">color_0Label</span><span class="p">,</span> <span class="n">color_1Label</span><span class="p">,</span> <span class="n">color_2Label</span><span class="p">,</span> <span class="n">color_3Label</span><span class="p">,</span> <span class="n">color_4Label</span><span class="p">,</span> <span class="n">redLabel</span><span class="p">,</span> <span class="n">greenLabel</span><span class="p">,</span> <span class="n">blueLabel</span><span class="p">]</span>
-<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;theme&#39;</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="s1">&#39;format&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">,</span> <span class="s1">&#39;color_0&#39;</span><span class="p">,</span> <span class="s1">&#39;color_1&#39;</span><span class="p">,</span> <span class="s1">&#39;color_2&#39;</span><span class="p">,</span> <span class="s1">&#39;color_3&#39;</span><span class="p">,</span> <span class="s1">&#39;color_4&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)):</span>
-    <span class="n">data</span><span class="p">[</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">blueLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">])</span>
 
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       theme              image  width  height format orientation  color_0  \
-0  Exoplanet  109_Piscium_b.jpg    411     367   JPEG     no exif  #010101   
-1  Exoplanet  14_Herculis_b.jpg    479     441   JPEG           1  #010101   
-2  Exoplanet  14_Herculis_c.jpg    456     425   JPEG           1  #010101   
-3  Exoplanet    16_Cygni_Bb.jpg   1152     794   JPEG     no exif  #927c60   
-4  Exoplanet  18_Delphini_b.jpg    989     644    PNG     no exif  #020101   
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-   color_1  color_2  color_3  color_4        red      green       blue  
-0  #ada598  #7b726a  #45423f  #171616  23.787473  22.550236  20.864131  
-1  #827163  #b59e8a  #50463e  #191816  18.940267  16.545520  14.611776  
-2  #baa38f  #695c51  #937f6e  #3c3530  25.669345  22.394966  19.626594  
-3  #020101  #665342  #bdae99  #38281c  25.167594  20.532356  16.156877  
-4  #302953  #536694  #25223c  #3b3d6d  20.101739  18.960585  34.368523  
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">24</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)):</span>
-<span class="ne">---&gt; </span><span class="mi">24</span>     <span class="n">data</span><span class="p">[</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="ne">TypeError</span>: &#39;NoneType&#39; object is not subscriptable
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>theme</th>
+      <th>width</th>
+      <th>height</th>
+      <th>format</th>
+      <th>color_0</th>
+      <th>color_1</th>
+      <th>color_2</th>
+      <th>color_3</th>
+      <th>color_4</th>
+      <th>red</th>
+      <th>green</th>
+      <th>blue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>7</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>237</td>
+      <td>193</td>
+      <td>102</td>
+      <td>29</td>
+      <td>54</td>
+      <td>57</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>12</td>
+      <td>23</td>
+      <td>0</td>
+      <td>0</td>
+      <td>170</td>
+      <td>264</td>
+      <td>120</td>
+      <td>35</td>
+      <td>42</td>
+      <td>38</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>9</td>
+      <td>20</td>
+      <td>0</td>
+      <td>0</td>
+      <td>259</td>
+      <td>162</td>
+      <td>209</td>
+      <td>106</td>
+      <td>64</td>
+      <td>56</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>61</td>
+      <td>77</td>
+      <td>0</td>
+      <td>218</td>
+      <td>2</td>
+      <td>156</td>
+      <td>272</td>
+      <td>97</td>
+      <td>59</td>
+      <td>51</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>56</td>
+      <td>60</td>
+      <td>2</td>
+      <td>3</td>
+      <td>70</td>
+      <td>131</td>
+      <td>54</td>
+      <td>103</td>
+      <td>44</td>
+      <td>45</td>
+      <td>107</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
