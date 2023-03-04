@@ -1,7 +1,6 @@
 import os
 from PIL import Image
 import numpy as np
-import matplotlib.pyplot as plot
 import math
 from sklearn.cluster import MiniBatchKMeans
 import json
@@ -15,7 +14,7 @@ themes = os.listdir(dir)
 data = []
 
 for theme in themes: 
-    if theme in {".DS_Store", "ExifData.json","ExifData2.json","ExifDatatest.json", "Pokemon", "ExifDatatest2.json",}:
+    if theme in {".DS_Store", "ExifData.json","ExifData2.json","ExifDatatest.json", "Pokemon", "ExifDatatest2.json", "Analizing_wh.ipynb"}:
         pass   
     else:
         print(theme)
