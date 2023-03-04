@@ -1331,6 +1331,8 @@ Fiat_Ducato.jpg
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># avec la derniere image des voitures</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">user_choice</span><span class="p">,</span> <span class="n">random_img</span> <span class="o">=</span> <span class="n">get_user_choice</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">random_img</span> <span class="ow">in</span> <span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]:</span>
+        <span class="n">user_choice</span><span class="p">,</span> <span class="n">random_img</span> <span class="o">=</span> <span class="n">get_user_choice</span><span class="p">()</span>
     <span class="c1"># data de l&#39;images</span>
     <span class="n">data_random</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">random_img</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">data_random</span><span class="p">)</span>
