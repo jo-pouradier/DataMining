@@ -1,1 +1,5 @@
-mcbookproIntel = 135.791s
+mcbookproIntel= 135.791s
+droppletDO2Intel2RAM = 150.55 s 
+droppletDO4Intel8RAM = 173.5 s
+droppletDO2Amd2RAM =  143.09 s
+AwsEc2 = 171.5 s
