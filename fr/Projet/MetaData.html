@@ -767,7 +767,7 @@ Voitures
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;#020101&#39;, &#39;#987955&#39;, &#39;#dec76c&#39;, &#39;#d36831&#39;, &#39;#594337&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;#020102&#39;, &#39;#ac9160&#39;, &#39;#5d4839&#39;, &#39;#ead470&#39;, &#39;#ce652f&#39;]
 </pre></div>
 </div>
 </div>
@@ -847,6 +847,7 @@ pink
     <span class="n">red</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">255</span><span class="p">]</span>
     <span class="n">green</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">[</span><span class="mi">256</span><span class="p">:</span><span class="mi">511</span><span class="p">]</span>
     <span class="n">blue</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">[</span><span class="mi">512</span><span class="p">:</span><span class="mi">767</span><span class="p">]</span>
+    <span class="c1"># #displaying the histogram</span>
     <span class="c1"># x = range(255)</span>
     <span class="c1"># y = []</span>
     <span class="c1"># for i in x:</span>
@@ -856,16 +857,23 @@ pink
     <span class="c1"># plot.plot(x, y)</span>
     <span class="c1"># plot.show()</span>
     <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;red&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span><span class="n">weights</span><span class="o">=</span><span class="n">red</span><span class="p">),</span> <span class="s2">&quot;green&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span><span class="n">weights</span><span class="o">=</span><span class="n">green</span><span class="p">),</span> <span class="s2">&quot;blue&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span><span class="n">weights</span><span class="o">=</span><span class="n">blue</span><span class="p">)}</span>
-    <span class="k">return</span> <span class="n">mapping</span>
+    <span class="n">mapping2</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">:</span>
+        <span class="n">mapping2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapping</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">/</span><span class="mi">255</span>
+        <span class="k">if</span> <span class="n">mapping2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.33</span><span class="p">:</span>
+            <span class="n">mapping2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.15</span>
+        <span class="k">elif</span> <span class="n">mapping2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.66</span><span class="p">:</span>
+            <span class="n">mapping2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.85</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mapping2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="k">return</span> <span class="n">mapping2</span>
 
-<span class="n">getDiagram</span><span class="p">(</span><span class="s2">&quot;./images/Exoplanet/2M1207_b.jpg&quot;</span><span class="p">)</span>
+<span class="n">getDiagram</span><span class="p">(</span><span class="s2">&quot;./images/Moto/Aprilia_RX_50.jpg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;: 44.77778330018979,
- &#39;green&#39;: 41.671026930561624,
- &#39;blue&#39;: 39.357752621028695}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;red&#39;: 0.5, &#39;green&#39;: 0.5, &#39;blue&#39;: 0.5}
 </pre></div>
 </div>
 </div>
@@ -875,11 +883,15 @@ pink
 <h2>Adding diagram and Kmeans to exif data<a class="headerlink" href="#adding-diagram-and-kmeans-to-exif-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span> 
 
+<span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing image : </span><span class="si">{</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">*</span><span class="mi">150</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing time = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start_time</span><span class="p">,</span><span class="w"> </span><span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">, image </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;theme&quot;</span><span class="p">],</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
     <span class="n">colors</span> <span class="o">=</span> <span class="n">getKmeans</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colors</span><span class="p">):</span>
@@ -892,8 +904,7 @@ pink
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>718
-Processing image : Buick_Velite_6.jpggg_Pinin_Farina.jpg
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing time = 168.70284884099965, image 717/718: Buick_Velite_6.jpg                                                                               
 </pre></div>
 </div>
 </div>
