@@ -716,7 +716,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;Pokemon2&#39; &#39;Moto&#39; &#39;Voitures&#39;]
 Pokemon2     366
-Exoplanet    184
+Exoplanet    183
 Moto         130
 Voitures      38
 Name: theme, dtype: int64
@@ -740,7 +740,7 @@ Name: theme, dtype: int64
     <span class="k">try</span><span class="p">:</span>
         <span class="n">files</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;.DS_Store&quot;</span><span class="p">)</span>
         <span class="c1"># remove all csv</span>
-        <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="o">!=</span> <span class="s2">&quot;csv&quot;</span><span class="p">]</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="o">!=</span> <span class="s2">&quot;csv&quot;</span> <span class="ow">or</span> <span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="o">!=</span> <span class="s2">&quot;csv&quot;</span><span class="p">)]</span>
     <span class="k">except</span><span class="p">:</span>
         <span class="k">pass</span>
     <span class="n">file</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
@@ -751,7 +751,7 @@ Name: theme, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;BMW_R28.jpg&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Kepler-42b.jpg&#39;
 </pre></div>
 </div>
 </div>
@@ -845,145 +845,103 @@ Name: theme, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-KOI-172.02.jpg
+Gliese_876_e.jpg
 </pre></div>
 </div>
-<img alt="../../_images/ee96fb16dbcf85aafe62f1afd7a53a1b314e196bf284879ce286dbe034e7ad15.png" src="../../_images/ee96fb16dbcf85aafe62f1afd7a53a1b314e196bf284879ce286dbe034e7ad15.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;KOI-172.02.jpg&#39; 4000 2251 &#39;JPEG&#39; 1 &#39;black&#39; &#39;lightgrey&#39;
- &#39;darkgrey&#39; &#39;grey&#39; &#39;black&#39; 0.15 0.15 0.15]
+<img alt="../../_images/fde8f557b8629a47ab049eff6aac61d31910fb8bdbe8f1bf0d551e6ea2015a43.png" src="../../_images/fde8f557b8629a47ab049eff6aac61d31910fb8bdbe8f1bf0d551e6ea2015a43.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;Gliese_876_e.jpg&#39; 1600 900 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39;
+ &#39;black&#39; &#39;grey&#39; &#39;darkgrey&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
 1
-Bultaco_Tralla.jpg
+Bultaco_Frontera.jpg
 </pre></div>
 </div>
-<img alt="../../_images/9ba587a6ec3362374bc8c9a749b6e500861060279a2d1e179b9a94aa24191d50.png" src="../../_images/9ba587a6ec3362374bc8c9a749b6e500861060279a2d1e179b9a94aa24191d50.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Bultaco_Tralla.jpg&#39; 3648 2736 &#39;JPEG&#39; 1 &#39;darkgrey&#39; &#39;grey&#39; &#39;white&#39;
- &#39;darkgrey&#39; &#39;lightgrey&#39; 0.5 0.5 0.5]
+<img alt="../../_images/048e85bb6e2f9a3eb9ef4aa173ec56de41eed7fc1002ad0b0271fb75531f904d.png" src="../../_images/048e85bb6e2f9a3eb9ef4aa173ec56de41eed7fc1002ad0b0271fb75531f904d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Bultaco_Frontera.jpg&#39; 1920 1080 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39;
+ &#39;white&#39; &#39;grey&#39; &#39;darkgrey&#39; &#39;blue&#39; 0.5 0.5 0.5]
 2
-dragonite.jpg
+Moto_Guzzi_NTX.jpg
 </pre></div>
 </div>
-<img alt="../../_images/13b69058bc9d820ad70f78d51d9a5089aad11c33d28419d98c657295ebb6b568.png" src="../../_images/13b69058bc9d820ad70f78d51d9a5089aad11c33d28419d98c657295ebb6b568.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;dragonite.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
- &#39;darkgrey&#39; &#39;grey&#39; &#39;lightgrey&#39; 0.15 0.15 0.15]
+<img alt="../../_images/8852299192c53689c544a5c1c776060c018a19662748d5975595d5fccc58e6e0.png" src="../../_images/8852299192c53689c544a5c1c776060c018a19662748d5975595d5fccc58e6e0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Moto_Guzzi_NTX.jpg&#39; 1600 900 &#39;JPEG&#39; &#39;no exif&#39; &#39;grey&#39; &#39;darkgrey&#39;
+ &#39;white&#39; &#39;grey&#39; &#39;lightgrey&#39; 0.5 0.5 0.5]
 3
-Bultaco_Streaker.jpg
+arcanine.jpg
 </pre></div>
 </div>
-<img alt="../../_images/d3e2f1859a558167a7d421c2dc767053e6802a394eb76e3af776858f735004b0.png" src="../../_images/d3e2f1859a558167a7d421c2dc767053e6802a394eb76e3af776858f735004b0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Bultaco_Streaker.jpg&#39; 4288 3216 &#39;JPEG&#39; 1 &#39;grey&#39; &#39;darkgrey&#39;
- &#39;darkgrey&#39; &#39;grey&#39; &#39;lightgrey&#39; 0.5 0.5 0.15]
-4
-HiPhi_Z.jpg
-</pre></div>
-</div>
-<img alt="../../_images/40d27c06b3f8b8c2b6b4157a03d6b51f1c460ef907f6cdf51c41f05dc3d1cfd8.png" src="../../_images/40d27c06b3f8b8c2b6b4157a03d6b51f1c460ef907f6cdf51c41f05dc3d1cfd8.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;HiPhi_Z.jpg&#39; 4000 3000 &#39;JPEG&#39; 1 &#39;grey&#39; &#39;darkgrey&#39; &#39;lightgrey&#39;
- &#39;black&#39; &#39;grey&#39; 0.5 0.5 0.5]
-5
-Ducati_Vento.jpg
-</pre></div>
-</div>
-<img alt="../../_images/7f47afe607dae45a3da0a4947bbc5473e265ec9429114906249ab0446bfda385.png" src="../../_images/7f47afe607dae45a3da0a4947bbc5473e265ec9429114906249ab0446bfda385.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Ducati_Vento.jpg&#39; 3648 2736 &#39;JPEG&#39; 1 &#39;darkgrey&#39; &#39;lightgrey&#39;
- &#39;black&#39; &#39;lightgrey&#39; &#39;grey&#39; 0.5 0.5 0.5]
-6
-tauros.jpg
-</pre></div>
-</div>
-<img alt="../../_images/c16097debf2400cc86ab03710a5331bf8f44521e95c15fd7d82a90e4fade6e55.png" src="../../_images/c16097debf2400cc86ab03710a5331bf8f44521e95c15fd7d82a90e4fade6e55.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;tauros.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39;
- &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;grey&#39; 0.15 0.15 0.15]
-7
-drifblim.jpg
-</pre></div>
-</div>
-<img alt="../../_images/2434652915ac4e04c8a250e4ffdf2441f27b6de2de4682293f7072a1e1eb88ce.png" src="../../_images/2434652915ac4e04c8a250e4ffdf2441f27b6de2de4682293f7072a1e1eb88ce.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;drifblim.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39; &#39;grey&#39;
- &#39;yellow&#39; &#39;black&#39; &#39;lightgrey&#39; 0.15 0.15 0.15]
-8
-Ford_Indigo.jpg
-</pre></div>
-</div>
-<img alt="../../_images/9c3ce641c5e8614b034d1494688e5f7cd4b5c175b1d39989c0a151c9bbb7d96f.png" src="../../_images/9c3ce641c5e8614b034d1494688e5f7cd4b5c175b1d39989c0a151c9bbb7d96f.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Ford_Indigo.jpg&#39; 1261 918 &#39;JPEG&#39; 1 &#39;black&#39; &#39;lightgrey&#39; &#39;red&#39;
- &#39;grey&#39; &#39;darkgrey&#39; 0.5 0.5 0.5]
-9
-ivysaur.jpg
-</pre></div>
-</div>
-<img alt="../../_images/fd0acf65aeb54337306b36012d7de4c8617e7d8c3fb15cf2f2a42203384610b9.png" src="../../_images/fd0acf65aeb54337306b36012d7de4c8617e7d8c3fb15cf2f2a42203384610b9.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;ivysaur.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
- &#39;grey&#39; &#39;lightgrey&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
-10
-Wolf_1061d.jpg
-</pre></div>
-</div>
-<img alt="../../_images/3f92aa0a0b858fce4041e9b396937f9a1f445d8142a43a4400261b42f4ea32d9.png" src="../../_images/3f92aa0a0b858fce4041e9b396937f9a1f445d8142a43a4400261b42f4ea32d9.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;Wolf_1061d.jpg&#39; 3000 2000 &#39;JPEG&#39; &#39;no exif&#39; &#39;red&#39; &#39;black&#39;
- &#39;brown&#39; &#39;lightgrey&#39; &#39;black&#39; 0.15 0.15 0.15]
-11
-Montesa_250cc_Twin.jpg
-</pre></div>
-</div>
-<img alt="../../_images/8bca85cf76bb741a5ccc7b09195cbd5fe665c638d31affea61215823ad4e7c24.png" src="../../_images/8bca85cf76bb741a5ccc7b09195cbd5fe665c638d31affea61215823ad4e7c24.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Montesa_250cc_Twin.jpg&#39; 3648 2736 &#39;JPEG&#39; 1 &#39;black&#39; &#39;lightgrey&#39;
- &#39;darkgrey&#39; &#39;red&#39; &#39;grey&#39; 0.5 0.15 0.15]
-12
-Tesla_Model_S.jpg
-</pre></div>
-</div>
-<img alt="../../_images/bb4e67f87bf64a933e32878e5a39f03ba2cee202b64558ebc39bc818061dbca8.png" src="../../_images/bb4e67f87bf64a933e32878e5a39f03ba2cee202b64558ebc39bc818061dbca8.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Tesla_Model_S.jpg&#39; 7786 4380 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39;
- &#39;lightgrey&#39; &#39;grey&#39; &#39;black&#39; &#39;blue&#39; 0.5 0.5 0.5]
-13
-cranidos.jpg
-</pre></div>
-</div>
-<img alt="../../_images/0759905a2d16112b7f1da62215d6f1fd9a7a709f6a1e3c0b5534deea7e085caa.png" src="../../_images/0759905a2d16112b7f1da62215d6f1fd9a7a709f6a1e3c0b5534deea7e085caa.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;cranidos.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
- &#39;darkgrey&#39; &#39;grey&#39; &#39;black&#39; 0.15 0.15 0.15]
-14
-HD_17156_b.jpg
-</pre></div>
-</div>
-<img alt="../../_images/17932013f121fb747eb7a29094ebbd3af7a958703bfa45308a6c6e972a756597.png" src="../../_images/17932013f121fb747eb7a29094ebbd3af7a958703bfa45308a6c6e972a756597.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;HD_17156_b.jpg&#39; 870 765 &#39;PNG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39;
+<img alt="../../_images/6b9e9efaf9254ee316dea599836620bb52c5171140ae7483daffb035db9cfdbb.png" src="../../_images/6b9e9efaf9254ee316dea599836620bb52c5171140ae7483daffb035db9cfdbb.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;arcanine.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39;
  &#39;lightgrey&#39; &#39;grey&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
-15
-floatzel.jpg
+4
+Benelli_TRK.jpg
 </pre></div>
 </div>
-<img alt="../../_images/10774bd75f9a6f5c4d8673f5839b7e5faf2b656f4214ed5799f6dba1d43945df.png" src="../../_images/10774bd75f9a6f5c4d8673f5839b7e5faf2b656f4214ed5799f6dba1d43945df.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;floatzel.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39;
- &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;yellow&#39; 0.15 0.15 0.15]
-16
-raticate.jpg
+<img alt="../../_images/b87d5fa37a30a475518564b28d8c42c0c1dae73ac58bfc8699bfbfa23c8610be.png" src="../../_images/b87d5fa37a30a475518564b28d8c42c0c1dae73ac58bfc8699bfbfa23c8610be.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Benelli_TRK.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;grey&#39; &#39;darkgrey&#39;
+ &#39;lightgrey&#39; &#39;lightgrey&#39; &#39;darkgrey&#39; 0.5 0.5 0.5]
+5
+HD_108147_b.jpg
 </pre></div>
 </div>
-<img alt="../../_images/920c852548b0c360ec8d9c069c11993a787978f8f005dae24cb5f555edd62029.png" src="../../_images/920c852548b0c360ec8d9c069c11993a787978f8f005dae24cb5f555edd62029.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;raticate.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39; &#39;grey&#39;
- &#39;lightgrey&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
-17
-Pontiac_Six.jpg
+<img alt="../../_images/5644c17535746964f3e603971cdf7287ac13c9de6e9ab8c65eb0e7977e096f63.png" src="../../_images/5644c17535746964f3e603971cdf7287ac13c9de6e9ab8c65eb0e7977e096f63.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;HD_108147_b.jpg&#39; 640 360 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;darkgrey&#39;
+ &#39;darkgrey&#39; &#39;black&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
+6
+K2-18_b.jpg
 </pre></div>
 </div>
-<img alt="../../_images/fc9f3b307cabc2d3488a094035b890f26e7beb324c4a023af5a7811fe90c0287.png" src="../../_images/fc9f3b307cabc2d3488a094035b890f26e7beb324c4a023af5a7811fe90c0287.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Pontiac_Six.jpg&#39; 1600 1060 &#39;JPEG&#39; 1 &#39;white&#39; &#39;darkgrey&#39;
- &#39;lightgrey&#39; &#39;black&#39; &#39;grey&#39; 0.5 0.5 0.5]
-18
-Buick_Verano.jpg
+<img alt="../../_images/66c19f34660f3af12510d0d04b9cb245d3457b79c401f923705b7f4370759a6c.png" src="../../_images/66c19f34660f3af12510d0d04b9cb245d3457b79c401f923705b7f4370759a6c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;K2-18_b.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39; &#39;grey&#39;
+ &#39;lightgrey&#39; &#39;black&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
+7
+WD_1145+017_b.jpg
 </pre></div>
 </div>
-<img alt="../../_images/fa91cc70806c77d0cf3b717d247771bb3bd9e4e691bf99921644ee6e54635a6b.png" src="../../_images/fa91cc70806c77d0cf3b717d247771bb3bd9e4e691bf99921644ee6e54635a6b.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Buick_Verano.jpg&#39; 1712 1048 &#39;JPEG&#39; 1 &#39;black&#39; &#39;lightgrey&#39;
- &#39;darkgrey&#39; &#39;grey&#39; &#39;white&#39; 0.5 0.5 0.5]
-19
-Fiat_Ducato.jpg
+<img alt="../../_images/78c98255d8074d48cbe1b8a9f1bffdf11ea02d7439b71a27d6108d09f4aabbcb.png" src="../../_images/78c98255d8074d48cbe1b8a9f1bffdf11ea02d7439b71a27d6108d09f4aabbcb.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;WD_1145+017_b.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;grey&#39; &#39;black&#39;
+ &#39;black&#39; &#39;grey&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
+8
+whiscash.jpg
 </pre></div>
 </div>
-<img alt="../../_images/c9425afeac9425f389ba7d589b534e3cc2aeaa3c0cc51f5d3859999bbea17242.png" src="../../_images/c9425afeac9425f389ba7d589b534e3cc2aeaa3c0cc51f5d3859999bbea17242.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Fiat_Ducato.jpg&#39; 1600 908 &#39;JPEG&#39; &#39;no exif&#39; &#39;lightgrey&#39;
- &#39;darkgrey&#39; &#39;grey&#39; &#39;lightgrey&#39; &#39;darkgrey&#39; 0.5 0.5 0.5]
+<img alt="../../_images/e538975fc770576ec097fcd320a6d6eb011698cbfafc281b23481828b35e08cc.png" src="../../_images/e538975fc770576ec097fcd320a6d6eb011698cbfafc281b23481828b35e08cc.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;whiscash.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;darkgrey&#39;
+ &#39;grey&#39; &#39;darkgrey&#39; &#39;grey&#39; 0.15 0.15 0.15]
+9
+regice.jpg
+</pre></div>
+</div>
+<img alt="../../_images/635bf50acd37213e6f67c9e2c330aa695d9d4efa6b7d6c39ce4c14e29cb29c6d.png" src="../../_images/635bf50acd37213e6f67c9e2c330aa695d9d4efa6b7d6c39ce4c14e29cb29c6d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;regice.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
+ &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;grey&#39; 0.15 0.15 0.15]
+10
+Bultaco_Gaviota.jpg
+</pre></div>
+</div>
+<img alt="../../_images/38644f24f70bda8ed1754cfcdd763e0e6e596bf9f743a043d148fc525d10a1a8.png" src="../../_images/38644f24f70bda8ed1754cfcdd763e0e6e596bf9f743a043d148fc525d10a1a8.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Bultaco_Gaviota.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39;
+ &#39;lightgrey&#39; &#39;brown&#39; &#39;darkgrey&#39; &#39;grey&#39; 0.5 0.5 0.15]
+11
+metaDataExo.json
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">46</span><span class="p">],</span> <span class="n">line</span> <span class="mi">20</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span> 
+<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">20</span>     <span class="n">user_choice</span><span class="p">,</span> <span class="n">random_img</span> <span class="o">=</span> <span class="n">get_user_choice</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">random_img</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">data_user</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">random_img</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">random_img</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],(</span><span class="n">user_choice</span><span class="p">))</span>
+
+<span class="nn">Cell In[46], line 11,</span> in <span class="ni">get_user_choice</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">random_img</span> <span class="o">=</span> <span class="n">randomImage</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="n">random_img</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">img_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir1</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">random_img</span><span class="p">][</span><span class="s1">&#39;theme&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">random_img</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">img</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+<span class="ne">IndexError</span>: index 0 is out of bounds for axis 0 with size 0
 </pre></div>
 </div>
 </div>
@@ -995,7 +953,6 @@ Fiat_Ducato.jpg
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># on enleve les colonnes inutiles</span>
 <span class="n">data_user</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;orientation&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">data_user</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1006,124 +963,6 @@ Fiat_Ducato.jpg
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>theme</th>
-      <th>width</th>
-      <th>height</th>
-      <th>format</th>
-      <th>color_0</th>
-      <th>color_1</th>
-      <th>color_2</th>
-      <th>color_3</th>
-      <th>color_4</th>
-      <th>red</th>
-      <th>green</th>
-      <th>blue</th>
-      <th>choice</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>KOI-172.02.jpg</th>
-      <td>Exoplanet</td>
-      <td>4000</td>
-      <td>2251</td>
-      <td>JPEG</td>
-      <td>black</td>
-      <td>lightgrey</td>
-      <td>darkgrey</td>
-      <td>grey</td>
-      <td>black</td>
-      <td>0.15</td>
-      <td>0.15</td>
-      <td>0.15</td>
-      <td>Y</td>
-    </tr>
-    <tr>
-      <th>Bultaco_Tralla.jpg</th>
-      <td>Moto</td>
-      <td>3648</td>
-      <td>2736</td>
-      <td>JPEG</td>
-      <td>darkgrey</td>
-      <td>grey</td>
-      <td>white</td>
-      <td>darkgrey</td>
-      <td>lightgrey</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>dragonite.jpg</th>
-      <td>Pokemon2</td>
-      <td>120</td>
-      <td>120</td>
-      <td>JPEG</td>
-      <td>black</td>
-      <td>lightgrey</td>
-      <td>darkgrey</td>
-      <td>grey</td>
-      <td>lightgrey</td>
-      <td>0.15</td>
-      <td>0.15</td>
-      <td>0.15</td>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Bultaco_Streaker.jpg</th>
-      <td>Moto</td>
-      <td>4288</td>
-      <td>3216</td>
-      <td>JPEG</td>
-      <td>grey</td>
-      <td>darkgrey</td>
-      <td>darkgrey</td>
-      <td>grey</td>
-      <td>lightgrey</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.15</td>
-      <td>Y</td>
-    </tr>
-    <tr>
-      <th>HiPhi_Z.jpg</th>
-      <td>Voitures</td>
-      <td>4000</td>
-      <td>3000</td>
-      <td>JPEG</td>
-      <td>grey</td>
-      <td>darkgrey</td>
-      <td>lightgrey</td>
-      <td>black</td>
-      <td>grey</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>N</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1137,22 +976,16 @@ Fiat_Ducato.jpg
 <span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">heightLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])</span>
 <span class="n">formatLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 <span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">formatLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">])</span>
-<span class="n">color_0Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_0Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">])</span>
-<span class="n">color_1Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_1Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">])</span>
-<span class="n">color_2Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_2Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_2&#39;</span><span class="p">])</span>
-<span class="n">color_3Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_3Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_3&#39;</span><span class="p">])</span>
-<span class="n">color_4Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_4Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_4&#39;</span><span class="p">])</span>
-<span class="n">redLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">redLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">])</span>
-<span class="n">greenLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">greenLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">])</span>
-<span class="n">blueLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">blueLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">])</span>
+<span class="n">colorLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">colorLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">])</span>
+<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">colorLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">])</span>
+<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">colorLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_2&#39;</span><span class="p">])</span>
+<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">colorLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_3&#39;</span><span class="p">])</span>
+<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">colorLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;color_4&#39;</span><span class="p">])</span>
+<span class="n">RGBLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RGBLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">])</span>
+<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RGBLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">])</span>
+<span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RGBLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">])</span>
 <span class="n">resultLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 <span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;choice&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resultLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;choice&#39;</span><span class="p">])</span>
 
@@ -1160,124 +993,6 @@ Fiat_Ducato.jpg
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>theme</th>
-      <th>width</th>
-      <th>height</th>
-      <th>format</th>
-      <th>color_0</th>
-      <th>color_1</th>
-      <th>color_2</th>
-      <th>color_3</th>
-      <th>color_4</th>
-      <th>red</th>
-      <th>green</th>
-      <th>blue</th>
-      <th>choice</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>floatzel.jpg</th>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2</td>
-      <td>2</td>
-      <td>3</td>
-      <td>6</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>raticate.jpg</th>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2</td>
-      <td>3</td>
-      <td>3</td>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>Pontiac_Six.jpg</th>
-      <td>3</td>
-      <td>3</td>
-      <td>5</td>
-      <td>0</td>
-      <td>5</td>
-      <td>1</td>
-      <td>4</td>
-      <td>0</td>
-      <td>3</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>Buick_Verano.jpg</th>
-      <td>3</td>
-      <td>4</td>
-      <td>4</td>
-      <td>0</td>
-      <td>0</td>
-      <td>3</td>
-      <td>2</td>
-      <td>2</td>
-      <td>5</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>Fiat_Ducato.jpg</th>
-      <td>3</td>
-      <td>3</td>
-      <td>2</td>
-      <td>0</td>
-      <td>3</td>
-      <td>1</td>
-      <td>3</td>
-      <td>3</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </section>
 <section id="entrainement-du-modele">
@@ -1288,6 +1003,7 @@ Fiat_Ducato.jpg
 
 <span class="n">dtc</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
 <span class="n">data_uc</span> <span class="o">=</span> <span class="n">data_user</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;choice&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data_uc</span> <span class="o">=</span> <span class="n">data_uc</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">data_choice</span> <span class="o">=</span> <span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;choice&#39;</span><span class="p">]</span>
 <span class="n">dtc</span> <span class="o">=</span> <span class="n">dtc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_uc</span> <span class="p">,</span> <span class="n">data_choice</span><span class="p">)</span>
 </pre></div>
@@ -1318,9 +1034,6 @@ Fiat_Ducato.jpg
 <span class="c1">#pydot_graph.write_png(&#39;tree.png&#39;)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/445a8a0ac57fb14332348f6797660034e8b2a5539b776e3ec318fb5e2b2c4fc8.png" src="../../_images/445a8a0ac57fb14332348f6797660034e8b2a5539b776e3ec318fb5e2b2c4fc8.png" />
 </div>
 </div>
 </section>
@@ -1360,125 +1073,6 @@ Fiat_Ducato.jpg
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prédiction correcte&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prédiction fausse&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wartortle.jpg
-</pre></div>
-</div>
-<img alt="../../_images/0e8abe2388724bb0328323a2be1defccf10846e30271566ab3a62c782cd4acae.png" src="../../_images/0e8abe2388724bb0328323a2be1defccf10846e30271566ab3a62c782cd4acae.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        theme          image  width  height format orientation color_0  \
-288  Pokemon2  wartortle.jpg    120     120   JPEG     no exif   black   
-
-       color_1 color_2   color_3    color_4   red  green  blue  
-288  lightgrey    grey  darkgrey  lightgrey  0.15   0.15  0.15  
-Prédiction de l&#39;abre : [&#39;N&#39;]
-Ordre d&#39;importance: {&#39;theme&#39;: 0.619047619047619, &#39;width&#39;: 0.0, &#39;height&#39;: 0.0, &#39;format&#39;: 0.0, &#39;color_0&#39;: 0.22222222222222224, &#39;color_1&#39;: 0.0, &#39;color_2&#39;: 0.15873015873015872, &#39;color_3&#39;: 0.0, &#39;color_4&#39;: 0.0, &#39;red&#39;: 0.0, &#39;green&#39;: 0.0, &#39;blue&#39;: 0.0}
-choix de l&#39;utilisateur : N
-Prédiction correcte
-porygon-z.jpg
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/site-packages/sklearn/base.py:420: UserWarning: X does not have valid feature names, but DecisionTreeClassifier was fitted with feature names
-  warnings.warn(
-</pre></div>
-</div>
-<img alt="../../_images/514b1a0641203b84e6f8a2b2a5634d6b14885d491d00c30d78698809f129ed38.png" src="../../_images/514b1a0641203b84e6f8a2b2a5634d6b14885d491d00c30d78698809f129ed38.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        theme          image  width  height format orientation color_0  \
-411  Pokemon2  porygon-z.jpg    120     120   JPEG     no exif   black   
-
-    color_1 color_2 color_3 color_4   red  green  blue  
-411    grey    grey    grey   black  0.15   0.15  0.15  
-Prédiction de l&#39;abre : [&#39;N&#39;]
-Ordre d&#39;importance: {&#39;theme&#39;: 0.619047619047619, &#39;width&#39;: 0.0, &#39;height&#39;: 0.0, &#39;format&#39;: 0.0, &#39;color_0&#39;: 0.22222222222222224, &#39;color_1&#39;: 0.0, &#39;color_2&#39;: 0.15873015873015872, &#39;color_3&#39;: 0.0, &#39;color_4&#39;: 0.0, &#39;red&#39;: 0.0, &#39;green&#39;: 0.0, &#39;blue&#39;: 0.0}
-choix de l&#39;utilisateur : N
-Prédiction correcte
-Buick_LaCrosse.jpg
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/site-packages/sklearn/base.py:420: UserWarning: X does not have valid feature names, but DecisionTreeClassifier was fitted with feature names
-  warnings.warn(
-</pre></div>
-</div>
-<img alt="../../_images/f53c7f84657d6472b57948282afc2551e34467eae5295c8fa608ec7489de05b4.png" src="../../_images/f53c7f84657d6472b57948282afc2551e34467eae5295c8fa608ec7489de05b4.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        theme               image  width  height format orientation   color_0  \
-689  Voitures  Buick_LaCrosse.jpg   3847    2879   JPEG           1  darkgrey   
-
-       color_1 color_2 color_3 color_4  red  green  blue  
-689  lightgrey   black    grey    grey  0.5    0.5   0.5  
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_encode.py:224,</span> in <span class="ni">_encode</span><span class="nt">(values, uniques, check_unknown)</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">224</span>     <span class="k">return</span> <span class="n">_map_to_integer</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">uniques</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">225</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_encode.py:164,</span> in <span class="ni">_map_to_integer</span><span class="nt">(values, uniques)</span>
-<span class="nn">    163 table = _nandict({val: i for i, val</span> in <span class="ni">enumerate</span><span class="nt">(uniques)})</span>
-<span class="ne">--&gt; </span><span class="mi">164</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">table</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">])</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_encode.py:164,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="nn">    163 table = _nandict({val: i for i, val</span> in <span class="ni">enumerate</span><span class="nt">(uniques)})</span>
-<span class="ne">--&gt; </span><span class="mi">164</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">table</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">])</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_encode.py:158,</span> in <span class="ni">_nandict.__missing__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">157</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan_value</span>
-<span class="ne">--&gt; </span><span class="mi">158</span> <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: 3847
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">data_random</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">random_img</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="n">data_random</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">prediction</span> <span class="o">=</span> <span class="n">dtc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="p">[[</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="n">themeLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;theme&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="ne">---&gt; </span><span class="mi">10</span>         <span class="n">widthLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">heightLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="n">formatLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="n">color_0Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>         <span class="n">color_1Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="n">color_2Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_2&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>         <span class="n">color_3Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_3&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>         <span class="n">color_4Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_4&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="n">redLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>         <span class="n">greenLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>         <span class="n">blueLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="p">]]</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prédiction de l&#39;abre : </span><span class="si">{</span><span class="n">resultLabel</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">importance</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data_user</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">dtc</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">))</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_set_output.py:142,</span> in <span class="ni">_wrap_method_output.&lt;locals&gt;.wrapped</span><span class="nt">(self, X, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">142</span>     <span class="n">data_to_wrap</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">143</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_to_wrap</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">144</span>         <span class="c1"># only wrap the first output for cross decomposition</span>
-<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="k">return</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">146</span>             <span class="n">_wrap_data_with_container</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">data_to_wrap</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">147</span>             <span class="o">*</span><span class="n">data_to_wrap</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
-<span class="g g-Whitespace">    </span><span class="mi">148</span>         <span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/preprocessing/_label.py:139,</span> in <span class="ni">LabelEncoder.transform</span><span class="nt">(self, y)</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">if</span> <span class="n">_num_samples</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-<span class="ne">--&gt; </span><span class="mi">139</span> <span class="k">return</span> <span class="n">_encode</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">uniques</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_encode.py:226,</span> in <span class="ni">_encode</span><span class="nt">(values, uniques, check_unknown)</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span>         <span class="k">return</span> <span class="n">_map_to_integer</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">uniques</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">225</span>     <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">226</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y contains previously unseen labels: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">227</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span>     <span class="k">if</span> <span class="n">check_unknown</span><span class="p">:</span>
-
-<span class="ne">ValueError</span>: y contains previously unseen labels: 3847
 </pre></div>
 </div>
 </div>
