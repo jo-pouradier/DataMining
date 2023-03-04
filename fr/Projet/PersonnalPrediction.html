@@ -751,7 +751,7 @@ Name: theme, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Q11316934.jpg&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;BMW_R28.jpg&#39;
 </pre></div>
 </div>
 </div>
@@ -836,166 +836,154 @@ Name: theme, dtype: int64
     <span class="n">user_choice</span><span class="p">,</span> <span class="n">random_img</span> <span class="o">=</span> <span class="n">get_user_choice</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">random_img</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">data_user</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">random_img</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">random_img</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],(</span><span class="n">user_choice</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; END OF CHOICES&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-palkia.jpg
+KOI-172.02.jpg
 </pre></div>
 </div>
-<img alt="../../_images/68a4b518c2bee414c283b57f51e3c51fbc9b0b56639b5129b74d302cbd5518cd.png" src="../../_images/68a4b518c2bee414c283b57f51e3c51fbc9b0b56639b5129b74d302cbd5518cd.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;palkia.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
- &#39;white&#39; &#39;grey&#39; &#39;darkgrey&#39; 60.29797570850202 63.96324828609796
- 58.44761692319131]
+<img alt="../../_images/ee96fb16dbcf85aafe62f1afd7a53a1b314e196bf284879ce286dbe034e7ad15.png" src="../../_images/ee96fb16dbcf85aafe62f1afd7a53a1b314e196bf284879ce286dbe034e7ad15.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;KOI-172.02.jpg&#39; 4000 2251 &#39;JPEG&#39; 1 &#39;black&#39; &#39;lightgrey&#39;
+ &#39;darkgrey&#39; &#39;grey&#39; &#39;black&#39; 0.15 0.15 0.15]
 1
-rattata.jpg
-</pre></div>
-</div>
-<img alt="../../_images/55a7ec4bfa1bc95dfe12e4a6ab230ac2d87278ae78058c654415be688b20e4b6.png" src="../../_images/55a7ec4bfa1bc95dfe12e4a6ab230ac2d87278ae78058c654415be688b20e4b6.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;rattata.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
- &#39;grey&#39; &#39;grey&#39; &#39;darkgrey&#39; 11.540819169685149 10.760591748854008
- 11.938629413400056]
-2
-Tesla_Model_S.jpg
-</pre></div>
-</div>
-<img alt="../../_images/bb4e67f87bf64a933e32878e5a39f03ba2cee202b64558ebc39bc818061dbca8.png" src="../../_images/bb4e67f87bf64a933e32878e5a39f03ba2cee202b64558ebc39bc818061dbca8.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Tesla_Model_S.jpg&#39; 7786 4380 &#39;JPEG&#39; &#39;no exif&#39; &#39;blue&#39; &#39;grey&#39;
- &#39;lightgrey&#39; &#39;black&#39; &#39;darkgrey&#39; 92.91901662620823 105.17334974822148
- 110.4893751011136]
-3
-Montesa_Rapita.jpg
-</pre></div>
-</div>
-<img alt="../../_images/9470ce82c26c83230ae5f3cb5166663e67cb92d2345f6beb6d2c796c12b9a6d6.png" src="../../_images/9470ce82c26c83230ae5f3cb5166663e67cb92d2345f6beb6d2c796c12b9a6d6.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Montesa_Rapita.jpg&#39; 4288 3216 &#39;JPEG&#39; 1 &#39;grey&#39; &#39;black&#39; &#39;lightgrey&#39;
- &#39;darkgrey&#39; &#39;grey&#39; 104.43181156505904 97.40909397288837 82.3985510970912]
-4
-23_Librae_b.jpg
-</pre></div>
-</div>
-<img alt="../../_images/dbbab65e7691b9c8b9a2c62df79465ae2cbe38700733b4c0c0a3bf64811ca88e.png" src="../../_images/dbbab65e7691b9c8b9a2c62df79465ae2cbe38700733b4c0c0a3bf64811ca88e.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;23_Librae_b.jpg&#39; 1280 730 &#39;PNG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39;
- &#39;darkgrey&#39; &#39;grey&#39; &#39;darkgrey&#39; 41.61980415239726 36.57391481164384
- 31.657026204121383]
-5
-HD_154345_b.jpg
-</pre></div>
-</div>
-<img alt="../../_images/4285bf3f74e306692539f87388c7663c18e2288173480b2026c946983179fac2.png" src="../../_images/4285bf3f74e306692539f87388c7663c18e2288173480b2026c946983179fac2.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;HD_154345_b.jpg&#39; 852 648 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;darkgrey&#39;
- &#39;black&#39; &#39;grey&#39; &#39;darkgrey&#39; 11.031947342491161 8.819752361908074
- 7.435462310902452]
-6
-weavile.jpg
-</pre></div>
-</div>
-<img alt="../../_images/084b06b746e90521cb731ae1b3b4ac0fb5353bab0dd309128140c84543cc9b9b.png" src="../../_images/084b06b746e90521cb731ae1b3b4ac0fb5353bab0dd309128140c84543cc9b9b.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;weavile.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkpink&#39; &#39;black&#39;
- &#39;grey&#39; &#39;darkgrey&#39; &#39;black&#39; 26.524759380666758 16.331406282649578
- 19.94403791204962]
-7
-Q24939994.jpg
-</pre></div>
-</div>
-<img alt="../../_images/3c9203014abfde0499cd62b00afb54c892b75f9cc9bb58c7bc9ca4ecdfb38e78.png" src="../../_images/3c9203014abfde0499cd62b00afb54c892b75f9cc9bb58c7bc9ca4ecdfb38e78.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Q24939994.jpg&#39; 567 343 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39; &#39;grey&#39;
- &#39;darkgrey&#39; &#39;lightgrey&#39; 82.69140855724693 79.43083495789953
- 72.07234311662191]
-8
-Q106286293.jpg
-</pre></div>
-</div>
-<img alt="../../_images/ac5186eaac56f5aa4a71ddea2bc29af9573eee1f3c4eb804333dbf498613c1a9.png" src="../../_images/ac5186eaac56f5aa4a71ddea2bc29af9573eee1f3c4eb804333dbf498613c1a9.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Q106286293.jpg&#39; 3000 2100 &#39;JPEG&#39; 1 &#39;white&#39; &#39;darkgrey&#39; &#39;grey&#39;
- &#39;red&#39; &#39;black&#39; 126.16294494845228 108.2388452447689 101.50638897056079]
-9
-OGLE-2005-BLG-390Lb.jpg
-</pre></div>
-</div>
-<img alt="../../_images/556c515fecf787682f1c8e0c8b3eff89e10df1f91d6dc3b76d3c05e66338ecee.png" src="../../_images/556c515fecf787682f1c8e0c8b3eff89e10df1f91d6dc3b76d3c05e66338ecee.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;OGLE-2005-BLG-390Lb.jpg&#39; 1280 960 &#39;JPEG&#39; 1 &#39;black&#39;
- &#39;darkgrey&#39; &#39;white&#39; &#39;black&#39; &#39;grey&#39; 13.957648980470116 11.365412117305675
- 11.901755112387345]
-10
-HD_76700_b.jpg
-</pre></div>
-</div>
-<img alt="../../_images/5edc4e6e11619dea4bbf1601d3a07c87084a6ae6cce3740007cd2c91c2d9fba0.png" src="../../_images/5edc4e6e11619dea4bbf1601d3a07c87084a6ae6cce3740007cd2c91c2d9fba0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;HD_76700_b.jpg&#39; 625 528 &#39;PNG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39;
- &#39;darkgrey&#39; &#39;black&#39; &#39;white&#39; 41.028242863689215 28.077337570164826
- 20.584695699958786]
-11
-feraligatr.jpg
-</pre></div>
-</div>
-<img alt="../../_images/f6a3bcf6726b96c2806d71db9749c8009ece5d4f50c5c1fb24f189e045cb7bfe.png" src="../../_images/f6a3bcf6726b96c2806d71db9749c8009ece5d4f50c5c1fb24f189e045cb7bfe.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;feraligatr.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
- &#39;darkgrey&#39; &#39;grey&#39; &#39;black&#39; 33.67097902097902 46.951076320939336
- 43.09194408416198]
-12
-Bultaco_200.jpg
-</pre></div>
-</div>
-<img alt="../../_images/fe241f9cf6543682e7f3dda225f34985b92f91fdaae0180205764dffe52d83af.png" src="../../_images/fe241f9cf6543682e7f3dda225f34985b92f91fdaae0180205764dffe52d83af.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Bultaco_200.jpg&#39; 4288 3216 &#39;JPEG&#39; 1 &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;grey&#39;
- &#39;darkgrey&#39; &#39;grey&#39; 131.49988399878094 123.79115936376832 113.457938044699]
-13
-Montesa_King_Scorpion.jpg
-</pre></div>
-</div>
-<img alt="../../_images/63d8a0d23ae7b27f53c38b3b1b1c99f24979b01992deaa7ce046d7c0e864d66a.png" src="../../_images/63d8a0d23ae7b27f53c38b3b1b1c99f24979b01992deaa7ce046d7c0e864d66a.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Montesa_King_Scorpion.jpg&#39; 4288 3216 &#39;JPEG&#39; 1 &#39;darkgrey&#39; &#39;white&#39;
- &#39;grey&#39; &#39;darkgrey&#39; &#39;blue&#39; 103.54734043051671 102.98147905388275
- 106.9795267419439]
-14
-BMW_HH.jpg
-</pre></div>
-</div>
-<img alt="../../_images/f9984b6ba5c2da8cbe1dc88980834a57b04ebac28945e8da5ccdd10a8b5d7866.png" src="../../_images/f9984b6ba5c2da8cbe1dc88980834a57b04ebac28945e8da5ccdd10a8b5d7866.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;BMW_HH.jpg&#39; 4752 3168 &#39;JPEG&#39; 1 &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;black&#39;
- &#39;grey&#39; &#39;grey&#39; 91.34659044563384 84.97506778712528 83.10522038096161]
-15
-HiPhi_Z.jpg
-</pre></div>
-</div>
-<img alt="../../_images/40d27c06b3f8b8c2b6b4157a03d6b51f1c460ef907f6cdf51c41f05dc3d1cfd8.png" src="../../_images/40d27c06b3f8b8c2b6b4157a03d6b51f1c460ef907f6cdf51c41f05dc3d1cfd8.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;HiPhi_Z.jpg&#39; 4000 3000 &#39;JPEG&#39; 1 &#39;grey&#39; &#39;darkgrey&#39; &#39;grey&#39;
- &#39;black&#39; &#39;lightgrey&#39; 103.39059039593349 104.64865961569105
- 110.32949068144828]
-16
-BSA_B31.jpg
-</pre></div>
-</div>
-<img alt="../../_images/5af28ba81ced1e918cdc6ab36fa9d18f90c6c760ea198ea286b43acd1707a949.png" src="../../_images/5af28ba81ced1e918cdc6ab36fa9d18f90c6c760ea198ea286b43acd1707a949.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;BSA_B31.jpg&#39; 631 463 &#39;JPEG&#39; 1 &#39;lightgrey&#39; &#39;darkgrey&#39; &#39;grey&#39;
- &#39;lightgrey&#39; &#39;darkgrey&#39; 152.9538297661005 154.7944029301017
- 155.75983113796687]
-17
-Benelli_BN_125.jpg
-</pre></div>
-</div>
-<img alt="../../_images/9223d7619899884dc4cc2c635532b11bb61bd11548e65bc54f72eba84edc6798.png" src="../../_images/9223d7619899884dc4cc2c635532b11bb61bd11548e65bc54f72eba84edc6798.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Benelli_BN_125.jpg&#39; 1555 1166 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39; &#39;grey&#39;
- &#39;white&#39; &#39;lightgrey&#39; &#39;black&#39; 103.91937080131846 99.5704508832017
- 99.99535982493936]
-18
 Bultaco_Tralla.jpg
 </pre></div>
 </div>
 <img alt="../../_images/9ba587a6ec3362374bc8c9a749b6e500861060279a2d1e179b9a94aa24191d50.png" src="../../_images/9ba587a6ec3362374bc8c9a749b6e500861060279a2d1e179b9a94aa24191d50.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Bultaco_Tralla.jpg&#39; 3648 2736 &#39;JPEG&#39; 1 &#39;white&#39; &#39;darkgrey&#39;
- &#39;lightgrey&#39; &#39;darkgrey&#39; &#39;grey&#39; 99.45312932368823 99.51304334904029
- 102.14528556488243]
-19
-Ferrari_250_GT_Coupé_Pinin_Farina.jpg
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Bultaco_Tralla.jpg&#39; 3648 2736 &#39;JPEG&#39; 1 &#39;darkgrey&#39; &#39;grey&#39; &#39;white&#39;
+ &#39;darkgrey&#39; &#39;lightgrey&#39; 0.5 0.5 0.5]
+2
+dragonite.jpg
 </pre></div>
 </div>
-<img alt="../../_images/eae6d406d5933e973a224449aec8f99cff305c0e20f36664aae1b3ed6aad85ca.png" src="../../_images/eae6d406d5933e973a224449aec8f99cff305c0e20f36664aae1b3ed6aad85ca.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Ferrari_250_GT_Coupé_Pinin_Farina.jpg&#39; 5408 3472 &#39;JPEG&#39; 1
- &#39;darkgrey&#39; &#39;grey&#39; &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;grey&#39; 106.68713285345207
- 106.68452223601521 107.81106711057271]
+<img alt="../../_images/13b69058bc9d820ad70f78d51d9a5089aad11c33d28419d98c657295ebb6b568.png" src="../../_images/13b69058bc9d820ad70f78d51d9a5089aad11c33d28419d98c657295ebb6b568.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;dragonite.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
+ &#39;darkgrey&#39; &#39;grey&#39; &#39;lightgrey&#39; 0.15 0.15 0.15]
+3
+Bultaco_Streaker.jpg
+</pre></div>
+</div>
+<img alt="../../_images/d3e2f1859a558167a7d421c2dc767053e6802a394eb76e3af776858f735004b0.png" src="../../_images/d3e2f1859a558167a7d421c2dc767053e6802a394eb76e3af776858f735004b0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Bultaco_Streaker.jpg&#39; 4288 3216 &#39;JPEG&#39; 1 &#39;grey&#39; &#39;darkgrey&#39;
+ &#39;darkgrey&#39; &#39;grey&#39; &#39;lightgrey&#39; 0.5 0.5 0.15]
+4
+HiPhi_Z.jpg
+</pre></div>
+</div>
+<img alt="../../_images/40d27c06b3f8b8c2b6b4157a03d6b51f1c460ef907f6cdf51c41f05dc3d1cfd8.png" src="../../_images/40d27c06b3f8b8c2b6b4157a03d6b51f1c460ef907f6cdf51c41f05dc3d1cfd8.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;HiPhi_Z.jpg&#39; 4000 3000 &#39;JPEG&#39; 1 &#39;grey&#39; &#39;darkgrey&#39; &#39;lightgrey&#39;
+ &#39;black&#39; &#39;grey&#39; 0.5 0.5 0.5]
+5
+Ducati_Vento.jpg
+</pre></div>
+</div>
+<img alt="../../_images/7f47afe607dae45a3da0a4947bbc5473e265ec9429114906249ab0446bfda385.png" src="../../_images/7f47afe607dae45a3da0a4947bbc5473e265ec9429114906249ab0446bfda385.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Ducati_Vento.jpg&#39; 3648 2736 &#39;JPEG&#39; 1 &#39;darkgrey&#39; &#39;lightgrey&#39;
+ &#39;black&#39; &#39;lightgrey&#39; &#39;grey&#39; 0.5 0.5 0.5]
+6
+tauros.jpg
+</pre></div>
+</div>
+<img alt="../../_images/c16097debf2400cc86ab03710a5331bf8f44521e95c15fd7d82a90e4fade6e55.png" src="../../_images/c16097debf2400cc86ab03710a5331bf8f44521e95c15fd7d82a90e4fade6e55.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;tauros.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39;
+ &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;grey&#39; 0.15 0.15 0.15]
+7
+drifblim.jpg
+</pre></div>
+</div>
+<img alt="../../_images/2434652915ac4e04c8a250e4ffdf2441f27b6de2de4682293f7072a1e1eb88ce.png" src="../../_images/2434652915ac4e04c8a250e4ffdf2441f27b6de2de4682293f7072a1e1eb88ce.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;drifblim.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39; &#39;grey&#39;
+ &#39;yellow&#39; &#39;black&#39; &#39;lightgrey&#39; 0.15 0.15 0.15]
+8
+Ford_Indigo.jpg
+</pre></div>
+</div>
+<img alt="../../_images/9c3ce641c5e8614b034d1494688e5f7cd4b5c175b1d39989c0a151c9bbb7d96f.png" src="../../_images/9c3ce641c5e8614b034d1494688e5f7cd4b5c175b1d39989c0a151c9bbb7d96f.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Ford_Indigo.jpg&#39; 1261 918 &#39;JPEG&#39; 1 &#39;black&#39; &#39;lightgrey&#39; &#39;red&#39;
+ &#39;grey&#39; &#39;darkgrey&#39; 0.5 0.5 0.5]
+9
+ivysaur.jpg
+</pre></div>
+</div>
+<img alt="../../_images/fd0acf65aeb54337306b36012d7de4c8617e7d8c3fb15cf2f2a42203384610b9.png" src="../../_images/fd0acf65aeb54337306b36012d7de4c8617e7d8c3fb15cf2f2a42203384610b9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;ivysaur.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
+ &#39;grey&#39; &#39;lightgrey&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
+10
+Wolf_1061d.jpg
+</pre></div>
+</div>
+<img alt="../../_images/3f92aa0a0b858fce4041e9b396937f9a1f445d8142a43a4400261b42f4ea32d9.png" src="../../_images/3f92aa0a0b858fce4041e9b396937f9a1f445d8142a43a4400261b42f4ea32d9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;Wolf_1061d.jpg&#39; 3000 2000 &#39;JPEG&#39; &#39;no exif&#39; &#39;red&#39; &#39;black&#39;
+ &#39;brown&#39; &#39;lightgrey&#39; &#39;black&#39; 0.15 0.15 0.15]
+11
+Montesa_250cc_Twin.jpg
+</pre></div>
+</div>
+<img alt="../../_images/8bca85cf76bb741a5ccc7b09195cbd5fe665c638d31affea61215823ad4e7c24.png" src="../../_images/8bca85cf76bb741a5ccc7b09195cbd5fe665c638d31affea61215823ad4e7c24.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Montesa_250cc_Twin.jpg&#39; 3648 2736 &#39;JPEG&#39; 1 &#39;black&#39; &#39;lightgrey&#39;
+ &#39;darkgrey&#39; &#39;red&#39; &#39;grey&#39; 0.5 0.15 0.15]
+12
+Tesla_Model_S.jpg
+</pre></div>
+</div>
+<img alt="../../_images/bb4e67f87bf64a933e32878e5a39f03ba2cee202b64558ebc39bc818061dbca8.png" src="../../_images/bb4e67f87bf64a933e32878e5a39f03ba2cee202b64558ebc39bc818061dbca8.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Tesla_Model_S.jpg&#39; 7786 4380 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39;
+ &#39;lightgrey&#39; &#39;grey&#39; &#39;black&#39; &#39;blue&#39; 0.5 0.5 0.5]
+13
+cranidos.jpg
+</pre></div>
+</div>
+<img alt="../../_images/0759905a2d16112b7f1da62215d6f1fd9a7a709f6a1e3c0b5534deea7e085caa.png" src="../../_images/0759905a2d16112b7f1da62215d6f1fd9a7a709f6a1e3c0b5534deea7e085caa.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;cranidos.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
+ &#39;darkgrey&#39; &#39;grey&#39; &#39;black&#39; 0.15 0.15 0.15]
+14
+HD_17156_b.jpg
+</pre></div>
+</div>
+<img alt="../../_images/17932013f121fb747eb7a29094ebbd3af7a958703bfa45308a6c6e972a756597.png" src="../../_images/17932013f121fb747eb7a29094ebbd3af7a958703bfa45308a6c6e972a756597.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;HD_17156_b.jpg&#39; 870 765 &#39;PNG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39;
+ &#39;lightgrey&#39; &#39;grey&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
+15
+floatzel.jpg
+</pre></div>
+</div>
+<img alt="../../_images/10774bd75f9a6f5c4d8673f5839b7e5faf2b656f4214ed5799f6dba1d43945df.png" src="../../_images/10774bd75f9a6f5c4d8673f5839b7e5faf2b656f4214ed5799f6dba1d43945df.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;floatzel.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39;
+ &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;yellow&#39; 0.15 0.15 0.15]
+16
+raticate.jpg
+</pre></div>
+</div>
+<img alt="../../_images/920c852548b0c360ec8d9c069c11993a787978f8f005dae24cb5f555edd62029.png" src="../../_images/920c852548b0c360ec8d9c069c11993a787978f8f005dae24cb5f555edd62029.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;raticate.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39; &#39;grey&#39;
+ &#39;lightgrey&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
+17
+Pontiac_Six.jpg
+</pre></div>
+</div>
+<img alt="../../_images/fc9f3b307cabc2d3488a094035b890f26e7beb324c4a023af5a7811fe90c0287.png" src="../../_images/fc9f3b307cabc2d3488a094035b890f26e7beb324c4a023af5a7811fe90c0287.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Pontiac_Six.jpg&#39; 1600 1060 &#39;JPEG&#39; 1 &#39;white&#39; &#39;darkgrey&#39;
+ &#39;lightgrey&#39; &#39;black&#39; &#39;grey&#39; 0.5 0.5 0.5]
+18
+Buick_Verano.jpg
+</pre></div>
+</div>
+<img alt="../../_images/fa91cc70806c77d0cf3b717d247771bb3bd9e4e691bf99921644ee6e54635a6b.png" src="../../_images/fa91cc70806c77d0cf3b717d247771bb3bd9e4e691bf99921644ee6e54635a6b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Buick_Verano.jpg&#39; 1712 1048 &#39;JPEG&#39; 1 &#39;black&#39; &#39;lightgrey&#39;
+ &#39;darkgrey&#39; &#39;grey&#39; &#39;white&#39; 0.5 0.5 0.5]
+19
+Fiat_Ducato.jpg
+</pre></div>
+</div>
+<img alt="../../_images/c9425afeac9425f389ba7d589b534e3cc2aeaa3c0cc51f5d3859999bbea17242.png" src="../../_images/c9425afeac9425f389ba7d589b534e3cc2aeaa3c0cc51f5d3859999bbea17242.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Fiat_Ducato.jpg&#39; 1600 908 &#39;JPEG&#39; &#39;no exif&#39; &#39;lightgrey&#39;
+ &#39;darkgrey&#39; &#39;grey&#39; &#39;lightgrey&#39; &#39;darkgrey&#39; 0.5 0.5 0.5]
 </pre></div>
 </div>
 </div>
@@ -1038,7 +1026,6 @@ Ferrari_250_GT_Coupé_Pinin_Farina.jpg
     <tr style="text-align: right;">
       <th></th>
       <th>theme</th>
-      <th>image</th>
       <th>width</th>
       <th>height</th>
       <th>format</th>
@@ -1055,88 +1042,83 @@ Ferrari_250_GT_Coupé_Pinin_Farina.jpg
   </thead>
   <tbody>
     <tr>
-      <th>palkia.jpg</th>
-      <td>Pokemon2</td>
-      <td>palkia.jpg</td>
-      <td>120</td>
-      <td>120</td>
+      <th>KOI-172.02.jpg</th>
+      <td>Exoplanet</td>
+      <td>4000</td>
+      <td>2251</td>
       <td>JPEG</td>
       <td>black</td>
       <td>lightgrey</td>
+      <td>darkgrey</td>
+      <td>grey</td>
+      <td>black</td>
+      <td>0.15</td>
+      <td>0.15</td>
+      <td>0.15</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <th>Bultaco_Tralla.jpg</th>
+      <td>Moto</td>
+      <td>3648</td>
+      <td>2736</td>
+      <td>JPEG</td>
+      <td>darkgrey</td>
+      <td>grey</td>
       <td>white</td>
-      <td>grey</td>
       <td>darkgrey</td>
-      <td>60.297976</td>
-      <td>63.963248</td>
-      <td>58.447617</td>
-      <td>Y</td>
-    </tr>
-    <tr>
-      <th>rattata.jpg</th>
-      <td>Pokemon2</td>
-      <td>rattata.jpg</td>
-      <td>120</td>
-      <td>120</td>
-      <td>JPEG</td>
-      <td>black</td>
       <td>lightgrey</td>
-      <td>grey</td>
-      <td>grey</td>
-      <td>darkgrey</td>
-      <td>11.540819</td>
-      <td>10.760592</td>
-      <td>11.938629</td>
-      <td>Y</td>
-    </tr>
-    <tr>
-      <th>Tesla_Model_S.jpg</th>
-      <td>Voitures</td>
-      <td>Tesla_Model_S.jpg</td>
-      <td>7786</td>
-      <td>4380</td>
-      <td>JPEG</td>
-      <td>blue</td>
-      <td>grey</td>
-      <td>lightgrey</td>
-      <td>black</td>
-      <td>darkgrey</td>
-      <td>92.919017</td>
-      <td>105.17335</td>
-      <td>110.489375</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
       <td>N</td>
     </tr>
     <tr>
-      <th>Montesa_Rapita.jpg</th>
+      <th>dragonite.jpg</th>
+      <td>Pokemon2</td>
+      <td>120</td>
+      <td>120</td>
+      <td>JPEG</td>
+      <td>black</td>
+      <td>lightgrey</td>
+      <td>darkgrey</td>
+      <td>grey</td>
+      <td>lightgrey</td>
+      <td>0.15</td>
+      <td>0.15</td>
+      <td>0.15</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Bultaco_Streaker.jpg</th>
       <td>Moto</td>
-      <td>Montesa_Rapita.jpg</td>
       <td>4288</td>
       <td>3216</td>
       <td>JPEG</td>
       <td>grey</td>
-      <td>black</td>
-      <td>lightgrey</td>
+      <td>darkgrey</td>
       <td>darkgrey</td>
       <td>grey</td>
-      <td>104.431812</td>
-      <td>97.409094</td>
-      <td>82.398551</td>
-      <td>N</td>
+      <td>lightgrey</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.15</td>
+      <td>Y</td>
     </tr>
     <tr>
-      <th>23_Librae_b.jpg</th>
-      <td>Exoplanet</td>
-      <td>23_Librae_b.jpg</td>
-      <td>1280</td>
-      <td>730</td>
-      <td>PNG</td>
+      <th>HiPhi_Z.jpg</th>
+      <td>Voitures</td>
+      <td>4000</td>
+      <td>3000</td>
+      <td>JPEG</td>
+      <td>grey</td>
+      <td>darkgrey</td>
+      <td>lightgrey</td>
       <td>black</td>
       <td>grey</td>
-      <td>darkgrey</td>
-      <td>grey</td>
-      <td>darkgrey</td>
-      <td>41.619804</td>
-      <td>36.573915</td>
-      <td>31.657026</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
       <td>N</td>
     </tr>
   </tbody>
@@ -1198,7 +1180,6 @@ Ferrari_250_GT_Coupé_Pinin_Farina.jpg
     <tr style="text-align: right;">
       <th></th>
       <th>theme</th>
-      <th>image</th>
       <th>width</th>
       <th>height</th>
       <th>format</th>
@@ -1215,88 +1196,83 @@ Ferrari_250_GT_Coupé_Pinin_Farina.jpg
   </thead>
   <tbody>
     <tr>
-      <th>HiPhi_Z.jpg</th>
-      <td>3</td>
-      <td>9</td>
-      <td>9</td>
-      <td>10</td>
-      <td>0</td>
-      <td>4</td>
-      <td>1</td>
+      <th>floatzel.jpg</th>
       <td>2</td>
       <td>0</td>
-      <td>4</td>
-      <td>12</td>
-      <td>14</td>
-      <td>16</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>BSA_B31.jpg</th>
-      <td>1</td>
+      <th>raticate.jpg</th>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>2</td>
       <td>3</td>
+      <td>3</td>
       <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Pontiac_Six.jpg</th>
+      <td>3</td>
+      <td>3</td>
+      <td>5</td>
       <td>0</td>
       <td>5</td>
       <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>2</td>
-      <td>19</td>
-      <td>19</td>
-      <td>19</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>Benelli_BN_125.jpg</th>
-      <td>1</td>
-      <td>3</td>
-      <td>6</td>
-      <td>7</td>
-      <td>0</td>
-      <td>2</td>
-      <td>2</td>
       <td>4</td>
-      <td>3</td>
       <td>0</td>
-      <td>14</td>
-      <td>12</td>
-      <td>11</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>Bultaco_Tralla.jpg</th>
-      <td>1</td>
+      <th>Buick_Verano.jpg</th>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
       <td>5</td>
-      <td>8</td>
-      <td>9</td>
-      <td>0</td>
-      <td>6</td>
       <td>1</td>
-      <td>3</td>
       <td>1</td>
-      <td>3</td>
-      <td>11</td>
-      <td>11</td>
-      <td>13</td>
+      <td>1</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>Ferrari_250_GT_Coupé_Pinin_Farina.jpg</th>
+      <th>Fiat_Ducato.jpg</th>
       <td>3</td>
-      <td>6</td>
-      <td>12</td>
-      <td>13</td>
+      <td>3</td>
+      <td>2</td>
       <td>0</td>
-      <td>2</td>
-      <td>2</td>
+      <td>3</td>
       <td>1</td>
       <td>3</td>
       <td>3</td>
-      <td>16</td>
-      <td>16</td>
-      <td>15</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>0</td>
     </tr>
   </tbody>
@@ -1344,7 +1320,7 @@ Ferrari_250_GT_Coupé_Pinin_Farina.jpg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b271e8eec1b2a4ba135fc330cc1cffe546e14f54820279a9388cf4811afe0510.png" src="../../_images/b271e8eec1b2a4ba135fc330cc1cffe546e14f54820279a9388cf4811afe0510.png" />
+<img alt="../../_images/445a8a0ac57fb14332348f6797660034e8b2a5539b776e3ec318fb5e2b2c4fc8.png" src="../../_images/445a8a0ac57fb14332348f6797660034e8b2a5539b776e3ec318fb5e2b2c4fc8.png" />
 </div>
 </div>
 </section>
@@ -1375,7 +1351,8 @@ Ferrari_250_GT_Coupé_Pinin_Farina.jpg
         <span class="p">]]</span>
     <span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prédiction de l&#39;abre : </span><span class="si">{</span><span class="n">resultLabel</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ordre d&#39;importance: </span><span class="si">{</span><span class="n">dtc</span><span class="o">.</span><span class="n">feature_importances_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">importance</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data_user</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">dtc</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ordre d&#39;importance: </span><span class="si">{</span><span class="n">importance</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;choix de l&#39;utilisateur : &quot;</span> <span class="o">+</span> <span class="n">user_choice</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">user_choice</span> <span class="o">==</span> <span class="n">resultLabel</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">prediction</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prédiction correcte&quot;</span><span class="p">)</span>
@@ -1385,18 +1362,49 @@ Ferrari_250_GT_Coupé_Pinin_Farina.jpg
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BMW_Mille_Miglia.jpg
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wartortle.jpg
 </pre></div>
 </div>
-<img alt="../../_images/cfc4b8b0ae9c91f563833e08edc56a3fa9de7d55d1d9d8ecffe798db1193af26.png" src="../../_images/cfc4b8b0ae9c91f563833e08edc56a3fa9de7d55d1d9d8ecffe798db1193af26.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        theme                 image  width  height format orientation  \
-714  Voitures  BMW_Mille_Miglia.jpg   1087     697   JPEG     no exif   
+<img alt="../../_images/0e8abe2388724bb0328323a2be1defccf10846e30271566ab3a62c782cd4acae.png" src="../../_images/0e8abe2388724bb0328323a2be1defccf10846e30271566ab3a62c782cd4acae.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        theme          image  width  height format orientation color_0  \
+288  Pokemon2  wartortle.jpg    120     120   JPEG     no exif   black   
 
-      color_0    color_1 color_2 color_3   color_4         red      green  \
-714  darkgrey  lightgrey    grey   black  darkgrey  108.326586  105.93544   
+       color_1 color_2   color_3    color_4   red  green  blue  
+288  lightgrey    grey  darkgrey  lightgrey  0.15   0.15  0.15  
+Prédiction de l&#39;abre : [&#39;N&#39;]
+Ordre d&#39;importance: {&#39;theme&#39;: 0.619047619047619, &#39;width&#39;: 0.0, &#39;height&#39;: 0.0, &#39;format&#39;: 0.0, &#39;color_0&#39;: 0.22222222222222224, &#39;color_1&#39;: 0.0, &#39;color_2&#39;: 0.15873015873015872, &#39;color_3&#39;: 0.0, &#39;color_4&#39;: 0.0, &#39;red&#39;: 0.0, &#39;green&#39;: 0.0, &#39;blue&#39;: 0.0}
+choix de l&#39;utilisateur : N
+Prédiction correcte
+porygon-z.jpg
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/site-packages/sklearn/base.py:420: UserWarning: X does not have valid feature names, but DecisionTreeClassifier was fitted with feature names
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="../../_images/514b1a0641203b84e6f8a2b2a5634d6b14885d491d00c30d78698809f129ed38.png" src="../../_images/514b1a0641203b84e6f8a2b2a5634d6b14885d491d00c30d78698809f129ed38.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        theme          image  width  height format orientation color_0  \
+411  Pokemon2  porygon-z.jpg    120     120   JPEG     no exif   black   
 
-          blue  
-714  87.280188  
+    color_1 color_2 color_3 color_4   red  green  blue  
+411    grey    grey    grey   black  0.15   0.15  0.15  
+Prédiction de l&#39;abre : [&#39;N&#39;]
+Ordre d&#39;importance: {&#39;theme&#39;: 0.619047619047619, &#39;width&#39;: 0.0, &#39;height&#39;: 0.0, &#39;format&#39;: 0.0, &#39;color_0&#39;: 0.22222222222222224, &#39;color_1&#39;: 0.0, &#39;color_2&#39;: 0.15873015873015872, &#39;color_3&#39;: 0.0, &#39;color_4&#39;: 0.0, &#39;red&#39;: 0.0, &#39;green&#39;: 0.0, &#39;blue&#39;: 0.0}
+choix de l&#39;utilisateur : N
+Prédiction correcte
+Buick_LaCrosse.jpg
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/site-packages/sklearn/base.py:420: UserWarning: X does not have valid feature names, but DecisionTreeClassifier was fitted with feature names
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="../../_images/f53c7f84657d6472b57948282afc2551e34467eae5295c8fa608ec7489de05b4.png" src="../../_images/f53c7f84657d6472b57948282afc2551e34467eae5295c8fa608ec7489de05b4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        theme               image  width  height format orientation   color_0  \
+689  Voitures  Buick_LaCrosse.jpg   3847    2879   JPEG           1  darkgrey   
+
+       color_1 color_2 color_3 color_4  red  green  blue  
+689  lightgrey   black    grey    grey  0.5    0.5   0.5  
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -1418,33 +1426,32 @@ Ferrari_250_GT_Coupé_Pinin_Farina.jpg
 <span class="g g-Whitespace">    </span><span class="mi">157</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nan_value</span>
 <span class="ne">--&gt; </span><span class="mi">158</span> <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="ne">KeyError</span>: &#39;BMW_Mille_Miglia.jpg&#39;
+<span class="ne">KeyError</span>: 3847
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">data_random</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">random_img</span><span class="p">]</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="n">data_random</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">prediction</span> <span class="o">=</span> <span class="n">dtc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="p">[[</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="n">themeLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;theme&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="ne">---&gt; </span><span class="mi">10</span>         <span class="n">imageLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">widthLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="n">heightLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="n">formatLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>         <span class="n">color_0Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="n">color_1Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>         <span class="n">color_2Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_2&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>         <span class="n">color_3Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_3&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="n">color_4Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_4&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>         <span class="n">redLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>         <span class="n">greenLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>         <span class="n">blueLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="p">]]</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prédiction de l&#39;abre : </span><span class="si">{</span><span class="n">resultLabel</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ordre d&#39;importance: </span><span class="si">{</span><span class="n">dtc</span><span class="o">.</span><span class="n">feature_importances_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">10</span>         <span class="n">widthLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">heightLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="n">formatLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="n">color_0Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>         <span class="n">color_1Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="n">color_2Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_2&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>         <span class="n">color_3Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_3&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>         <span class="n">color_4Label</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;color_4&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="n">redLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>         <span class="n">greenLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>         <span class="n">blueLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="p">]]</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prédiction de l&#39;abre : </span><span class="si">{</span><span class="n">resultLabel</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">importance</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data_user</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">dtc</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">))</span>
 
 <span class="nn">File /usr/local/lib/python3.10/site-packages/sklearn/utils/_set_output.py:142,</span> in <span class="ni">_wrap_method_output.&lt;locals&gt;.wrapped</span><span class="nt">(self, X, *args, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
@@ -1469,7 +1476,7 @@ Ferrari_250_GT_Coupé_Pinin_Farina.jpg
 <span class="g g-Whitespace">    </span><span class="mi">227</span> <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">228</span>     <span class="k">if</span> <span class="n">check_unknown</span><span class="p">:</span>
 
-<span class="ne">ValueError</span>: y contains previously unseen labels: &#39;BMW_Mille_Miglia.jpg&#39;
+<span class="ne">ValueError</span>: y contains previously unseen labels: 3847
 </pre></div>
 </div>
 </div>
