@@ -731,11 +731,11 @@ title="Print to PDF"
 716     no exif  lightgrey   darkgrey       grey      white   darkgrey  0.5   
 
      green  blue result  
-712    0.5   0.5     No  
-713    0.5   0.5    Yes  
+712    0.5   0.5    Yes  
+713    0.5   0.5     No  
 714    0.5   0.5    Yes  
 715    0.5   0.5     No  
-716    0.5   0.5     No  
+716    0.5   0.5    Yes  
 </pre></div>
 </div>
 </div>
@@ -801,7 +801,7 @@ title="Print to PDF"
       <td>0.5</td>
       <td>0.5</td>
       <td>0.5</td>
-      <td>No</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <th>713</th>
@@ -817,7 +817,7 @@ title="Print to PDF"
       <td>0.5</td>
       <td>0.5</td>
       <td>0.5</td>
-      <td>Yes</td>
+      <td>No</td>
     </tr>
     <tr>
       <th>714</th>
@@ -865,7 +865,7 @@ title="Print to PDF"
       <td>0.5</td>
       <td>0.5</td>
       <td>0.5</td>
-      <td>No</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -882,22 +882,16 @@ title="Print to PDF"
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">heightLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])</span>
 <span class="n">formatLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">formatLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">])</span>
-<span class="n">color_0Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_0Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">])</span>
-<span class="n">color_1Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_1Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">])</span>
-<span class="n">color_2Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_2Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_2&#39;</span><span class="p">])</span>
-<span class="n">color_3Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_3Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_3&#39;</span><span class="p">])</span>
-<span class="n">color_4Label</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color_4Label</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_4&#39;</span><span class="p">])</span>
-<span class="n">redLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">redLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">])</span>
-<span class="n">greenLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">greenLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">])</span>
-<span class="n">blueLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">blueLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">])</span>
+<span class="n">colorLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">colorLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_0&#39;</span><span class="p">])</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">colorLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_1&#39;</span><span class="p">])</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">colorLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_2&#39;</span><span class="p">])</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">colorLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_3&#39;</span><span class="p">])</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">colorLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;color_4&#39;</span><span class="p">])</span>
+<span class="n">RGBLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RGBLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">])</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RGBLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">])</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RGBLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">])</span>
 <span class="n">resultLabel</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resultLabel</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">])</span>
 
@@ -954,7 +948,7 @@ title="Print to PDF"
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>713</th>
@@ -970,7 +964,7 @@ title="Print to PDF"
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>714</th>
@@ -1018,7 +1012,7 @@ title="Print to PDF"
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1077,7 +1071,7 @@ Name: result, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/358b90c213f22032c74d878fee7227cbceb30e2a4903a60e35b3de484d97821b.png" src="../../_images/358b90c213f22032c74d878fee7227cbceb30e2a4903a60e35b3de484d97821b.png" />
+<img alt="../../_images/aafbca58cf1884672e5a1545e117395a7ab4f411238648f9cf1e541a382bcaa7.png" src="../../_images/aafbca58cf1884672e5a1545e117395a7ab4f411238648f9cf1e541a382bcaa7.png" />
 </div>
 </div>
 </section>
@@ -1092,14 +1086,14 @@ Name: result, dtype: int64
         <span class="n">widthLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mi">120</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
         <span class="n">heightLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mi">120</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
         <span class="n">formatLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;JPEG&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">color_0Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;red&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">color_1Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;grey&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">color_2Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;blue&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">color_3Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;darkgrey&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">color_4Label</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">redLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">greenLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mf">0.15</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">blueLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">colorLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;red&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">colorLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;grey&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">colorLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;blue&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">colorLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;darkgrey&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">colorLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">RGBLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">RGBLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mf">0.15</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">RGBLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
     <span class="p">]]</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">resultLabel</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">prediction</span><span class="p">))</span>
@@ -1108,8 +1102,8 @@ Name: result, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;No&#39;]
-[(&#39;theme&#39;, 0.04602912227632699), (&#39;width&#39;, 0.06414723314529464), (&#39;height&#39;, 0.0616330866855098), (&#39;format&#39;, 0.0), (&#39;color_0&#39;, 0.11137463378984923), (&#39;color_1&#39;, 0.1520727937366181), (&#39;color_2&#39;, 0.1497985782027155), (&#39;color_3&#39;, 0.15725789862341988), (&#39;color_4&#39;, 0.21371984522173107), (&#39;red&#39;, 0.013966880529898834), (&#39;green&#39;, 0.012152521271348776), (&#39;blue&#39;, 0.01784740651728714)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Yes&#39;]
+[(&#39;theme&#39;, 0.01619793381621248), (&#39;width&#39;, 0.05118044031072906), (&#39;height&#39;, 0.05158236872811871), (&#39;format&#39;, 0.0), (&#39;color_0&#39;, 0.16116701785103055), (&#39;color_1&#39;, 0.14254497852267875), (&#39;color_2&#39;, 0.16736139220990026), (&#39;color_3&#39;, 0.167930893932491), (&#39;color_4&#39;, 0.20695407007463423), (&#39;red&#39;, 0.0074880377697348855), (&#39;green&#39;, 0.023349494234086027), (&#39;blue&#39;, 0.004243372550383787)]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/site-packages/sklearn/base.py:420: UserWarning: X does not have valid feature names, but DecisionTreeClassifier was fitted with feature names
