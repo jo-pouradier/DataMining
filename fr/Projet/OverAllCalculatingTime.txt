@@ -1,4 +1,4 @@
-mcbookproIntel= 135.791s => 73,83s with resized images
+mcbookproIntel= 135.791s => 73,83s with resized images => 42.942s with 4 processes
 droppletDO2Intel2RAM = 150.55 s 
 droppletDO4Intel8RAM = 173.5 s
 droppletDO2Amd2RAM =  143.09 s
