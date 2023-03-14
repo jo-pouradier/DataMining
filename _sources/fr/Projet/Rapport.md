@@ -11,8 +11,8 @@
   - [Sommaire](#sommaire)
   - [1. Introduction](#1-introduction)
   - [2. Présentation du projet](#2-présentation-du-projet)
-  - [3. Présentation des données](#3-présentation-des-données)
-  - [4. Analyse des données](#4-analyse-des-données)
+  - [3. Présentation des données `PL`](#3-présentation-des-données-pl)
+  - [4. Analyse des données `JO`](#4-analyse-des-données-jo)
   - [5. Prédiction](#5-prédiction)
   - [6. Auto-évaluation](#6-auto-évaluation)
   - [7. Remarques](#7-remarques)
@@ -43,6 +43,9 @@ normalisation
 Meta data
 Dataframe
 gestion des couleurs
+
+Après avoir récupéré toutes les images, nous avons récupéré leurs métadonnées.  
+Nous avont utilisé les données exif des images tel que sa taille, son orientation quand elle était disponible et le format. 
 
 ## 5. Prédiction
 

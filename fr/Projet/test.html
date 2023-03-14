@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Rapport de projet DATA MINING &#8212; Data Mining</title>
+    <title>Projet de système de recommandation &#8212; Data Mining</title>
   
   
   
@@ -61,7 +61,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'fr/Projet/Rapport';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'fr/Projet/test';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -220,6 +220,55 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/johnsamuelwrites/DataMining/master?urlpath=lab/tree/fr/Projet/test.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/johnsamuelwrites/DataMining/blob/master/fr/Projet/test.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -228,7 +277,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/fr/Projet/Rapport.md" target="_blank"
+      <li><a href="../../_sources/fr/Projet/test.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -238,7 +287,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -310,7 +359,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Rapport de projet DATA MINING</h1>
+    <h1><u> Projet de système de recommandation </u></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -320,15 +369,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sommaire">Sommaire</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-du-projet">2. Présentation du projet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-des-donnees-pl">3. Présentation des données <code class="docutils literal notranslate"><span class="pre">PL</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-donnees-jo">4. Analyse des données <code class="docutils literal notranslate"><span class="pre">JO</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction">5. Prédiction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-evaluation">6. Auto-évaluation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remarques">7. Remarques</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">8. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#telechargement-des-images">téléchargement des images</a></li>
 </ul>
             </nav>
         </div>
@@ -340,69 +381,54 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="rapport-de-projet-data-mining">
-<h1>Rapport de projet DATA MINING<a class="headerlink" href="#rapport-de-projet-data-mining" title="Permalink to this heading">#</a></h1>
-<p><strong>Joseph Pouradier-duteil &amp; Pierre-Louis TELEP</strong>
-<br>
-<br></p>
-<section id="sommaire">
-<h2>Sommaire<a class="headerlink" href="#sommaire" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><span class="xref myst">Rapport de projet DATA MINING</span></p>
-<ul>
-<li><p><span class="xref myst">Sommaire</span></p></li>
-<li><p><span class="xref myst">1. Introduction</span></p></li>
-<li><p><span class="xref myst">2. Présentation du projet</span></p></li>
-<li><p><span class="xref myst">3. Présentation des données <code class="docutils literal notranslate"><span class="pre">PL</span></code></span></p></li>
-<li><p><span class="xref myst">4. Analyse des données <code class="docutils literal notranslate"><span class="pre">JO</span></code></span></p></li>
-<li><p><span class="xref myst">5. Prédiction</span></p></li>
-<li><p><span class="xref myst">6. Auto-évaluation</span></p></li>
-<li><p><span class="xref myst">7. Remarques</span></p></li>
-<li><p><span class="xref myst">8. Conclusion</span></p></li>
-</ul>
-</li>
-</ul>
-<br>
-<br>
-</section>
-<section id="introduction">
-<h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>Ce rapport a pour but de présenter le projet de Data Mining. Le projet a été réalisé par <strong>Joseph POURADIER-DUTEIL</strong> et <strong>Pierre-Louis TELEP</strong>. Le but de ce projet est de réaliser un système de recommandation. Un système de recommandation est un algorithme qui va analyser les données des images proposées à l’utilisateur. En fonction de si l’utilisateur aime ou pas les images l’algorithme va pouvoir proposer de nouvelles images et prédire si l’utilisateur va aimer ou non cette image. Pour cela nous avons utilisés des images de <code class="docutils literal notranslate"><span class="pre">Motos</span></code>,<code class="docutils literal notranslate"><span class="pre">Voitures</span></code>,<code class="docutils literal notranslate"><span class="pre">Pokemons</span></code> et <code class="docutils literal notranslate"><span class="pre">Exoplanet</span></code>.</p>
-</section>
-<section id="presentation-du-projet">
-<h2>2. Présentation du projet<a class="headerlink" href="#presentation-du-projet" title="Permalink to this heading">#</a></h2>
-<p>Ce projet a pour but de faire un système de recommandation. Pour cela nous avons utilisés des images de <code class="docutils literal notranslate"><span class="pre">motos</span></code>,<code class="docutils literal notranslate"><span class="pre">voitures</span></code>,<code class="docutils literal notranslate"><span class="pre">Pokémons</span></code> et <code class="docutils literal notranslate"><span class="pre">planètes</span></code>. Nous avons utilisés des images trouvées en ligne sur WikiData que nous avons ensuite analyser pour récuperer leurs <a class="reference internal" href="MetaData.html"><span class="doc std std-doc">métadonnées</span></a>. Pour la partie de recommandation nous avons utilisé <code class="docutils literal notranslate"><span class="pre">SKLearn</span></code> et les <code class="docutils literal notranslate"><span class="pre">DecisionTree</span></code> pour analyser les choix de l’utilisateur en fonction des images proposées et prédire des images qu’il aime ou pas. Nous avons fait un deuxieme modéle de recommandation mais basé sur des préférences utilisateur aléatoire.</p>
-</section>
-<section id="presentation-des-donnees-pl">
-<h2>3. Présentation des données <code class="docutils literal notranslate"><span class="pre">PL</span></code><a class="headerlink" href="#presentation-des-donnees-pl" title="Permalink to this heading">#</a></h2>
-<p>Nous sommes aller sur wikidata pour recupérer les images de <code class="docutils literal notranslate"><span class="pre">motos</span></code>,<code class="docutils literal notranslate"><span class="pre">voitures</span></code>,<code class="docutils literal notranslate"><span class="pre">Pokémons</span></code> et <code class="docutils literal notranslate"><span class="pre">planètes</span></code>. Pour télécharger les images nous avons utilisé un csv contenant les Urls des images. Pour ensuite télécharger les images nous avons utilisé un script python qui va parcourir le csv et télécharger chaque image en utilisant
-comment recup donnée</p>
-<p>ou on les a recups
-resizes tailles
-normalisation</p>
-</section>
-<section id="analyse-des-donnees-jo">
-<h2>4. Analyse des données <code class="docutils literal notranslate"><span class="pre">JO</span></code><a class="headerlink" href="#analyse-des-donnees-jo" title="Permalink to this heading">#</a></h2>
-<p>Meta data
-Dataframe
-gestion des couleurs</p>
-<p>Après avoir récupéré toutes les images, nous avons récupéré leurs métadonnées.<br />
-Nous avont utilisé les données exif des images tel que sa taille, son orientation quand elle était disponible et le format.</p>
-</section>
-<section id="prediction">
-<h2>5. Prédiction<a class="headerlink" href="#prediction" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="auto-evaluation">
-<h2>6. Auto-évaluation<a class="headerlink" href="#auto-evaluation" title="Permalink to this heading">#</a></h2>
-<p>ff</p>
-</section>
-<section id="remarques">
-<h2>7. Remarques<a class="headerlink" href="#remarques" title="Permalink to this heading">#</a></h2>
-<p>ff</p>
-</section>
-<section id="conclusion">
-<h2>8. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
-<p>ff</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="u-projet-de-systeme-de-recommandation-u">
+<h1><u> Projet de système de recommandation </u><a class="headerlink" href="#u-projet-de-systeme-de-recommandation-u" title="Permalink to this heading">#</a></h1>
+<section id="telechargement-des-images">
+<h2>téléchargement des images<a class="headerlink" href="#telechargement-des-images" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="n">input_file</span> <span class="o">=</span> <span class="s1">&#39;./images/Exoplanet/exoplanet.csv&#39;</span>
+<span class="n">planets</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="n">lineterminator</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">next</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+        <span class="n">planet</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">planet</span><span class="p">[</span><span class="s1">&#39;exoplanetLabel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">planet</span><span class="p">[</span><span class="s1">&#39;exoplanetLabel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">planet</span><span class="p">[</span><span class="s1">&#39;exoplanetLabel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+        <span class="n">planet</span><span class="p">[</span><span class="s1">&#39;exoplanetLabel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">planet</span><span class="p">[</span><span class="s1">&#39;exoplanetLabel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+        <span class="n">planet</span><span class="p">[</span><span class="s1">&#39;image_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">planet</span><span class="p">[</span><span class="s1">&#39;constellationLabel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">planet</span><span class="p">[</span><span class="s1">&#39;constellationLabel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">planet</span><span class="p">[</span><span class="s1">&#39;constellationLabel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+        <span class="n">planet</span><span class="p">[</span><span class="s1">&#39;constellationLabel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">planet</span><span class="p">[</span><span class="s1">&#39;constellationLabel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+        <span class="n">planets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">planet</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">planets</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;exoplanetLabel&#39;: &#39;Kepler-10b&#39;, &#39;image_path&#39;: &#39;http://commons.wikimedia.org/wiki/Special:FilePath/Kepler10b%20artist.jpg&#39;, &#39;constellationLabel&#39;: &#39;Dragon&#39;}, {&#39;exoplanetLabel&#39;: &#39;Kepler-22b&#39;, &#39;image_path&#39;: &#39;http://commons.wikimedia.org/wiki/Special:FilePath/Kepler-22%20diagram.jpg&#39;, &#39;constellationLabel&#39;: &#39;Cygne&#39;}, {&#39;exoplanetLabel&#39;: &#39;Kepler-9b&#39;, &#39;image_path&#39;: &#39;http://commons.wikimedia.org/wiki/Special:FilePath/Kepler-9b%2C%20Jupiter%20size%20comparison.jpg&#39;, &#39;constellationLabel&#39;: &#39;Lyre&#39;}, {&#39;exoplanetLabel&#39;: &#39;55_Cancri_f&#39;, &#39;image_path&#39;: &#39;http://commons.wikimedia.org/wiki/Special:FilePath/Artist%27s%20concept%20shows%20four%20of%20the%20five%20planets%20that%20orbit%2055%20Cancri%2C%20a%20star%20much%20like%20our%20own.jpg&#39;, &#39;constellationLabel&#39;: &#39;Cancer&#39;}, {&#39;exoplanetLabel&#39;: &#39;55_Cancri_b&#39;, &#39;image_path&#39;: &#39;http://commons.wikimedia.org/wiki/Special:FilePath/55%20Rho%20Cancri%201%20b.png&#39;, &#39;constellationLabel&#39;: &#39;Cancer&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">download_image</span><span class="p">(</span><span class="n">planet</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">planet</span><span class="p">[</span><span class="s2">&quot;image_path&quot;</span><span class="p">]),</span> <span class="n">allow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;./images/Exoplanet/</span><span class="si">{</span><span class="n">planet</span><span class="p">[</span><span class="s1">&#39;exoplanetLabel&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;wb+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">planet</span> <span class="ow">in</span> <span class="n">planets</span><span class="p">:</span>
+    <span class="n">download_image</span><span class="p">(</span><span class="n">planet</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -449,15 +475,7 @@ Nous avont utilisé les données exif des images tel que sa taille, son orientat
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sommaire">Sommaire</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-du-projet">2. Présentation du projet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-des-donnees-pl">3. Présentation des données <code class="docutils literal notranslate"><span class="pre">PL</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-donnees-jo">4. Analyse des données <code class="docutils literal notranslate"><span class="pre">JO</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction">5. Prédiction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-evaluation">6. Auto-évaluation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remarques">7. Remarques</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">8. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#telechargement-des-images">téléchargement des images</a></li>
 </ul>
   </nav></div>
 
