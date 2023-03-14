@@ -373,10 +373,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#on-cree-le-systemes-de-recherche-d-images-aleatoires-dans-nos-images">On cree le systemes de recherche d’images aléatoires dans nos images</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-de-tout-le-necessaire-pour-enregistrer-les-choix-de-l-utilisateur">Création de tout le nécessaire pour enregistrer les choix de l’utilisateur</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recuperation-des-20-premiers-choix-de-l-utilisateur">Récuperation des 20 premiers choix de l’utilisateur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-des-donnees-de-l-utilisateur">Visualisation des données de l’utilisateur</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encodage-des-donnees">Encodage des données</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrainement-du-modele">Entrainement du modèle</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#affichage-de-l-abre-de-decision">Affichage de l’abre de décision</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictions-sur-3-images">Predictions sur 3 images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictions-sur-5-images">Predictions sur 5 images</a></li>
 </ul>
             </nav>
         </div>
@@ -447,7 +448,7 @@ Name: theme, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;HiPhi_Z.jpg&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;wailmer.jpg&#39;
 </pre></div>
 </div>
 </div>
@@ -519,7 +520,6 @@ Name: theme, dtype: int64
     <span class="n">random_img</span> <span class="o">=</span> <span class="n">randomImage</span><span class="p">()</span>
     <span class="k">while</span> <span class="n">random_img</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]:</span>
         <span class="n">random_img</span> <span class="o">=</span> <span class="n">randomImage</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">random_img</span><span class="p">)</span>
     <span class="n">img_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir1</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">random_img</span><span class="p">][</span><span class="s1">&#39;theme&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">random_img</span><span class="p">)</span>
     <span class="n">img</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
@@ -545,150 +545,175 @@ Name: theme, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-HD_4308_b.jpg
+roselia.jpg
 </pre></div>
 </div>
-<img alt="../../_images/88f18ceebff188dd9a57fd3420abc561e908b255b88fe5944c6da7fa7fa94f9a.png" src="../../_images/88f18ceebff188dd9a57fd3420abc561e908b255b88fe5944c6da7fa7fa94f9a.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;HD_4308_b.jpg&#39; 640 360 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;darkgrey&#39;
- &#39;lightgrey&#39; &#39;grey&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
+<img alt="../../_images/eed0ad0e246da4ad0c811f14e325c4a8abbba5368c3c9acbf0455282b46c1609.png" src="../../_images/eed0ad0e246da4ad0c811f14e325c4a8abbba5368c3c9acbf0455282b46c1609.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;roselia.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39;
+ &#39;darkgrey&#39; &#39;grey&#39; &#39;grey&#39; 0.15 0.15 0.15]
 1
-BSA_B31.jpg
+HiPhi_Z.jpg
 </pre></div>
 </div>
-<img alt="../../_images/7b41f1bcd5708f77e0a232cb35d50ff1708c02692ccfc3f23b99fdaa4be5fe82.png" src="../../_images/7b41f1bcd5708f77e0a232cb35d50ff1708c02692ccfc3f23b99fdaa4be5fe82.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;BSA_B31.jpg&#39; 640 360 &#39;JPEG&#39; &#39;no exif&#39; &#39;lightgrey&#39; &#39;darkgrey&#39;
- &#39;grey&#39; &#39;lightgrey&#39; &#39;darkgrey&#39; 0.5 0.5 0.5]
+<img alt="../../_images/22977ea3c5b2b2c84911ee39ce1c107b745f69a2443c2943a9e51d2a01466340.png" src="../../_images/22977ea3c5b2b2c84911ee39ce1c107b745f69a2443c2943a9e51d2a01466340.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;HiPhi_Z.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;lightgrey&#39;
+ &#39;darkgrey&#39; &#39;black&#39; &#39;grey&#39; &#39;grey&#39; 0.5 0.5 0.5]
 2
-HD_147513_b.jpg
+Aprilia_Tuono_1000R.jpg
 </pre></div>
 </div>
-<img alt="../../_images/9102fec3546332f42c987e50e33342ed751268b5a47a45b2464b91c53ea7a2f5.png" src="../../_images/9102fec3546332f42c987e50e33342ed751268b5a47a45b2464b91c53ea7a2f5.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;HD_147513_b.jpg&#39; 960 540 &#39;JPEG&#39; &#39;no exif&#39; &#39;grey&#39; &#39;black&#39;
- &#39;grey&#39; &#39;lightgrey&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
+<img alt="../../_images/c297bf4c19ea0b2f45ba589d924b10171b25881275f4b27a53b0e8ee608ad5d4.png" src="../../_images/c297bf4c19ea0b2f45ba589d924b10171b25881275f4b27a53b0e8ee608ad5d4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Aprilia_Tuono_1000R.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;grey&#39;
+ &#39;white&#39; &#39;black&#39; &#39;darkgrey&#39; &#39;lightgrey&#39; 0.5 0.5 0.5]
 3
-BMW_HH.jpg
+Buick_Verano.jpg
 </pre></div>
 </div>
-<img alt="../../_images/b1529defa0352644df38f3a0240ab1550bec8fa019c199698f6daf8a87f723ea.png" src="../../_images/b1529defa0352644df38f3a0240ab1550bec8fa019c199698f6daf8a87f723ea.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;BMW_HH.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
- &#39;darkgrey&#39; &#39;grey&#39; &#39;darkgrey&#39; 0.5 0.5 0.15]
+<img alt="../../_images/97ce4cc886e36fdbff9538f70aab72894ad83842f6f1ffa4bf91ae06134973ff.png" src="../../_images/97ce4cc886e36fdbff9538f70aab72894ad83842f6f1ffa4bf91ae06134973ff.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Buick_Verano.jpg&#39; 1600 900 &#39;JPEG&#39; &#39;no exif&#39; &#39;white&#39;
+ &#39;darkgrey&#39; &#39;black&#39; &#39;grey&#39; &#39;lightgrey&#39; 0.5 0.5 0.5]
 4
-ledian.jpg
+nidoqueen.jpg
 </pre></div>
 </div>
-<img alt="../../_images/49fc831cec684f710a20dee0652f7d29a7b6fa237c205ca21929398701f06656.png" src="../../_images/49fc831cec684f710a20dee0652f7d29a7b6fa237c205ca21929398701f06656.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;ledian.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
- &#39;grey&#39; &#39;grey&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
+<img alt="../../_images/ccda1d0d01d0a6e857b6040a09103d155b766c576258794d52f55fb77ea1de94.png" src="../../_images/ccda1d0d01d0a6e857b6040a09103d155b766c576258794d52f55fb77ea1de94.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;nidoqueen.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;lightgrey&#39; &#39;black&#39;
+ &#39;darkgrey&#39; &#39;grey&#39; &#39;lightgrey&#39; 0.15 0.15 0.15]
 5
-phanpy.jpg
+meowth.jpg
 </pre></div>
 </div>
-<img alt="../../_images/b2c50a6f1590d9195037ce9f87d407bdc068e49d0be287386f7dc3e602ee3503.png" src="../../_images/b2c50a6f1590d9195037ce9f87d407bdc068e49d0be287386f7dc3e602ee3503.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;phanpy.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;grey&#39; &#39;black&#39;
- &#39;lightgrey&#39; &#39;darkgrey&#39; &#39;lightgrey&#39; 0.15 0.15 0.15]
+<img alt="../../_images/49391233405aa711255140e4bf9bbfae451aae1805232401ddbaa711b2784536.png" src="../../_images/49391233405aa711255140e4bf9bbfae451aae1805232401ddbaa711b2784536.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;meowth.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
+ &#39;darkgrey&#39; &#39;grey&#39; &#39;white&#39; 0.15 0.15 0.15]
 6
-Buick_Regal.jpg
+Buick_Avista.jpg
 </pre></div>
 </div>
-<img alt="../../_images/d8eda97088e94c19a352f80afcf638d842ad4e1317003a452cd18efd3c1cee98.png" src="../../_images/d8eda97088e94c19a352f80afcf638d842ad4e1317003a452cd18efd3c1cee98.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Buick_Regal.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;lightgrey&#39;
- &#39;darkgrey&#39; &#39;black&#39; &#39;lightgrey&#39; &#39;grey&#39; 0.5 0.5 0.5]
+<img alt="../../_images/d521661bf5f4b9017f1e0735bf5ebfe2739904175eb97beec565bae329d8337d.png" src="../../_images/d521661bf5f4b9017f1e0735bf5ebfe2739904175eb97beec565bae329d8337d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Buick_Avista.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39;
+ &#39;lightgrey&#39; &#39;black&#39; &#39;grey&#39; &#39;darkgrey&#39; 0.5 0.5 0.5]
 7
-Yamaha_YZF-R7_(2022).jpg
+Dino_206_S.jpg
 </pre></div>
 </div>
-<img alt="../../_images/3abcb6d29b4bf7ac898a1142c88ab8f3abfd7d0844a9c3416f9ab2ee143119a6.png" src="../../_images/3abcb6d29b4bf7ac898a1142c88ab8f3abfd7d0844a9c3416f9ab2ee143119a6.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Yamaha_YZF-R7_(2022).jpg&#39; 1600 900 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39;
- &#39;grey&#39; &#39;lightgrey&#39; &#39;white&#39; &#39;darkgrey&#39; 0.5 0.5 0.5]
+<img alt="../../_images/e6a9322001ae03c8690e7ce4838c7318fc9f1ade4a4892eee3c5ff528f67bc45.png" src="../../_images/e6a9322001ae03c8690e7ce4838c7318fc9f1ade4a4892eee3c5ff528f67bc45.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Dino_206_S.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;red&#39;
+ &#39;white&#39; &#39;darkgrey&#39; &#39;grey&#39; 0.15 0.15 0.15]
 8
-greninja.jpg
+Gliese_176_b.jpg
 </pre></div>
 </div>
-<img alt="../../_images/f956fc460379de52f0ca8ad78de561702a717cf1e5649657b7f04f38d70377a5.png" src="../../_images/f956fc460379de52f0ca8ad78de561702a717cf1e5649657b7f04f38d70377a5.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;greninja.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39;
- &#39;lightgrey&#39; &#39;darkgrey&#39; &#39;grey&#39; 0.15 0.15 0.15]
+<img alt="../../_images/571eb39f648c0c52f0bab222db5bca646f940a1f4494c04c5aab429d8aafd5d5.png" src="../../_images/571eb39f648c0c52f0bab222db5bca646f940a1f4494c04c5aab429d8aafd5d5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;Gliese_176_b.jpg&#39; 640 360 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39;
+ &#39;lightgrey&#39; &#39;grey&#39; &#39;darkgrey&#39; &#39;grey&#39; 0.15 0.15 0.15]
 9
-Kepler-1625b.jpg
+Ferrari_250_GT_Boano_Ellena.jpg
 </pre></div>
 </div>
-<img alt="../../_images/35525b8258f85e6e2a008d631c79ba3c9ee9de03ca38a6c310f9d1549e4fd562.png" src="../../_images/35525b8258f85e6e2a008d631c79ba3c9ee9de03ca38a6c310f9d1549e4fd562.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;Kepler-1625b.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39;
- &#39;white&#39; &#39;darkgrey&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
+<img alt="../../_images/0c6b76b0dbf39f69962892a62ee0ff03ace2e1a3cb2caa915b4fc8ab4e9981ad.png" src="../../_images/0c6b76b0dbf39f69962892a62ee0ff03ace2e1a3cb2caa915b4fc8ab4e9981ad.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Ferrari_250_GT_Boano_Ellena.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39;
+ &#39;lightgrey&#39; &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;red&#39; &#39;grey&#39; 0.5 0.5 0.5]
 10
-TrES-2b.jpg
+Pontiac_Bonneville.jpg
 </pre></div>
 </div>
-<img alt="../../_images/b9f09ff2fcc28b7599bd2024e3a261e7cb2749b44d6a755f38c8e1e27fd30ae9.png" src="../../_images/b9f09ff2fcc28b7599bd2024e3a261e7cb2749b44d6a755f38c8e1e27fd30ae9.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;TrES-2b.jpg&#39; 1920 1080 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;darkgrey&#39;
- &#39;black&#39; &#39;black&#39; &#39;darkgrey&#39; 0.15 0.15 0.15]
+<img alt="../../_images/c4e43b4a3af8acccb1ae7ae8c5b593f5406d3c756b50f5df7f9df0fc92aa1bb6.png" src="../../_images/c4e43b4a3af8acccb1ae7ae8c5b593f5406d3c756b50f5df7f9df0fc92aa1bb6.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Pontiac_Bonneville.jpg&#39; 1600 900 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39;
+ &#39;lightgrey&#39; &#39;lightgrey&#39; &#39;grey&#39; &#39;black&#39; 0.5 0.5 0.5]
 11
-TRAPPIST-1h.jpg
+Wolf_1061b.jpg
 </pre></div>
 </div>
-<img alt="../../_images/51a66f209f680e225689b02157a9bf37ec158b35c5b81cc36e3ce995bc91e798.png" src="../../_images/51a66f209f680e225689b02157a9bf37ec158b35c5b81cc36e3ce995bc91e798.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;TRAPPIST-1h.jpg&#39; 960 540 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;darkgrey&#39;
- &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;grey&#39; 0.15 0.15 0.15]
+<img alt="../../_images/26d3001302359f2d06abc476cf9a3bc5c7ed71417113a920672f733b4ebe7395.png" src="../../_images/26d3001302359f2d06abc476cf9a3bc5c7ed71417113a920672f733b4ebe7395.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;Wolf_1061b.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;brown&#39;
+ &#39;lightgrey&#39; &#39;black&#39; &#39;red&#39; 0.15 0.15 0.15]
 12
-Bultaco_Saturno.jpg
+swalot.jpg
 </pre></div>
 </div>
-<img alt="../../_images/04abe95b1decec89dc958b118ad19676eb11686225d543a1775fca1b2591f9f7.png" src="../../_images/04abe95b1decec89dc958b118ad19676eb11686225d543a1775fca1b2591f9f7.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Bultaco_Saturno.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39;
- &#39;lightgrey&#39; &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;grey&#39; 0.5 0.5 0.5]
+<img alt="../../_images/cb5eeb44e8dce0d7a4e8e42f71796aed65f84b127134e13c3ece7c5b1c323f77.png" src="../../_images/cb5eeb44e8dce0d7a4e8e42f71796aed65f84b127134e13c3ece7c5b1c323f77.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;swalot.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;grey&#39; &#39;black&#39;
+ &#39;lightgrey&#39; &#39;darkgrey&#39; &#39;lightgrey&#39; 0.15 0.15 0.15]
 13
-BMW_G42.jpg
+golurk.jpg
 </pre></div>
 </div>
-<img alt="../../_images/c4bcb559c75eeecc1b9b345e2accbe09042aec1a8a2f791742cdc81571064592.png" src="../../_images/c4bcb559c75eeecc1b9b345e2accbe09042aec1a8a2f791742cdc81571064592.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;BMW_G42.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39;
- &#39;lightgrey&#39; &#39;black&#39; &#39;blue&#39; &#39;grey&#39; 0.5 0.5 0.5]
+<img alt="../../_images/3d006a77cfd4c5a4b1f6ab2840e2d20076a802436f4eed270d6af1b4c14a2d12.png" src="../../_images/3d006a77cfd4c5a4b1f6ab2840e2d20076a802436f4eed270d6af1b4c14a2d12.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pokemon2&#39; &#39;golurk.jpg&#39; 120 120 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;grey&#39;
+ &#39;darkgrey&#39; &#39;grey&#39; &#39;lightgrey&#39; 0.15 0.15 0.15]
 14
-Aprilia_RXV_450.jpg
+HD_154345_b.jpg
 </pre></div>
 </div>
-<img alt="../../_images/8f7028b20778dd6733f803d2cec6e1c79842afb21e7983e6254c8537000344b3.png" src="../../_images/8f7028b20778dd6733f803d2cec6e1c79842afb21e7983e6254c8537000344b3.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Aprilia_RXV_450.jpg&#39; 960 540 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;lightgrey&#39;
- &#39;grey&#39; &#39;darkgrey&#39; &#39;lightgrey&#39; 0.5 0.5 0.5]
+<img alt="../../_images/7334a5060ef8f3c3399e3442327f0b321ecc3b7ea4c0cccab0baa33e1b77b947.png" src="../../_images/7334a5060ef8f3c3399e3442327f0b321ecc3b7ea4c0cccab0baa33e1b77b947.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;HD_154345_b.jpg&#39; 960 540 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;darkgrey&#39;
+ &#39;darkgrey&#39; &#39;darkgrey&#39; &#39;grey&#39; 0.15 0.15 0.15]
 15
-HD_45364_b.jpg
+CoRoT-9b.jpg
 </pre></div>
 </div>
-<img alt="../../_images/6c2803784b42655d214691fe712c9ffffe7d7d03c5699569217ce059db66b9fa.png" src="../../_images/6c2803784b42655d214691fe712c9ffffe7d7d03c5699569217ce059db66b9fa.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;HD_45364_b.jpg&#39; 1920 1080 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39;
- &#39;lightgrey&#39; &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;grey&#39; 0.15 0.15 0.15]
+<img alt="../../_images/ac89d50ecd0339fd3a472c7977d7b61f9ee8c086635fac3ae58a047233f49670.png" src="../../_images/ac89d50ecd0339fd3a472c7977d7b61f9ee8c086635fac3ae58a047233f49670.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;CoRoT-9b.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;yellow&#39;
+ &#39;darkgrey&#39; &#39;red&#39; &#39;yellow&#39; 0.15 0.15 0.15]
 16
-Buell_1125R.jpg
+Chevrolet_Nova_(1984).jpg
 </pre></div>
 </div>
-<img alt="../../_images/0f14f75d4ab6b2e9bdad4a79b2a14ef50f769b576cc91c735b2c82e8e0d51eb2.png" src="../../_images/0f14f75d4ab6b2e9bdad4a79b2a14ef50f769b576cc91c735b2c82e8e0d51eb2.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Buell_1125R.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;grey&#39; &#39;black&#39; &#39;grey&#39;
- &#39;lightgrey&#39; &#39;darkgrey&#39; 0.5 0.5 0.5]
+<img alt="../../_images/807270f030dbac0c25b0ccb507d0363c9ea72796970e0733aa898dabc95838ff.png" src="../../_images/807270f030dbac0c25b0ccb507d0363c9ea72796970e0733aa898dabc95838ff.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Chevrolet_Nova_(1984).jpg&#39; 1920 1080 &#39;JPEG&#39; &#39;no exif&#39;
+ &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;black&#39; &#39;grey&#39; &#39;lightgrey&#39; 0.5 0.5 0.5]
 17
-BMW_Mille_Miglia.jpg
+Mercedes-Benz_SS.jpg
 </pre></div>
 </div>
-<img alt="../../_images/43db27be6e50aca9d317e734e569e92e23de44e731762175949d22febcbd9c74.png" src="../../_images/43db27be6e50aca9d317e734e569e92e23de44e731762175949d22febcbd9c74.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;BMW_Mille_Miglia.jpg&#39; 1280 720 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39;
- &#39;grey&#39; &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;lightgrey&#39; 0.5 0.5 0.5]
+<img alt="../../_images/cb681aa93dd712776f2baff62a2392f4d8f47e9c5e5c27da3c6a90b080f86db4.png" src="../../_images/cb681aa93dd712776f2baff62a2392f4d8f47e9c5e5c27da3c6a90b080f86db4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Mercedes-Benz_SS.jpg&#39; 1280 720 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39;
+ &#39;lightgrey&#39; &#39;grey&#39; &#39;black&#39; &#39;grey&#39; 0.5 0.5 0.5]
 18
-Bultaco_Streaker.jpg
+Porsche_Type_12.jpg
 </pre></div>
 </div>
-<img alt="../../_images/13a4d649bb2a0b3b9aec39db70adf678c9318242de65cc51533e948d4d13ce06.png" src="../../_images/13a4d649bb2a0b3b9aec39db70adf678c9318242de65cc51533e948d4d13ce06.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Bultaco_Streaker.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;darkgrey&#39;
- &#39;lightgrey&#39; &#39;darkgrey&#39; &#39;grey&#39; &#39;darkgrey&#39; 0.5 0.5 0.15]
+<img alt="../../_images/98ae86cd86cae92b70c60da2d6dbf5108c60fa84e201bb73c65ede2263c01181.png" src="../../_images/98ae86cd86cae92b70c60da2d6dbf5108c60fa84e201bb73c65ede2263c01181.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Voitures&#39; &#39;Porsche_Type_12.jpg&#39; 960 540 &#39;JPEG&#39; &#39;no exif&#39; &#39;grey&#39; &#39;white&#39;
+ &#39;grey&#39; &#39;darkgrey&#39; &#39;darkgrey&#39; 0.5 0.5 0.5]
 19
-91_Aquarii_b.jpg
+Montesa_Cota_25.jpg
 </pre></div>
 </div>
-<img alt="../../_images/dca3d057cd77bd2989053b1f710863ebeabc59ee5f8d5152c67443f300e704c4.png" src="../../_images/dca3d057cd77bd2989053b1f710863ebeabc59ee5f8d5152c67443f300e704c4.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Exoplanet&#39; &#39;91_Aquarii_b.jpg&#39; 640 360 &#39;JPEG&#39; &#39;no exif&#39; &#39;black&#39; &#39;white&#39;
- &#39;grey&#39; &#39;darkgrey&#39; &#39;black&#39; 0.15 0.15 0.15]
+<img alt="../../_images/e9b4f1376e9843b74f30c4e1c9fb024c33890c3048377e5e25243eb43132496d.png" src="../../_images/e9b4f1376e9843b74f30c4e1c9fb024c33890c3048377e5e25243eb43132496d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Moto&#39; &#39;Montesa_Cota_25.jpg&#39; 2880 1620 &#39;JPEG&#39; &#39;no exif&#39; &#39;red&#39; &#39;grey&#39;
+ &#39;darkgrey&#39; &#39;lightgrey&#39; &#39;darkgrey&#39; 0.5 0.5 0.5]
 **************************************************
  END OF CHOICES
 **************************************************
 </pre></div>
 </div>
+</div>
+</div>
+</section>
+<section id="visualisation-des-donnees-de-l-utilisateur">
+<h2>Visualisation des données de l’utilisateur<a class="headerlink" href="#visualisation-des-donnees-de-l-utilisateur" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1">## number of element per value of each columns</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">17</span><span class="p">))</span>
+<span class="c1"># set title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Number of element per value of each columns&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="c1"># add space between subplots</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># loop over columns</span>
+<span class="n">data_visu</span>  <span class="o">=</span> <span class="n">data_user</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="s1">&#39;theme&#39;</span><span class="p">,</span> <span class="s1">&#39;choice&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">,</span> <span class="s1">&#39;format&#39;</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data_visu</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">data_visu</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">data_visu</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;purple&#39;</span><span class="p">],</span> <span class="n">rot</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b3a56b9af3e325a922dcee4fe7522c07e3280327acea01fe4ba3cb97281796f6.png" src="../../_images/b3a56b9af3e325a922dcee4fe7522c07e3280327acea01fe4ba3cb97281796f6.png" />
 </div>
 </div>
 </section>
@@ -745,85 +770,85 @@ Bultaco_Streaker.jpg
   </thead>
   <tbody>
     <tr>
-      <th>HD_4308_b.jpg</th>
-      <td>Exoplanet</td>
-      <td>HD_4308_b.jpg</td>
-      <td>640</td>
-      <td>360</td>
+      <th>roselia.jpg</th>
+      <td>Pokemon2</td>
+      <td>roselia.jpg</td>
+      <td>120</td>
+      <td>120</td>
       <td>JPEG</td>
       <td>black</td>
-      <td>darkgrey</td>
-      <td>lightgrey</td>
       <td>grey</td>
       <td>darkgrey</td>
-      <td>0.15</td>
-      <td>0.15</td>
-      <td>0.15</td>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>BSA_B31.jpg</th>
-      <td>Moto</td>
-      <td>BSA_B31.jpg</td>
-      <td>640</td>
-      <td>360</td>
-      <td>JPEG</td>
-      <td>lightgrey</td>
-      <td>darkgrey</td>
       <td>grey</td>
-      <td>lightgrey</td>
-      <td>darkgrey</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
+      <td>grey</td>
+      <td>0.15</td>
+      <td>0.15</td>
+      <td>0.15</td>
       <td>Y</td>
     </tr>
     <tr>
-      <th>HD_147513_b.jpg</th>
-      <td>Exoplanet</td>
-      <td>HD_147513_b.jpg</td>
-      <td>960</td>
-      <td>540</td>
-      <td>JPEG</td>
-      <td>grey</td>
-      <td>black</td>
-      <td>grey</td>
-      <td>lightgrey</td>
-      <td>darkgrey</td>
-      <td>0.15</td>
-      <td>0.15</td>
-      <td>0.15</td>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>BMW_HH.jpg</th>
+      <th>HiPhi_Z.jpg</th>
       <td>Voitures</td>
-      <td>BMW_HH.jpg</td>
+      <td>HiPhi_Z.jpg</td>
       <td>2880</td>
       <td>1620</td>
       <td>JPEG</td>
-      <td>black</td>
       <td>lightgrey</td>
       <td>darkgrey</td>
+      <td>black</td>
       <td>grey</td>
-      <td>darkgrey</td>
+      <td>grey</td>
       <td>0.5</td>
       <td>0.5</td>
-      <td>0.15</td>
+      <td>0.5</td>
       <td>Y</td>
     </tr>
     <tr>
-      <th>ledian.jpg</th>
+      <th>Aprilia_Tuono_1000R.jpg</th>
+      <td>Moto</td>
+      <td>Aprilia_Tuono_1000R.jpg</td>
+      <td>2880</td>
+      <td>1620</td>
+      <td>JPEG</td>
+      <td>grey</td>
+      <td>white</td>
+      <td>black</td>
+      <td>darkgrey</td>
+      <td>lightgrey</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <th>Buick_Verano.jpg</th>
+      <td>Voitures</td>
+      <td>Buick_Verano.jpg</td>
+      <td>1600</td>
+      <td>900</td>
+      <td>JPEG</td>
+      <td>white</td>
+      <td>darkgrey</td>
+      <td>black</td>
+      <td>grey</td>
+      <td>lightgrey</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <th>nidoqueen.jpg</th>
       <td>Pokemon2</td>
-      <td>ledian.jpg</td>
+      <td>nidoqueen.jpg</td>
       <td>120</td>
       <td>120</td>
       <td>JPEG</td>
-      <td>black</td>
       <td>lightgrey</td>
-      <td>grey</td>
-      <td>grey</td>
+      <td>black</td>
       <td>darkgrey</td>
+      <td>grey</td>
+      <td>lightgrey</td>
       <td>0.15</td>
       <td>0.15</td>
       <td>0.15</td>
@@ -899,50 +924,33 @@ Bultaco_Streaker.jpg
   </thead>
   <tbody>
     <tr>
-      <th>HD_45364_b.jpg</th>
+      <th>CoRoT-9b.jpg</th>
       <td>0</td>
-      <td>HD_45364_b.jpg</td>
+      <td>CoRoT-9b.jpg</td>
+      <td>6</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>1</td>
+      <td>4</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Chevrolet_Nova_(1984).jpg</th>
+      <td>3</td>
+      <td>Chevrolet_Nova_(1984).jpg</td>
       <td>5</td>
       <td>5</td>
       <td>0</td>
-      <td>0</td>
-      <td>3</td>
       <td>1</td>
       <td>4</td>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>Buell_1125R.jpg</th>
-      <td>1</td>
-      <td>Buell_1125R.jpg</td>
-      <td>6</td>
-      <td>6</td>
       <td>0</td>
       <td>2</td>
-      <td>0</td>
-      <td>2</td>
-      <td>4</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>BMW_Mille_Miglia.jpg</th>
-      <td>3</td>
-      <td>BMW_Mille_Miglia.jpg</td>
-      <td>3</td>
-      <td>3</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2</td>
-      <td>1</td>
-      <td>4</td>
       <td>3</td>
       <td>1</td>
       <td>1</td>
@@ -950,38 +958,55 @@ Bultaco_Streaker.jpg
       <td>1</td>
     </tr>
     <tr>
-      <th>Bultaco_Streaker.jpg</th>
-      <td>1</td>
-      <td>Bultaco_Streaker.jpg</td>
-      <td>6</td>
-      <td>6</td>
+      <th>Mercedes-Benz_SS.jpg</th>
+      <td>3</td>
+      <td>Mercedes-Benz_SS.jpg</td>
+      <td>3</td>
+      <td>3</td>
       <td>0</td>
       <td>1</td>
-      <td>3</td>
-      <td>1</td>
-      <td>3</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>4</td>
+      <td>2</td>
       <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>91_Aquarii_b.jpg</th>
+      <th>Porsche_Type_12.jpg</th>
+      <td>3</td>
+      <td>Porsche_Type_12.jpg</td>
+      <td>2</td>
+      <td>2</td>
       <td>0</td>
-      <td>91_Aquarii_b.jpg</td>
+      <td>2</td>
+      <td>6</td>
+      <td>2</td>
       <td>1</td>
       <td>1</td>
-      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Montesa_Cota_25.jpg</th>
+      <td>1</td>
+      <td>Montesa_Cota_25.jpg</td>
+      <td>6</td>
+      <td>6</td>
       <td>0</td>
       <td>4</td>
-      <td>2</td>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1029,27 +1054,27 @@ Bultaco_Streaker.jpg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f9602bf306baf1a1bc08881298b3b343ee445848e879cea7c08cb3c2f67422a4.png" src="../../_images/f9602bf306baf1a1bc08881298b3b343ee445848e879cea7c08cb3c2f67422a4.png" />
+<img alt="../../_images/13132ae651fa459d1411991e11bc7bbd3e085490b36ea79ad156962faadca26f.png" src="../../_images/13132ae651fa459d1411991e11bc7bbd3e085490b36ea79ad156962faadca26f.png" />
 </div>
 </div>
 </section>
-<section id="predictions-sur-3-images">
-<h2>Predictions sur 3 images<a class="headerlink" href="#predictions-sur-3-images" title="Permalink to this heading">#</a></h2>
+<section id="predictions-sur-5-images">
+<h2>Predictions sur 5 images<a class="headerlink" href="#predictions-sur-5-images" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># avec la derniere image des voitures</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="c1"># data_random = pd.DataFrame(columns=data_user.columns)</span>
-<span class="c1"># print(data_user.columns)</span>
-<span class="c1"># data_random.drop(&#39;image&#39;, axis=1, inplace=True)</span>
-
+<span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">count_reussite</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">importance</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data_user</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">dtc</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ordre d&#39;importance: </span><span class="si">{</span><span class="n">importance</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="n">user_choice</span><span class="p">,</span> <span class="n">random_img</span> <span class="o">=</span> <span class="n">get_user_choice</span><span class="p">()</span>
     <span class="k">while</span> <span class="n">random_img</span> <span class="ow">in</span> <span class="n">data_user</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]:</span>
         <span class="n">user_choice</span><span class="p">,</span> <span class="n">random_img</span> <span class="o">=</span> <span class="n">get_user_choice</span><span class="p">()</span>
     <span class="c1"># data de l&#39;images</span>
     <span class="n">data_random</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">random_img</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">data_random</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">prediction</span> <span class="o">=</span> <span class="n">dtc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
         <span class="p">[[</span>
@@ -1067,61 +1092,77 @@ Bultaco_Streaker.jpg
             <span class="n">RGBLabel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data_random</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
         <span class="p">]]</span>
         <span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error label unseen&#39;</span> <span class="p">)</span>
+        
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;error label unseen&#39;</span><span class="p">)</span>
         <span class="n">N</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prédiction de l&#39;abre : </span><span class="si">{</span><span class="n">resultLabel</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">importance</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data_user</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">dtc</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ordre d&#39;importance: </span><span class="si">{</span><span class="n">importance</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;choix de l&#39;utilisateur : &quot;</span> <span class="o">+</span> <span class="n">user_choice</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">user_choice</span> <span class="o">==</span> <span class="n">resultLabel</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">prediction</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prédiction correcte&quot;</span><span class="p">)</span>
+        <span class="n">count_reussite</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prédiction fausse&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pourcentage de réussite des prédiction sur </span><span class="si">{</span><span class="n">N</span><span class="si">}</span><span class="s2"> images: </span><span class="si">{</span><span class="n">count_reussite</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="mi">100</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gliese_876_c.jpg
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stunky.jpg
 </pre></div>
 </div>
-<img alt="../../_images/8522710d6a1babb73d6ab7c765781ac40338933b4c6a2629b65969f25e0ff04e.png" src="../../_images/8522710d6a1babb73d6ab7c765781ac40338933b4c6a2629b65969f25e0ff04e.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        theme             image  width  height format orientation color_0  \
-29  Exoplanet  Gliese_876_c.jpg   1920    1080   JPEG     no exif   black   
-
-      color_1   color_2 color_3 color_4   red  green  blue  
-29  lightblue  darkgrey    grey    grey  0.15   0.15  0.15  
-Prédiction de l&#39;abre : [&#39;Y&#39;]
-Ordre d&#39;importance: {&#39;theme&#39;: 0.046666666666666724, &#39;image&#39;: 0.0, &#39;width&#39;: 0.0, &#39;height&#39;: 0.0, &#39;format&#39;: 0.033333333333333326, &#39;color_0&#39;: 0.12000000000000008, &#39;color_1&#39;: 0.0, &#39;color_2&#39;: 0.15999999999999998, &#39;color_3&#39;: 0.0, &#39;color_4&#39;: 0.0, &#39;red&#39;: 0.6399999999999999, &#39;green&#39;: 0.0}
-choix de l&#39;utilisateur : N
-Prédiction fausse
-ponyta.jpg
+<img alt="../../_images/1ab1190dca1a3b897d0d413f385b5fa707c8f9e2e1cc23ef27713dd05e6b28e6.png" src="../../_images/1ab1190dca1a3b897d0d413f385b5fa707c8f9e2e1cc23ef27713dd05e6b28e6.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/site-packages/sklearn/base.py:420: UserWarning: X does not have valid feature names, but DecisionTreeClassifier was fitted with feature names
+  warnings.warn(
 </pre></div>
 </div>
-<img alt="../../_images/7cefd50b7094a9cef9c0a773e570ab26521aa01351cc6cb4b73b23e06fbf8919.png" src="../../_images/7cefd50b7094a9cef9c0a773e570ab26521aa01351cc6cb4b73b23e06fbf8919.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        theme       image  width  height format orientation color_0  \
-441  Pokemon2  ponyta.jpg    120     120   JPEG     no exif   black   
-
-       color_1 color_2   color_3 color_4   red  green  blue  
-441  lightgrey   brown  darkgrey    grey  0.15   0.15  0.15  
-Prédiction de l&#39;abre : [&#39;Y&#39;]
-Ordre d&#39;importance: {&#39;theme&#39;: 0.046666666666666724, &#39;image&#39;: 0.0, &#39;width&#39;: 0.0, &#39;height&#39;: 0.0, &#39;format&#39;: 0.033333333333333326, &#39;color_0&#39;: 0.12000000000000008, &#39;color_1&#39;: 0.0, &#39;color_2&#39;: 0.15999999999999998, &#39;color_3&#39;: 0.0, &#39;color_4&#39;: 0.0, &#39;red&#39;: 0.6399999999999999, &#39;green&#39;: 0.0}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prédiction de l&#39;abre : [&#39;Y&#39;]
+Ordre d&#39;importance: {&#39;theme&#39;: 0.0, &#39;image&#39;: 0.0, &#39;width&#39;: 0.0, &#39;height&#39;: 0.0, &#39;format&#39;: 0.0, &#39;color_0&#39;: 0.4736842105263156, &#39;color_1&#39;: 0.0, &#39;color_2&#39;: 0.5263157894736844, &#39;color_3&#39;: 0.0, &#39;color_4&#39;: 0.0, &#39;red&#39;: 0.0, &#39;green&#39;: 0.0}
 choix de l&#39;utilisateur : Y
 Prédiction correcte
-banette.jpg
+Wolf_1061_c.jpg
 </pre></div>
 </div>
-<img alt="../../_images/9f1c6d664da41e5c9046d515965fd6f9010f6b8ed015d77880486ca4b8a6be19.png" src="../../_images/9f1c6d664da41e5c9046d515965fd6f9010f6b8ed015d77880486ca4b8a6be19.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        theme        image  width  height format orientation color_0 color_1  \
-187  Pokemon2  banette.jpg    120     120   JPEG     no exif    grey   black   
-
-      color_2   color_3 color_4   red  green  blue  
-187  darkgrey  darkgrey    grey  0.15   0.15  0.15  
-error label unseen
-Prédiction de l&#39;abre : [&#39;N&#39;]
-Ordre d&#39;importance: {&#39;theme&#39;: 0.046666666666666724, &#39;image&#39;: 0.0, &#39;width&#39;: 0.0, &#39;height&#39;: 0.0, &#39;format&#39;: 0.033333333333333326, &#39;color_0&#39;: 0.12000000000000008, &#39;color_1&#39;: 0.0, &#39;color_2&#39;: 0.15999999999999998, &#39;color_3&#39;: 0.0, &#39;color_4&#39;: 0.0, &#39;red&#39;: 0.6399999999999999, &#39;green&#39;: 0.0}
+<img alt="../../_images/31e1c0c3de78664c8c2b2d0c39e0382475513fb8a883ead294310624a1a1a497.png" src="../../_images/31e1c0c3de78664c8c2b2d0c39e0382475513fb8a883ead294310624a1a1a497.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error label unseen
+Prédiction de l&#39;abre : [&#39;Y&#39;]
+Ordre d&#39;importance: {&#39;theme&#39;: 0.0, &#39;image&#39;: 0.0, &#39;width&#39;: 0.0, &#39;height&#39;: 0.0, &#39;format&#39;: 0.0, &#39;color_0&#39;: 0.4736842105263156, &#39;color_1&#39;: 0.0, &#39;color_2&#39;: 0.5263157894736844, &#39;color_3&#39;: 0.0, &#39;color_4&#39;: 0.0, &#39;red&#39;: 0.0, &#39;green&#39;: 0.0}
 choix de l&#39;utilisateur : Y
-Prédiction fausse
+Prédiction correcte
+Subaru_B5_TPH.jpg
+</pre></div>
+</div>
+<img alt="../../_images/1d5b1e9524bfa31fc880f8c1b8cb90e93e0133a13cb8076978fd5ca945bd2169.png" src="../../_images/1d5b1e9524bfa31fc880f8c1b8cb90e93e0133a13cb8076978fd5ca945bd2169.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/site-packages/sklearn/base.py:420: UserWarning: X does not have valid feature names, but DecisionTreeClassifier was fitted with feature names
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prédiction de l&#39;abre : [&#39;Y&#39;]
+Ordre d&#39;importance: {&#39;theme&#39;: 0.0, &#39;image&#39;: 0.0, &#39;width&#39;: 0.0, &#39;height&#39;: 0.0, &#39;format&#39;: 0.0, &#39;color_0&#39;: 0.4736842105263156, &#39;color_1&#39;: 0.0, &#39;color_2&#39;: 0.5263157894736844, &#39;color_3&#39;: 0.0, &#39;color_4&#39;: 0.0, &#39;red&#39;: 0.0, &#39;green&#39;: 0.0}
+choix de l&#39;utilisateur : Y
+Prédiction correcte
+Bultaco_Saturno.jpg
+</pre></div>
+</div>
+<img alt="../../_images/13d4541a57d00c884249567f5d2f336c58d5fb1b51e0694fe6f2d7a33ae907a0.png" src="../../_images/13d4541a57d00c884249567f5d2f336c58d5fb1b51e0694fe6f2d7a33ae907a0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prédiction de l&#39;abre : [&#39;Y&#39;]
+Ordre d&#39;importance: {&#39;theme&#39;: 0.0, &#39;image&#39;: 0.0, &#39;width&#39;: 0.0, &#39;height&#39;: 0.0, &#39;format&#39;: 0.0, &#39;color_0&#39;: 0.4736842105263156, &#39;color_1&#39;: 0.0, &#39;color_2&#39;: 0.5263157894736844, &#39;color_3&#39;: 0.0, &#39;color_4&#39;: 0.0, &#39;red&#39;: 0.0, &#39;green&#39;: 0.0}
+choix de l&#39;utilisateur : Y
+Prédiction correcte
+chansey.jpg
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/site-packages/sklearn/base.py:420: UserWarning: X does not have valid feature names, but DecisionTreeClassifier was fitted with feature names
+  warnings.warn(
+</pre></div>
+</div>
+<img alt="../../_images/fe82f16229bb7354212fc3b10834d0ca48cfd23c87d43fa46670e1e77e3b4798.png" src="../../_images/fe82f16229bb7354212fc3b10834d0ca48cfd23c87d43fa46670e1e77e3b4798.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prédiction de l&#39;abre : [&#39;Y&#39;]
+Ordre d&#39;importance: {&#39;theme&#39;: 0.0, &#39;image&#39;: 0.0, &#39;width&#39;: 0.0, &#39;height&#39;: 0.0, &#39;format&#39;: 0.0, &#39;color_0&#39;: 0.4736842105263156, &#39;color_1&#39;: 0.0, &#39;color_2&#39;: 0.5263157894736844, &#39;color_3&#39;: 0.0, &#39;color_4&#39;: 0.0, &#39;red&#39;: 0.0, &#39;green&#39;: 0.0}
+choix de l&#39;utilisateur : Y
+Prédiction correcte
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/site-packages/sklearn/base.py:420: UserWarning: X does not have valid feature names, but DecisionTreeClassifier was fitted with feature names
@@ -1180,10 +1221,11 @@ Prédiction fausse
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#on-cree-le-systemes-de-recherche-d-images-aleatoires-dans-nos-images">On cree le systemes de recherche d’images aléatoires dans nos images</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-de-tout-le-necessaire-pour-enregistrer-les-choix-de-l-utilisateur">Création de tout le nécessaire pour enregistrer les choix de l’utilisateur</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recuperation-des-20-premiers-choix-de-l-utilisateur">Récuperation des 20 premiers choix de l’utilisateur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-des-donnees-de-l-utilisateur">Visualisation des données de l’utilisateur</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encodage-des-donnees">Encodage des données</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entrainement-du-modele">Entrainement du modèle</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#affichage-de-l-abre-de-decision">Affichage de l’abre de décision</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictions-sur-3-images">Predictions sur 3 images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictions-sur-5-images">Predictions sur 5 images</a></li>
 </ul>
   </nav></div>
 
