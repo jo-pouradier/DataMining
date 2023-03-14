@@ -31,7 +31,10 @@ Ce rapport a pour but de présenter le projet de Data Mining. Le projet a été 
 Ce projet a pour but de faire un système de recommandation. Pour cela nous avons utilisés des images de `motos`,`voitures`,`Pokémons` et `planètes`. Nous avons utilisés des images trouvées en ligne sur WikiData que nous avons ensuite analyser pour récuperer leurs [métadonnées](MetaData.ipynb). Pour la partie de recommandation nous avons utilisé `SKLearn` et les `DecisionTree` pour analyser les choix de l'utilisateur en fonction des images proposées et prédire des images qu'il aime ou pas. Nous avons fait un deuxieme modéle de recommandation mais basé sur des préférences utilisateur aléatoire. 
 
 ## 3. Présentation des données `PL`
+Nous sommes aller sur wikidata pour recupérer les images de `motos`,`voitures`,`Pokémons` et `planètes`. Pour télécharger les images nous avons utilisé un csv contenant les Urls des images. Pour ensuite télécharger les images nous avons utilisé un script python qui va parcourir le csv et télécharger chaque image en utilisant 
 comment recup donnée
+
+
 ou on les a recups
 resizes tailles
 normalisation
