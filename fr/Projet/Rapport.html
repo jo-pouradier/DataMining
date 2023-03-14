@@ -349,25 +349,31 @@ document.write(`
 </section>
 <section id="sommaire">
 <h2>Sommaire<a class="headerlink" href="#sommaire" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><span class="xref myst">Introduction</span></p></li>
-<li><p><span class="xref myst">Présentation du projet</span></p></li>
-<li><p><span class="xref myst">Présentation des données</span></p></li>
-<li><p><span class="xref myst">Analyse des données</span></p></li>
-<li><p><span class="xref myst">Auto-évaluation</span></p></li>
-<li><p><span class="xref myst">Remarques</span></p></li>
-<li><p><span class="xref myst">Conclusion</span></p></li>
-</ol>
+<ul class="simple">
+<li><p><span class="xref myst">Rapport de projet DATA MINING</span></p>
+<ul>
+<li><p><span class="xref myst">Joseph Pouradier-duteil &amp; Pierre-Louis TELEP</span></p></li>
+<li><p><span class="xref myst">Sommaire</span></p></li>
+<li><p><span class="xref myst">1. Introduction</span></p></li>
+<li><p><span class="xref myst">2. Présentation du projet</span></p></li>
+<li><p><span class="xref myst">3. Présentation des données</span></p></li>
+<li><p><span class="xref myst">4. Analyse des données</span></p></li>
+<li><p><span class="xref myst">5. Auto-évaluation</span></p></li>
+<li><p><span class="xref myst">6. Remarques</span></p></li>
+<li><p><span class="xref myst">7. Conclusion</span></p></li>
+</ul>
+</li>
+</ul>
 <br>
 <br>
 </section>
 <section id="introduction">
 <h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>Ce rapport a pour but de présenter le projet de Data Mining. Le projet a été réalisé par <strong>Joseph Pouradier-duteil</strong> et <strong>Pierre-Louis TELEP</strong>. Le but de ce projet est de réaliser un système de recommandation. Un système de recommandation est un algorithme qui va analyser les données des images proposées à l’utilisateur. En fonction de si l’utilisateur aime ou pas les images l’algorithme va pouvoir proposer de nouvelles images et prédire si l’utilisateur va aimer ou non cette image. Pour cela nous avons utilisés des images de <code class="docutils literal notranslate"><span class="pre">motos</span></code>,<code class="docutils literal notranslate"><span class="pre">voitures</span></code>,<code class="docutils literal notranslate"><span class="pre">Pokémons</span></code> et <code class="docutils literal notranslate"><span class="pre">planètes</span></code>.</p>
+<p>Ce rapport a pour but de présenter le projet de Data Mining. Le projet a été réalisé par <strong>Joseph POURADIER-DUTEIL</strong> et <strong>Pierre-Louis TELEP</strong>. Le but de ce projet est de réaliser un système de recommandation. Un système de recommandation est un algorithme qui va analyser les données des images proposées à l’utilisateur. En fonction de si l’utilisateur aime ou pas les images l’algorithme va pouvoir proposer de nouvelles images et prédire si l’utilisateur va aimer ou non cette image. Pour cela nous avons utilisés des images de <code class="docutils literal notranslate"><span class="pre">Motos</span></code>,<code class="docutils literal notranslate"><span class="pre">Voitures</span></code>,<code class="docutils literal notranslate"><span class="pre">Pokemons</span></code> et <code class="docutils literal notranslate"><span class="pre">Exoplanet</span></code>.</p>
 </section>
 <section id="presentation-du-projet">
 <h2>2. Présentation du projet<a class="headerlink" href="#presentation-du-projet" title="Permalink to this heading">#</a></h2>
-<p>Ce projet a pour but de faire un système de recommandation. Pour cela nous avons utilisés des images de <code class="docutils literal notranslate"><span class="pre">motos</span></code>,<code class="docutils literal notranslate"><span class="pre">voitures</span></code>,<code class="docutils literal notranslate"><span class="pre">Pokémons</span></code> et <code class="docutils literal notranslate"><span class="pre">planètes</span></code>. Nous avons utilisés des images trouvées en ligne sur WikiData que nous avons ensuite analyser pour récuperer leurs métadonnées. Pour la partie de recommandation nous avons utilisé <code class="docutils literal notranslate"><span class="pre">SKLearn</span></code> et les <code class="docutils literal notranslate"><span class="pre">Tree</span></code> pour analyser les choix de l’utilisateur en fonction des images proposées et prédire des images qu’il aime ou pas. Nous avons fait un deuxieme modéle de recommandation mais basé sur des préférences utilisateur aléatoire.</p>
+<p>Ce projet a pour but de faire un système de recommandation. Pour cela nous avons utilisés des images de <code class="docutils literal notranslate"><span class="pre">motos</span></code>,<code class="docutils literal notranslate"><span class="pre">voitures</span></code>,<code class="docutils literal notranslate"><span class="pre">Pokémons</span></code> et <code class="docutils literal notranslate"><span class="pre">planètes</span></code>. Nous avons utilisés des images trouvées en ligne sur WikiData que nous avons ensuite analyser pour récuperer leurs <a class="reference internal" href="MetaData.html"><span class="doc std std-doc">métadonnées</span></a>. Pour la partie de recommandation nous avons utilisé <code class="docutils literal notranslate"><span class="pre">SKLearn</span></code> et les <code class="docutils literal notranslate"><span class="pre">DecisionTree</span></code> pour analyser les choix de l’utilisateur en fonction des images proposées et prédire des images qu’il aime ou pas. Nous avons fait un deuxieme modéle de recommandation mais basé sur des préférences utilisateur aléatoire.</p>
 </section>
 <section id="presentation-des-donnees">
 <h2>3. Présentation des données<a class="headerlink" href="#presentation-des-donnees" title="Permalink to this heading">#</a></h2>
