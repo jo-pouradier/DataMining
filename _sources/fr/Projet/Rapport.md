@@ -59,7 +59,12 @@ Dataframe
 gestion des couleurs
 
 Après avoir récupéré toutes les images, nous avons récupéré leurs métadonnées.  
-Nous avont utilisé les données exif des images tel que sa taille, son orientation quand elle était disponible et le format. 
+Nous avont utilisé les données exif des images tel que son theme, sa taille, son orientation quand elle était disponible et le format. Ensuite nous avons relevé les 5 coleurs prédominantes dans les images grace a l'algorithme de [K-means](MetaData.ipynb#Get-proiminant-colors-from-images). Par soucis de performance nous avons utilisé les K-means MiniBatch qui est une version plus rapide des K-means. Toutefois le resultat des K-means était en hexadecimal et nous donnais une trop grande diffusion des couleurs ( tres peu probable d'avoir deux fois la meme couleur meme parmis nos 720 images). Nous avons donc utilisé la fonction [color_hex_to_rgb](MetaData.ipynb#Transformation-de-hexa-a-RGB) pour convertir les couleurs en hexadecimal. Puis nous avon pris la couleur le plus proche dans un lot de 17 couleurs ([closest_color](MetaData.ipynb#Transformation-de-hexa-a-RGB)). Nous avons ensuite utilisé l'histogram des pixels rgb de chaque image pour en prendre une valeur normalisé entre 0 et 1: on fait une moyenne sur l'histogramme puis on prend la valeur normalisé de cette moyenne ([getDiagram](MetaData.ipynb#Getting-histogram-from-images)).  
+
+Enfin nous avons écris toutes ces données dans un fichier json : [ExifDatatest2.json](images/ExifDatatest2.json)
+
+On peut maintenant en visualiser la répartition des données sur un graphique:
+![Graphique](VisualisationMetadata.png)
 
 ## 5. Prédiction
 

@@ -396,7 +396,10 @@ document.write(`
 Dataframe
 gestion des couleurs</p>
 <p>Après avoir récupéré toutes les images, nous avons récupéré leurs métadonnées.<br />
-Nous avont utilisé les données exif des images tel que sa taille, son orientation quand elle était disponible et le format.</p>
+Nous avont utilisé les données exif des images tel que son theme, sa taille, son orientation quand elle était disponible et le format. Ensuite nous avons relevé les 5 coleurs prédominantes dans les images grace a l’algorithme de <span class="xref myst">K-means</span>. Par soucis de performance nous avons utilisé les K-means MiniBatch qui est une version plus rapide des K-means. Toutefois le resultat des K-means était en hexadecimal et nous donnais une trop grande diffusion des couleurs ( tres peu probable d’avoir deux fois la meme couleur meme parmis nos 720 images). Nous avons donc utilisé la fonction <span class="xref myst">color_hex_to_rgb</span> pour convertir les couleurs en hexadecimal. Puis nous avon pris la couleur le plus proche dans un lot de 17 couleurs (<span class="xref myst">closest_color</span>). Nous avons ensuite utilisé l’histogram des pixels rgb de chaque image pour en prendre une valeur normalisé entre 0 et 1: on fait une moyenne sur l’histogramme puis on prend la valeur normalisé de cette moyenne (<span class="xref myst">getDiagram</span>).</p>
+<p>Enfin nous avons écris toutes ces données dans un fichier json : <a class="reference download internal" download="" href="../../_downloads/fe162bdbbdbd37ea7aafbaff49995239/ExifDatatest2.json"><span class="xref download myst">ExifDatatest2.json</span></a></p>
+<p>On peut maintenant en visualiser la répartition des données sur un graphique:
+<img alt="Graphique" src="../../_images/VisualisationMetadata.png" /></p>
 </section>
 <section id="prediction">
 <h2>5. Prédiction<a class="headerlink" href="#prediction" title="Permalink to this heading">#</a></h2>

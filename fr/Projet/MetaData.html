@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Reanding Exif data from ./images &#8212; Data Mining</title>
+    <title>Reading Exif data from ./images &#8212; Data Mining</title>
   
   
   
@@ -359,7 +359,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Reanding Exif data from ./images</h1>
+    <h1>Reading Exif data from ./images</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -385,8 +385,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="reanding-exif-data-from-images">
-<h1>Reanding Exif data from ./images<a class="headerlink" href="#reanding-exif-data-from-images" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="reading-exif-data-from-images">
+<h1>Reading Exif data from ./images<a class="headerlink" href="#reading-exif-data-from-images" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -438,7 +438,6 @@ Voitures
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plot</span>
@@ -457,8 +456,6 @@ Voitures
     <span class="n">clusters</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">numarray</span><span class="p">)</span> <span class="c1"># fit kmeans</span>
     <span class="n">npbins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cluster_count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># init bins</span>
     <span class="n">histogram</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">clusters</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">npbins</span><span class="p">)</span> <span class="c1"># get histogram</span>
-    <span class="c1">#labels = numpy.unique(clusters.labels_) # get labels</span>
-
     <span class="c1"># getting colors</span>
     <span class="n">color</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cluster_count</span><span class="p">):</span>
@@ -555,15 +552,6 @@ pink
     <span class="n">red</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">255</span><span class="p">]</span>
     <span class="n">green</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">[</span><span class="mi">256</span><span class="p">:</span><span class="mi">511</span><span class="p">]</span>
     <span class="n">blue</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">[</span><span class="mi">512</span><span class="p">:</span><span class="mi">767</span><span class="p">]</span>
-    <span class="c1"># #displaying the histogram</span>
-    <span class="c1"># x = range(255)</span>
-    <span class="c1"># y = []</span>
-    <span class="c1"># for i in x:</span>
-    <span class="c1">#     y.append((red[i], green[i], blue[i]))</span>
-    <span class="c1"># figure,axes = plot.subplots()</span>
-    <span class="c1"># axes.set_prop_cycle(&quot;color&quot;, [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;])</span>
-    <span class="c1"># plot.plot(x, y)</span>
-    <span class="c1"># plot.show()</span>
     <span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;red&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span><span class="n">weights</span><span class="o">=</span><span class="n">red</span><span class="p">),</span> <span class="s2">&quot;green&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span><span class="n">weights</span><span class="o">=</span><span class="n">green</span><span class="p">),</span> <span class="s2">&quot;blue&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span><span class="n">weights</span><span class="o">=</span><span class="n">blue</span><span class="p">)}</span>
     <span class="n">mapping2</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">:</span>
