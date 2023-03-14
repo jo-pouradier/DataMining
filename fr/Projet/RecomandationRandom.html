@@ -439,9 +439,9 @@ document.write(`
 716     no exif  lightgrey   darkgrey       grey      white   darkgrey  0.5   
 
      green  blue result  
-712    0.5   0.5    Yes  
+712    0.5   0.5     No  
 713    0.5   0.5     No  
-714    0.5   0.5    Yes  
+714    0.5   0.5     No  
 715    0.5   0.5     No  
 716    0.5   0.5    Yes  
 </pre></div>
@@ -509,7 +509,7 @@ document.write(`
       <td>0.5</td>
       <td>0.5</td>
       <td>0.5</td>
-      <td>Yes</td>
+      <td>No</td>
     </tr>
     <tr>
       <th>713</th>
@@ -541,7 +541,7 @@ document.write(`
       <td>0.5</td>
       <td>0.5</td>
       <td>0.5</td>
-      <td>Yes</td>
+      <td>No</td>
     </tr>
     <tr>
       <th>715</th>
@@ -656,7 +656,7 @@ document.write(`
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>713</th>
@@ -688,7 +688,7 @@ document.write(`
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>715</th>
@@ -734,7 +734,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
 
 <span class="n">dtc</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
-<span class="n">pourcent</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">pourcent</span> <span class="o">=</span> <span class="mf">0.70</span>
 <span class="n">data_tc</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="n">pourcent</span><span class="p">)]</span>
 <span class="n">data_result</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="n">pourcent</span><span class="p">)]</span>
 <span class="n">dtc</span> <span class="o">=</span> <span class="n">dtc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_tc</span> <span class="p">,</span> <span class="n">data_result</span><span class="p">)</span>
@@ -779,7 +779,7 @@ Name: result, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/aafbca58cf1884672e5a1545e117395a7ab4f411238648f9cf1e541a382bcaa7.png" src="../../_images/aafbca58cf1884672e5a1545e117395a7ab4f411238648f9cf1e541a382bcaa7.png" />
+<img alt="../../_images/6c8b1ac7d7f4ebcea46ec61a6ebb991eff747de224c73ad3094f6085d2a1f802.png" src="../../_images/6c8b1ac7d7f4ebcea46ec61a6ebb991eff747de224c73ad3094f6085d2a1f802.png" />
 </div>
 </div>
 </section>
@@ -810,8 +810,8 @@ Name: result, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Yes&#39;]
-[(&#39;theme&#39;, 0.01619793381621248), (&#39;width&#39;, 0.05118044031072906), (&#39;height&#39;, 0.05158236872811871), (&#39;format&#39;, 0.0), (&#39;color_0&#39;, 0.16116701785103055), (&#39;color_1&#39;, 0.14254497852267875), (&#39;color_2&#39;, 0.16736139220990026), (&#39;color_3&#39;, 0.167930893932491), (&#39;color_4&#39;, 0.20695407007463423), (&#39;red&#39;, 0.0074880377697348855), (&#39;green&#39;, 0.023349494234086027), (&#39;blue&#39;, 0.004243372550383787)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;No&#39;]
+[(&#39;theme&#39;, 0.012840579472931856), (&#39;width&#39;, 0.08203079082588431), (&#39;height&#39;, 0.045153243813968374), (&#39;format&#39;, 0.0), (&#39;color_0&#39;, 0.09633287023439743), (&#39;color_1&#39;, 0.13957855164592248), (&#39;color_2&#39;, 0.26968828116405424), (&#39;color_3&#39;, 0.1836629913331317), (&#39;color_4&#39;, 0.14968167128539792), (&#39;red&#39;, 0.007745924579219859), (&#39;green&#39;, 0.013285095645091826), (&#39;blue&#39;, 0.0)]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/site-packages/sklearn/base.py:420: UserWarning: X does not have valid feature names, but DecisionTreeClassifier was fitted with feature names

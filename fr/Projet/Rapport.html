@@ -324,7 +324,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1. Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-du-projet">2. Présentation du projet</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-des-donnees">3. Présentation des données</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-donnees-jo">4. Analyse des données <code class="docutils literal notranslate"><span class="pre">JO</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-donnees">4. Analyse des données</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction">5. Prédiction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-evaluation">6. Auto-évaluation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remarques">7. Remarques</a></li>
@@ -353,8 +353,8 @@ document.write(`
 <li><p><span class="xref myst">Sommaire</span></p></li>
 <li><p><span class="xref myst">1. Introduction</span></p></li>
 <li><p><span class="xref myst">2. Présentation du projet</span></p></li>
-<li><p><span class="xref myst">3. Présentation des données </span></p></li>
-<li><p><span class="xref myst">4. Analyse des données <code class="docutils literal notranslate"><span class="pre">JO</span></code></span></p></li>
+<li><p><span class="xref myst">3. Présentation des données</span></p></li>
+<li><p><span class="xref myst">4. Analyse des données</span></p></li>
 <li><p><span class="xref myst">5. Prédiction</span></p></li>
 <li><p><span class="xref myst">6. Auto-évaluation</span></p></li>
 <li><p><span class="xref myst">7. Remarques</span></p></li>
@@ -390,8 +390,8 @@ document.write(`
 <p>Pour ensuite télécharger les images nous avons utilisé un script <span class="xref myst">python</span> qui va parcourir le csv et générer un dictionnaire contenant le nom de l’image, le dossier où enregistrer l’image, le lien pour téléchager l’image ainsi que certaines métadonnées. Ce même <span class="xref myst">script</span> va ensuite télécharger chaque image en utilisant <code class="docutils literal notranslate"><span class="pre">requests</span></code> avec des <code class="docutils literal notranslate"><span class="pre">get</span></code> et les enregistrer dans un dossier.</p>
 <p>Une fois que toutes les images étaient téléchargées nous les avons utilisé un <a class="reference internal" href="images/Analizing_wh.html"><span class="doc std std-doc">script</span></a> python pour les mettre les photo au même format. Pour cela nous avons utilisé <code class="docutils literal notranslate"><span class="pre">PIL</span></code> et <code class="docutils literal notranslate"><span class="pre">numpy</span></code> pour les redimensionner au format 16:9, les normaliser et les convertir en <code class="docutils literal notranslate"><span class="pre">RGB</span></code>.</p>
 </section>
-<section id="analyse-des-donnees-jo">
-<h2>4. Analyse des données <code class="docutils literal notranslate"><span class="pre">JO</span></code><a class="headerlink" href="#analyse-des-donnees-jo" title="Permalink to this heading">#</a></h2>
+<section id="analyse-des-donnees">
+<h2>4. Analyse des données<a class="headerlink" href="#analyse-des-donnees" title="Permalink to this heading">#</a></h2>
 <p>Après avoir récupéré toutes les images, nous avons récupéré leurs métadonnées.<br />
 Nous avont utilisé les données exif des images tel que son theme, sa taille, son orientation quand elle était disponible et le format. Ensuite nous avons relevé les 5 coleurs prédominantes dans les images grace a l’algorithme de <span class="xref myst">K-means</span>. Par soucis de performance nous avons utilisé les K-means MiniBatch qui est une version plus rapide des K-means. Toutefois le resultat des K-means était en hexadecimal et nous donnais une trop grande diffusion des couleurs ( tres peu probable d’avoir deux fois la meme couleur meme parmis nos 720 images). Nous avons donc utilisé la fonction <span class="xref myst">color_hex_to_rgb</span> pour convertir les couleurs en hexadecimal. Puis nous avon pris la couleur le plus proche dans un lot de 17 couleurs (<span class="xref myst">closest_color</span>). Nous avons ensuite utilisé l’histogram des pixels rgb de chaque image pour en prendre une valeur normalisé entre 0 et 1: on fait une moyenne sur l’histogramme puis on prend la valeur normalisé de cette moyenne (<span class="xref myst">getDiagram</span>).</p>
 <p>Enfin nous avons écris toutes ces données dans un fichier json : <a class="reference download internal" download="" href="../../_downloads/fe162bdbbdbd37ea7aafbaff49995239/ExifDatatest2.json"><span class="xref download myst">ExifDatatest2.json</span></a></p>
@@ -400,24 +400,31 @@ Nous avont utilisé les données exif des images tel que son theme, sa taille, s
 </section>
 <section id="prediction">
 <h2>5. Prédiction<a class="headerlink" href="#prediction" title="Permalink to this heading">#</a></h2>
-<p>Pour la partie prédiction nous avons utilisé 2 manière de faire différentes. La première est basé sur des préférences utilisateur aléatoire. La deuxième est basé sur les préférences utilisateur.
+<p>Pour la partie prédiction nous avons utilisé 2 méthodes différentes. La première est basé sur des préférences utilisateur aléatoires. La deuxième est basé sur les préférences d’un vrai utilisateur.
 <br></p>
-<p>Pour la première méthode nous avons rempli la colonne préférence pour chaque image de façon aléatoire. Pour ensuite générer une prédiction en fonction de ces préférences avons utilisé <code class="docutils literal notranslate"><span class="pre">SKLearn</span></code> et les <code class="docutils literal notranslate"><span class="pre">DecisionTree</span></code> pour analyser les choix de l’utilisateur en fonction des images proposées et prédire des images qu’il aime ou pas. Evidemment cette méthode n’est pas très fiable car les préférences sont aléatoires. On voit dans le modèle de décision qu’il y a beaucoup de noeuds qui ne font pas forcément sens.
+<p>Pour la première méthode nous avons rempli la colonne préférence pour chaque image de façon aléatoire. Pour ensuite générer une prédiction en fonction de ces préférences, nous avons utilisé <code class="docutils literal notranslate"><span class="pre">SKLearn</span></code> et les <code class="docutils literal notranslate"><span class="pre">DecisionTree</span></code> pour analyser les choix de l’utilisateur en fonction des images proposées et prédire des images qu’il aime ou pas. Evidemment cette méthode n’est pas très fiable car les préférences sont aléatoires. On voit dans le modèle de décision qu’il y a beaucoup de noeuds qui ne font pas forcément sens.
 <img alt="Graphique" src="../../_images/awfulTree.png" />.</p>
-<p>Pour la deuxième façon de faire nous avons proposés à l’utilisateur 20 images et il devait choisir celles qu’il aimait. Nous avons alors analysé les préférences de l’utilisateur. Avec ces analyses nous avons pu proposer 3 images à l’utilisateur dont le modèle avait prédit si la personne allait aimé ou non. Dans l’abre de décision on voit que les noeuds sont plus cohérents et que le modèle est plus fiable.
+<p>Pour la deuxième méthode nous proposons à l’utilisateur 20 images et il doit choisir celles qu’il aime. Nous avons alors analysé les préférences de l’utilisateur. Avec ces analyses nous avons pu proposer 5 images à l’utilisateur dont le modèle avait prédit si la personne allait aimé ou non. Dans l’abre de décision on voit que les noeuds sont plus cohérents et que le modèle est plus fiable.
 <img alt="Graphique" src="../../_images/goodTree.png" />.</p>
 </section>
 <section id="auto-evaluation">
 <h2>6. Auto-évaluation<a class="headerlink" href="#auto-evaluation" title="Permalink to this heading">#</a></h2>
-<p>ff</p>
+<p>Dans notre test où les choix sont élatoires, nous entrainont le modele sur 70% de nos données et on test sur une image qui n’existe pas dans le dataset. On aurait pu aussi tester sur seulement 20 images aléatoires comme pour un vrai utilisateur pour pouvoir mieux comparer les résultats.<br />
+Ensuite au niveau de notre dataset, nous n’avons une répartition trop inégale des données:</p>
+<ul class="simple">
+<li><p>pas assez de voitures ni de moto.</p></li>
+<li><p>mauvais choix du set de couleur, trop de couleurs qui ne sont pas utilisées.</p></li>
+<li><p>pas assez de teintes sombres lors de la conversion des couleurs.</p></li>
+</ul>
 </section>
 <section id="remarques">
 <h2>7. Remarques<a class="headerlink" href="#remarques" title="Permalink to this heading">#</a></h2>
-<p>ff</p>
+<p>Au niveau du cours on aurait préféré deux heures sur le data mining et wikidata et deux heures sur le fitrages des données. Et enfin 4h sur le machine learning pur, c’est à dire les différents modèles et leurs fonctionnement, les différentes approches en fonction de nos données, pourquoi utilisé tel ou tel modèles, comment vérifié la performance de notre modèles…<br />
+Et le cours devrait etre renommé en <strong>Data mining et Machine Learning</strong>.</p>
 </section>
 <section id="conclusion">
 <h2>8. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
-<p>ff</p>
+<p>Grace a la récolte d’image open source sur internet et grace a la librairie <code class="docutils literal notranslate"><span class="pre">SKLearn</span></code> nous avons pu faire un système de recommandation. Nous avons pu utiliser des images de <code class="docutils literal notranslate"><span class="pre">motos</span></code>,<code class="docutils literal notranslate"><span class="pre">voitures</span></code>,<code class="docutils literal notranslate"><span class="pre">Pokémons</span></code> et <code class="docutils literal notranslate"><span class="pre">Exoplanet</span></code>. Nous avons utilisés l’algorithme de <code class="docutils literal notranslate"><span class="pre">DecisionTree</span></code> pour prédire les préférences de l’utilisateur. Nous avons enfin pu comparer un modele de prédiction aléatoire et un modele de prédiction basé sur les préférences d’un utilisateur.</p>
 </section>
 </section>
 
@@ -468,7 +475,7 @@ Nous avont utilisé les données exif des images tel que son theme, sa taille, s
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1. Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-du-projet">2. Présentation du projet</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-des-donnees">3. Présentation des données</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-donnees-jo">4. Analyse des données <code class="docutils literal notranslate"><span class="pre">JO</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-donnees">4. Analyse des données</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction">5. Prédiction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-evaluation">6. Auto-évaluation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remarques">7. Remarques</a></li>

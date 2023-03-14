@@ -407,7 +407,6 @@ document.write(`
     <span class="k">if</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">sizes</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;size is ok&quot;</span><span class="p">)</span>
         <span class="k">return</span>
-    <span class="c1"># get the closest height np.abs(np.array(height_possible) - height).argmin()</span>
     <span class="n">sizes_distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">sizes</span><span class="o">-</span><span class="n">size</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
     <span class="n">index_new_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sizes_distance</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">sizes_distance</span><span class="p">))</span>
     <span class="n">new_size</span> <span class="o">=</span> <span class="n">sizes</span><span class="p">[</span><span class="n">index_new_size</span><span class="p">]</span>
@@ -418,13 +417,13 @@ document.write(`
     <span class="n">img</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;RGB&quot;</span>
     <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
 
-<span class="n">get_new_size</span><span class="p">(</span><span class="s2">&quot;Exoplanet/Mu_Arae_b.jpg&quot;</span><span class="p">)</span>
+<span class="n">get_new_size</span><span class="p">(</span><span class="s2">&quot;../goodTree.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1280, 720)
-size is ok
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(640, 360)
+(300, 310)
 </pre></div>
 </div>
 </div>
