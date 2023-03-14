@@ -346,7 +346,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -362,6 +364,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visualisation de notre Dataset</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-par-theme">image par theme</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#image-pour-chaque-type">image pour chaque type</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -382,7 +397,7 @@ document.write(`
 
 <span class="c1">#import data</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;./images/ExifDatatest2.json&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="s1">&#39;format&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="s1">&#39;format&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -409,7 +424,6 @@ document.write(`
       <th>theme</th>
       <th>width</th>
       <th>height</th>
-      <th>orientation</th>
       <th>color_0</th>
       <th>color_1</th>
       <th>color_2</th>
@@ -426,7 +440,6 @@ document.write(`
       <td>Exoplanet</td>
       <td>960</td>
       <td>540</td>
-      <td>no exif</td>
       <td>darkgrey</td>
       <td>black</td>
       <td>black</td>
@@ -441,7 +454,6 @@ document.write(`
       <td>Exoplanet</td>
       <td>1600</td>
       <td>900</td>
-      <td>no exif</td>
       <td>darkgrey</td>
       <td>black</td>
       <td>grey</td>
@@ -456,7 +468,6 @@ document.write(`
       <td>Exoplanet</td>
       <td>960</td>
       <td>540</td>
-      <td>no exif</td>
       <td>black</td>
       <td>brown</td>
       <td>lightgrey</td>
@@ -471,7 +482,6 @@ document.write(`
       <td>Exoplanet</td>
       <td>1280</td>
       <td>720</td>
-      <td>no exif</td>
       <td>black</td>
       <td>grey</td>
       <td>darkgrey</td>
@@ -486,7 +496,6 @@ document.write(`
       <td>Exoplanet</td>
       <td>1920</td>
       <td>1080</td>
-      <td>no exif</td>
       <td>black</td>
       <td>white</td>
       <td>brown</td>
@@ -509,14 +518,12 @@ document.write(`
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
       <th>712</th>
       <td>Voitures</td>
       <td>2880</td>
       <td>1620</td>
-      <td>no exif</td>
       <td>grey</td>
       <td>darkgrey</td>
       <td>lightgrey</td>
@@ -531,7 +538,6 @@ document.write(`
       <td>Voitures</td>
       <td>1280</td>
       <td>720</td>
-      <td>no exif</td>
       <td>darkgrey</td>
       <td>grey</td>
       <td>darkgrey</td>
@@ -546,7 +552,6 @@ document.write(`
       <td>Voitures</td>
       <td>2880</td>
       <td>1620</td>
-      <td>no exif</td>
       <td>lightgrey</td>
       <td>darkgrey</td>
       <td>black</td>
@@ -561,7 +566,6 @@ document.write(`
       <td>Voitures</td>
       <td>2880</td>
       <td>1620</td>
-      <td>no exif</td>
       <td>darkgrey</td>
       <td>lightgrey</td>
       <td>black</td>
@@ -576,7 +580,6 @@ document.write(`
       <td>Voitures</td>
       <td>2880</td>
       <td>1620</td>
-      <td>no exif</td>
       <td>lightgrey</td>
       <td>darkgrey</td>
       <td>grey</td>
@@ -588,64 +591,47 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>717 rows × 12 columns</p>
+<p>717 rows × 11 columns</p>
 </div></div></div>
 </div>
+<section id="image-par-theme">
+<h2>image par theme<a class="headerlink" href="#image-par-theme" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualise data with seaborn</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;theme&#39;</span><span class="p">,</span> <span class="n">y_vars</span><span class="o">=</span><span class="s1">&#39;theme&#39;</span><span class="p">,</span> <span class="n">x_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="s1">&#39;color_0&#39;</span><span class="p">,</span> <span class="s1">&#39;color_1&#39;</span><span class="p">,</span> <span class="s1">&#39;color_2&#39;</span><span class="p">,</span> <span class="s1">&#39;color_3&#39;</span><span class="p">,</span> <span class="s1">&#39;color_4&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## number of element per theme</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;theme&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Number of element per theme&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;purple&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x133fc59f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Number of element per theme&#39;}&gt;
 </pre></div>
 </div>
-<img alt="../../_images/ce960c4db514bed8ae5ef6403e2e0799bb702dd6794945f50fd0da96152db841.png" src="../../_images/ce960c4db514bed8ae5ef6403e2e0799bb702dd6794945f50fd0da96152db841.png" />
+<img alt="../../_images/cb2300d628acbb8c01ec68bbbf63f5e6f9804ab0998ed90d633f9b02118c6b97.png" src="../../_images/cb2300d628acbb8c01ec68bbbf63f5e6f9804ab0998ed90d633f9b02118c6b97.png" />
 </div>
 </div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="image-pour-chaque-type">
+<h1>image pour chaque type<a class="headerlink" href="#image-pour-chaque-type" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;theme&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## number of element per value of each columns</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">17</span><span class="p">))</span>
+<span class="c1"># set title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Number of element per value of each columns&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="c1"># add space between subplots</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># loop over columns</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;purple&#39;</span><span class="p">],</span> <span class="n">rot</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x136ae7dc0&gt;
-</pre></div>
-</div>
-<img alt="../../_images/70c2b2c05ad2d7d894c576e30c6dbf46a6c4d12719b92e713d7c2a6b74e72ab5.png" src="../../_images/70c2b2c05ad2d7d894c576e30c6dbf46a6c4d12719b92e713d7c2a6b74e72ab5.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_rgb</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;theme&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]]</span>
-<span class="n">df_rgb</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;theme&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Frequency&#39;&gt;
-</pre></div>
-</div>
-<img alt="../../_images/fe0fb293c70a67b31aae00491d02c815eb02b9cbf669aab8b4cf540aa2ede9cd.png" src="../../_images/fe0fb293c70a67b31aae00491d02c815eb02b9cbf669aab8b4cf540aa2ede9cd.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_rgb</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;theme&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;Axes: title={&#39;center&#39;: &#39;Exoplanet&#39;}&gt;,
-        &lt;Axes: title={&#39;center&#39;: &#39;Moto&#39;}&gt;],
-       [&lt;Axes: title={&#39;center&#39;: &#39;Pokemon2&#39;}&gt;,
-        &lt;Axes: title={&#39;center&#39;: &#39;Voitures&#39;}&gt;]], dtype=object)
-</pre></div>
-</div>
-<img alt="../../_images/68885c129eeb87ac62f12392529d636d4728c7a78210dac9234bd53e22427853.png" src="../../_images/68885c129eeb87ac62f12392529d636d4728c7a78210dac9234bd53e22427853.png" />
+<img alt="../../_images/db8d0f42faaff7c6e42335245b886c1ffe2ee625c569bac8dcf03bdc81993f83.png" src="../../_images/db8d0f42faaff7c6e42335245b886c1ffe2ee625c569bac8dcf03bdc81993f83.png" />
 </div>
 </div>
 </section>
@@ -684,6 +670,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visualisation de notre Dataset</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-par-theme">image par theme</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#image-pour-chaque-type">image pour chaque type</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
