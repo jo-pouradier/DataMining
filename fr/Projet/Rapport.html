@@ -323,7 +323,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sommaire">Sommaire</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1. Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-du-projet">2. Présentation du projet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-des-donnees-pl">3. Présentation des données <code class="docutils literal notranslate"><span class="pre">PL</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-des-donnees">3. Présentation des données</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-donnees-jo">4. Analyse des données <code class="docutils literal notranslate"><span class="pre">JO</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction">5. Prédiction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-evaluation">6. Auto-évaluation</a></li>
@@ -353,7 +353,7 @@ document.write(`
 <li><p><span class="xref myst">Sommaire</span></p></li>
 <li><p><span class="xref myst">1. Introduction</span></p></li>
 <li><p><span class="xref myst">2. Présentation du projet</span></p></li>
-<li><p><span class="xref myst">3. Présentation des données <code class="docutils literal notranslate"><span class="pre">PL</span></code></span></p></li>
+<li><p><span class="xref myst">3. Présentation des données </span></p></li>
 <li><p><span class="xref myst">4. Analyse des données <code class="docutils literal notranslate"><span class="pre">JO</span></code></span></p></li>
 <li><p><span class="xref myst">5. Prédiction</span></p></li>
 <li><p><span class="xref myst">6. Auto-évaluation</span></p></li>
@@ -384,8 +384,8 @@ document.write(`
 <br>
 <br></p>
 </section>
-<section id="presentation-des-donnees-pl">
-<h2>3. Présentation des données <code class="docutils literal notranslate"><span class="pre">PL</span></code><a class="headerlink" href="#presentation-des-donnees-pl" title="Permalink to this heading">#</a></h2>
+<section id="presentation-des-donnees">
+<h2>3. Présentation des données<a class="headerlink" href="#presentation-des-donnees" title="Permalink to this heading">#</a></h2>
 <p>Nous sommes aller sur wikidata pour recupérer les images de <code class="docutils literal notranslate"><span class="pre">motos</span></code>,<code class="docutils literal notranslate"><span class="pre">voitures</span></code>,<code class="docutils literal notranslate"><span class="pre">Pokémons</span></code> et <code class="docutils literal notranslate"><span class="pre">planètes</span></code>. Pour télécharger les images nous avons utilisés un csv contenant les Urls des images.</p>
 <p>Pour ensuite télécharger les images nous avons utilisé un script <span class="xref myst">python</span> qui va parcourir le csv et générer un dictionnaire contenant le nom de l’image, le dossier où enregistrer l’image, le lien pour téléchager l’image ainsi que certaines métadonnées. Ce même <span class="xref myst">script</span> va ensuite télécharger chaque image en utilisant <code class="docutils literal notranslate"><span class="pre">requests</span></code> avec des <code class="docutils literal notranslate"><span class="pre">get</span></code> et les enregistrer dans un dossier.</p>
 <p>Une fois que toutes les images étaient téléchargées nous les avons utilisé un <a class="reference internal" href="images/Analizing_wh.html"><span class="doc std std-doc">script</span></a> python pour les mettre les photo au même format. Pour cela nous avons utilisé <code class="docutils literal notranslate"><span class="pre">PIL</span></code> et <code class="docutils literal notranslate"><span class="pre">numpy</span></code> pour les redimensionner au format 16:9, les normaliser et les convertir en <code class="docutils literal notranslate"><span class="pre">RGB</span></code>.</p>
@@ -461,7 +461,7 @@ Nous avont utilisé les données exif des images tel que sa taille, son orientat
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sommaire">Sommaire</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1. Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-du-projet">2. Présentation du projet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-des-donnees-pl">3. Présentation des données <code class="docutils literal notranslate"><span class="pre">PL</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation-des-donnees">3. Présentation des données</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-donnees-jo">4. Analyse des données <code class="docutils literal notranslate"><span class="pre">JO</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction">5. Prédiction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-evaluation">6. Auto-évaluation</a></li>

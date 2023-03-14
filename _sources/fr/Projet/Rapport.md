@@ -11,7 +11,7 @@
   - [Sommaire](#sommaire)
   - [1. Introduction](#1-introduction)
   - [2. Présentation du projet](#2-présentation-du-projet)
-  - [3. Présentation des données `PL`](#3-présentation-des-données-pl)
+  - [3. Présentation des données ](#3-présentation-des-données)
   - [4. Analyse des données `JO`](#4-analyse-des-données-jo)
   - [5. Prédiction](#5-prédiction)
   - [6. Auto-évaluation](#6-auto-évaluation)
@@ -43,7 +43,7 @@ Pour la partie de recommandation nous avons utilisé `SKLearn` et les `DecisionT
 <br>
 <br>
 
-## 3. Présentation des données `PL`
+## 3. Présentation des données 
 
 Nous sommes aller sur wikidata pour recupérer les images de `motos`,`voitures`,`Pokémons` et `planètes`. Pour télécharger les images nous avons utilisés un csv contenant les Urls des images. 
 
