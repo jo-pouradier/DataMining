@@ -11,8 +11,8 @@
   - [Sommaire](#sommaire)
   - [1. Introduction](#1-introduction)
   - [2. Présentation du projet](#2-présentation-du-projet)
-  - [3. Présentation des données ](#3-présentation-des-données)
-  - [4. Analyse des données `JO`](#4-analyse-des-données-jo)
+  - [3. Présentation des données](#3-présentation-des-données)
+  - [4. Analyse des données](#4-analyse-des-données)
   - [5. Prédiction](#5-prédiction)
   - [6. Auto-évaluation](#6-auto-évaluation)
   - [7. Remarques](#7-remarques)
@@ -53,7 +53,7 @@ Pour ensuite télécharger les images nous avons utilisé un script [python](tes
 Une fois que toutes les images étaient téléchargées nous les avons utilisé un [script](images/Analizing_wh.ipynb) python pour les mettre les photo au même format. Pour cela nous avons utilisé `PIL` et `numpy` pour les redimensionner au format 16:9, les normaliser et les convertir en `RGB`.
 
 
-## 4. Analyse des données `JO`
+## 4. Analyse des données
 
 
 Après avoir récupéré toutes les images, nous avons récupéré leurs métadonnées.  
@@ -66,17 +66,29 @@ On peut maintenant en visualiser la répartition des données sur un graphique:
 
 ## 5. Prédiction
 
-Pour la partie prédiction nous avons utilisé 2 manière de faire différentes. La première est basé sur des préférences utilisateur aléatoire. La deuxième est basé sur les préférences utilisateur.
+Pour la partie prédiction nous avons utilisé 2 méthodes différentes. La première est basé sur des préférences utilisateur aléatoires. La deuxième est basé sur les préférences d'un vrai utilisateur.
 <br>
 
-Pour la première méthode nous avons rempli la colonne préférence pour chaque image de façon aléatoire. Pour ensuite générer une prédiction en fonction de ces préférences avons utilisé `SKLearn` et les `DecisionTree` pour analyser les choix de l'utilisateur en fonction des images proposées et prédire des images qu'il aime ou pas. Evidemment cette méthode n'est pas très fiable car les préférences sont aléatoires. On voit dans le modèle de décision qu'il y a beaucoup de noeuds qui ne font pas forcément sens.
-![Graphique](awfulTree.png).
+Pour la première méthode nous avons rempli la colonne préférence pour chaque image de façon aléatoire. Pour ensuite générer une prédiction en fonction de ces préférences, nous avons utilisé `SKLearn` et les `DecisionTree` pour analyser les choix de l'utilisateur en fonction des images proposées et prédire des images qu'il aime ou pas. Evidemment cette méthode n'est pas très fiable car les préférences sont aléatoires. On voit dans le modèle de décision qu'il y a beaucoup de noeuds qui ne font pas forcément sens.
+![Graphique](awfulTree.png).  
 
-Pour la deuxième façon de faire nous avons proposés à l'utilisateur 20 images et il devait choisir celles qu'il aimait. Nous avons alors analysé les préférences de l'utilisateur. Avec ces analyses nous avons pu proposer 3 images à l'utilisateur dont le modèle avait prédit si la personne allait aimé ou non. Dans l'abre de décision on voit que les noeuds sont plus cohérents et que le modèle est plus fiable.
-![Graphique](goodTree.png).
+Pour la deuxième méthode nous proposons à l'utilisateur 20 images et il doit choisir celles qu'il aime. Nous avons alors analysé les préférences de l'utilisateur. Avec ces analyses nous avons pu proposer 5 images à l'utilisateur dont le modèle avait prédit si la personne allait aimé ou non. Dans l'abre de décision on voit que les noeuds sont plus cohérents et que le modèle est plus fiable.
+![Graphique](goodTree.png).  
+
+
 ## 6. Auto-évaluation
-ff
+
+Dans notre test où les choix sont élatoires, nous entrainont le modele sur 70% de nos données et on test sur une image qui n'existe pas dans le dataset. On aurait pu aussi tester sur seulement 20 images aléatoires comme pour un vrai utilisateur pour pouvoir mieux comparer les résultats.  
+Ensuite au niveau de notre dataset, nous n'avons une répartition trop inégale des données: 
+ - pas assez de voitures ni de moto.
+ - mauvais choix du set de couleur, trop de couleurs qui ne sont pas utilisées.
+ - pas assez de teintes sombres lors de la conversion des couleurs.
+
 ## 7. Remarques
-ff
+
+Au niveau du cours on aurait préféré deux heures sur le data mining et wikidata et deux heures sur le fitrages des données. Et enfin 4h sur le machine learning pur, c'est à dire les différents modèles et leurs fonctionnement, les différentes approches en fonction de nos données, pourquoi utilisé tel ou tel modèles, comment vérifié la performance de notre modèles...  
+Et le cours devrait etre renommé en **Data mining et Machine Learning**.
+
 ## 8. Conclusion
-ff
+
+Grace a la récolte d'image open source sur internet et grace a la librairie `SKLearn` nous avons pu faire un système de recommandation. Nous avons pu utiliser des images de `motos`,`voitures`,`Pokémons` et `Exoplanet`. Nous avons utilisés l'algorithme de `DecisionTree` pour prédire les préférences de l'utilisateur. Nous avons enfin pu comparer un modele de prédiction aléatoire et un modele de prédiction basé sur les préférences d'un utilisateur.
