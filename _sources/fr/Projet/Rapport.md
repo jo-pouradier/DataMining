@@ -1,7 +1,6 @@
 # Rapport de projet DATA MINING
+**Joseph Pouradier-duteil & Pierre-Louis TELEP**
 <br>
-
-### Joseph Pouradier-duteil & Pierre-Louis TELEP
 <br>
 
 ## Sommaire
@@ -9,7 +8,6 @@
 
 
 - [Rapport de projet DATA MINING](#rapport-de-projet-data-mining)
-    - [Joseph Pouradier-duteil \& Pierre-Louis TELEP](#joseph-pouradier-duteil--pierre-louis-telep)
   - [Sommaire](#sommaire)
   - [1. Introduction](#1-introduction)
   - [2. Présentation du projet](#2-présentation-du-projet)
@@ -34,7 +32,9 @@ Ce projet a pour but de faire un système de recommandation. Pour cela nous avon
 ## 3. Présentation des données
 ff
 ## 4. Analyse des données
-ff
+
+
+
 ## 5. Auto-évaluation
 ff
 ## 6. Remarques
