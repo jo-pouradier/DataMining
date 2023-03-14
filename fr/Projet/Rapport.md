@@ -13,9 +13,10 @@
   - [2. Présentation du projet](#2-présentation-du-projet)
   - [3. Présentation des données](#3-présentation-des-données)
   - [4. Analyse des données](#4-analyse-des-données)
-  - [5. Auto-évaluation](#5-auto-évaluation)
-  - [6. Remarques](#6-remarques)
-  - [7. Conclusion](#7-conclusion)
+  - [5. Prédiction](#5-prédiction)
+  - [6. Auto-évaluation](#6-auto-évaluation)
+  - [7. Remarques](#7-remarques)
+  - [8. Conclusion](#8-conclusion)
 
 <br>
 <br>
@@ -29,15 +30,22 @@ Ce rapport a pour but de présenter le projet de Data Mining. Le projet a été 
 
 Ce projet a pour but de faire un système de recommandation. Pour cela nous avons utilisés des images de `motos`,`voitures`,`Pokémons` et `planètes`. Nous avons utilisés des images trouvées en ligne sur WikiData que nous avons ensuite analyser pour récuperer leurs [métadonnées](MetaData.ipynb). Pour la partie de recommandation nous avons utilisé `SKLearn` et les `DecisionTree` pour analyser les choix de l'utilisateur en fonction des images proposées et prédire des images qu'il aime ou pas. Nous avons fait un deuxieme modéle de recommandation mais basé sur des préférences utilisateur aléatoire. 
 
-## 3. Présentation des données
-ff
-## 4. Analyse des données
+## 3. Présentation des données `PL`
+comment recup donnée
+ou on les a recups
+resizes tailles
+normalisation
 
+## 4. Analyse des données `JO`
+Meta data
+Dataframe
+gestion des couleurs
 
+## 5. Prédiction
 
-## 5. Auto-évaluation
+## 6. Auto-évaluation
 ff
-## 6. Remarques
+## 7. Remarques
 ff
-## 7. Conclusion
+## 8. Conclusion
 ff
