@@ -54,9 +54,7 @@ Une fois que toutes les images étaient téléchargées nous les avons utilisé 
 
 
 ## 4. Analyse des données `JO`
-Meta data
-Dataframe
-gestion des couleurs
+
 
 Après avoir récupéré toutes les images, nous avons récupéré leurs métadonnées.  
 Nous avont utilisé les données exif des images tel que son theme, sa taille, son orientation quand elle était disponible et le format. Ensuite nous avons relevé les 5 coleurs prédominantes dans les images grace a l'algorithme de [K-means](MetaData.ipynb#Get-proiminant-colors-from-images). Par soucis de performance nous avons utilisé les K-means MiniBatch qui est une version plus rapide des K-means. Toutefois le resultat des K-means était en hexadecimal et nous donnais une trop grande diffusion des couleurs ( tres peu probable d'avoir deux fois la meme couleur meme parmis nos 720 images). Nous avons donc utilisé la fonction [color_hex_to_rgb](MetaData.ipynb#Transformation-de-hexa-a-RGB) pour convertir les couleurs en hexadecimal. Puis nous avon pris la couleur le plus proche dans un lot de 17 couleurs ([closest_color](MetaData.ipynb#Transformation-de-hexa-a-RGB)). Nous avons ensuite utilisé l'histogram des pixels rgb de chaque image pour en prendre une valeur normalisé entre 0 et 1: on fait une moyenne sur l'histogramme puis on prend la valeur normalisé de cette moyenne ([getDiagram](MetaData.ipynb#Getting-histogram-from-images)).  
@@ -68,6 +66,14 @@ On peut maintenant en visualiser la répartition des données sur un graphique:
 
 ## 5. Prédiction
 
+Pour la partie prédiction nous avons utilisé 2 manière de faire différentes. La première est basé sur des préférences utilisateur aléatoire. La deuxième est basé sur les préférences utilisateur.
+<br>
+
+Pour la première méthode nous avons rempli la colonne préférence pour chaque image de façon aléatoire. Pour ensuite générer une prédiction en fonction de ces préférences avons utilisé `SKLearn` et les `DecisionTree` pour analyser les choix de l'utilisateur en fonction des images proposées et prédire des images qu'il aime ou pas. Evidemment cette méthode n'est pas très fiable car les préférences sont aléatoires. On voit dans le modèle de décision qu'il y a beaucoup de noeuds qui ne font pas forcément sens.
+![Graphique](awfulTree.png).
+
+Pour la deuxième façon de faire nous avons proposés à l'utilisateur 20 images et il devait choisir celles qu'il aimait. Nous avons alors analysé les préférences de l'utilisateur. Avec ces analyses nous avons pu proposer 3 images à l'utilisateur dont le modèle avait prédit si la personne allait aimé ou non. Dans l'abre de décision on voit que les noeuds sont plus cohérents et que le modèle est plus fiable.
+![Graphique](goodTree.png).
 ## 6. Auto-évaluation
 ff
 ## 7. Remarques
